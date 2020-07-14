@@ -1,6 +1,6 @@
 {
   "name": "@whalue-design/icons-svg",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "sideEffects": false,
   "description": "Abstract nodes for whalue design icons.",
   "main": "lib/index.js",
