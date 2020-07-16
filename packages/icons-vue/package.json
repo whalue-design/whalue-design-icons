@@ -5,7 +5,7 @@
   "description": "Whalue Design Icons for Vue.",
   "main": "src/index.js",
   "files": [
-    "src/icons"
+    "src"
   ],
   "scripts": {
     "clean": "./scripts/cleanup.sh",
