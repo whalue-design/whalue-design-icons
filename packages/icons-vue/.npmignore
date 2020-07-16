@@ -1,0 +1,10 @@
+src/
+scripts/
+
+.eslintignore
+.eslintrc.js
+.gitignore
+tsconfig.json
+tslint.json
+.prettierrc
+.prettierignore

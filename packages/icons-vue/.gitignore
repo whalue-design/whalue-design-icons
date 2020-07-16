@@ -22,7 +22,8 @@ package-lock.json*
 /.idea
 .vscode
 
-src/icons/
+es/
+lib/
 
 # publish
 *.tgz
