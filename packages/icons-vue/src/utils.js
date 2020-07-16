@@ -1,7 +1,9 @@
-import { nextTick, h } from 'vue';
+import Vue from 'vue';
 import isPlainObject from 'lodash/isPlainObject';
 import { generate as generateColor } from '@whalue-design/colors';
 import { insertCss } from 'insert-css';
+
+const { h, nextTick } = Vue;
 
 export function warn(valid, message) {
   // Support uglify
