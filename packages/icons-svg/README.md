@@ -2,8 +2,8 @@
 
 ⭐ The abstract node of the Whalue SVG icons.
 
-[![NPM version](https://img.shields.io/npm/v/@whalue-design/icons-svg.svg?style=flat)](https://npmjs.org/package/@whalue/icons-svg)
-[![NPM downloads](http://img.shields.io/npm/dm/@whalue-design/icons-svg.svg?style=flat)](https://npmjs.org/package/@whalue/icons-svg)
+[![NPM version](https://img.shields.io/npm/v/@whalue-design/icons-svg.svg?style=flat)](https://npmjs.org/package/@whalue-design/icons-svg)
+[![NPM downloads](http://img.shields.io/npm/dm/@whalue-design/icons-svg.svg?style=flat)](https://npmjs.org/package/@whalue-design/icons-svg)
 
 > [All icons list](./EXAMPLE.md)
 
