@@ -1,6 +1,6 @@
 {
   "name": "@whalue-design/icons-vue",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "sideEffects": false,
   "description": "Whalue Design Icons for Vue.",
   "main": "src/index.js",
@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "@whalue-design/colors": "^1.0.0",
-    "@whalue-design/icons-svg": "^1.0.1",
+    "@whalue-design/icons-svg": "^1.0.2",
     "classnames": "^2.2.6",
     "insert-css": "^2.0.0",
     "lodash": "^4.17.19"
