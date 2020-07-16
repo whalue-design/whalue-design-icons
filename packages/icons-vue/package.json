@@ -3,9 +3,11 @@
   "version": "1.0.2",
   "sideEffects": false,
   "description": "Whalue Design Icons for Vue.",
-  "main": "src/index.js",
+  "main": "./lib/index.js",
+  "module": "./es/index.js",
   "files": [
-    "src"
+    "es",
+    "lib"
   ],
   "scripts": {
     "clean": "./scripts/cleanup.sh",
