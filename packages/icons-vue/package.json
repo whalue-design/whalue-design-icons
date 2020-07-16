@@ -1,0 +1,56 @@
+{
+  "name": "@whalue-design/icons-vue",
+  "version": "0.0.1",
+  "sideEffects": false,
+  "description": "Whalue Design Icons for Vue.",
+  "main": "src/index.js",
+  "files": [
+    "src/icons"
+  ],
+  "scripts": {
+    "clean": "./scripts/cleanup.sh",
+    "g": "rimraf src/icons && node scripts/generate.js --target=icon",
+    "generate": "rimraf src/icons && node scripts/generate.js --target=icon",
+    "prepublishOnly": "npm run g"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whalue-design/whalue-design-icons.git"
+  },
+  "keywords": [
+    "icons",
+    "vue-icons",
+    "whalue",
+    "whalue-design"
+  ],
+  "author": "cnguu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/whalue-design/whalue-design-icons/issues"
+  },
+  "homepage": "https://github.com/whalue-design/whalue-design-icons",
+  "peerDependencies": {
+    "vue": ">=2.6.11",
+    "vue-template-compiler": ">=2.6.11"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.23",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.4.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "prettier": "^2.0.5",
+    "vue": "^2.6.11"
+  },
+  "dependencies": {
+    "@whalue-design/colors": "^1.0.0",
+    "@whalue-design/icons-svg": "^1.0.1",
+    "classnames": "^2.2.6",
+    "insert-css": "^2.0.0",
+    "lodash": "^4.17.19"
+  }
+}
