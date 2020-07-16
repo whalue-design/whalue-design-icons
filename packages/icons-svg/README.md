@@ -1,6 +1,6 @@
-# Whalue Icons SVG
+# Whalue Design Icons
 
-⭐ The abstract node of the Whalue SVG icons.
+:star: Abstract nodes for SVG icons based on Ant Design.
 
 [![NPM version](https://img.shields.io/npm/v/@whalue-design/icons-svg.svg?style=flat)](https://npmjs.org/package/@whalue-design/icons-svg)
 [![NPM downloads](http://img.shields.io/npm/dm/@whalue-design/icons-svg.svg?style=flat)](https://npmjs.org/package/@whalue-design/icons-svg)
@@ -16,6 +16,10 @@ $ yarn add @whalue-design/icons-svg
 # or use npm
 $ npm install @whalue-design/icons --save
 ```
+
+## Contribution Guide
+
+See contribution guide. [中文](./ContributionGuide.zh-CN.md)
 
 ## Get started
 
