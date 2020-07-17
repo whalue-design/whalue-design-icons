@@ -8,7 +8,7 @@
   "scripts": {
     "clean": "node scripts/cleanup.js",
     "generate": "rimraf src/icons && node scripts/generate.js --target=icon",
-    "postcompile": "npm run clean && node scripts/generate.js --target=entry",
+    "postcompile": "node scripts/generate.js --target=entry",
     "compile": "vc-tools run compile --babel-runtime",
     "prepublishOnly": "npm run generate && npm run compile"
   },
