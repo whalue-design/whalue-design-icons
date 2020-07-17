@@ -1,6 +1,6 @@
 {
   "name": "@whalue-design/icons-vue",
-  "version": "1.0.8",
+  "version": "1.1.0",
   "sideEffects": false,
   "description": "Whalue Design Icons for Vue.",
   "main": "./lib/index.js",
