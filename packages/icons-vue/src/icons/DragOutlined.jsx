@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import DragOutlinedSvg from '@whalue-design/icons-svg/lib/asn/DragOutlined';
 
-const DragOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={DragOutlinedSvg}></Icon>;
+export default {
+  name: 'IconDragOutlined',
+  displayName: 'DragOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: DragOutlinedSvg } },
+      children,
+    ),
 };
-
-DragOutlined.inheritAttrs = false;
-export default DragOutlined;

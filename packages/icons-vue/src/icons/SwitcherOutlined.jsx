@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import SwitcherOutlinedSvg from '@whalue-design/icons-svg/lib/asn/SwitcherOutlined';
 
-const SwitcherOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={SwitcherOutlinedSvg}></Icon>;
+export default {
+  name: 'IconSwitcherOutlined',
+  displayName: 'SwitcherOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: SwitcherOutlinedSvg } },
+      children,
+    ),
 };
-
-SwitcherOutlined.inheritAttrs = false;
-export default SwitcherOutlined;

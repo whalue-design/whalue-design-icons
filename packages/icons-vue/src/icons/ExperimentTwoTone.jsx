@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ExperimentTwoToneSvg from '@whalue-design/icons-svg/lib/asn/ExperimentTwoTone';
 
-const ExperimentTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ExperimentTwoToneSvg}></Icon>;
+export default {
+  name: 'IconExperimentTwoTone',
+  displayName: 'ExperimentTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ExperimentTwoToneSvg } },
+      children,
+    ),
 };
-
-ExperimentTwoTone.inheritAttrs = false;
-export default ExperimentTwoTone;

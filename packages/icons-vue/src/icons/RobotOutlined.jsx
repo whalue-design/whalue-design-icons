@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import RobotOutlinedSvg from '@whalue-design/icons-svg/lib/asn/RobotOutlined';
 
-const RobotOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={RobotOutlinedSvg}></Icon>;
+export default {
+  name: 'IconRobotOutlined',
+  displayName: 'RobotOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: RobotOutlinedSvg } },
+      children,
+    ),
 };
-
-RobotOutlined.inheritAttrs = false;
-export default RobotOutlined;

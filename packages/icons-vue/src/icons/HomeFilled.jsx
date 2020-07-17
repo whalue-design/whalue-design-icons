@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import HomeFilledSvg from '@whalue-design/icons-svg/lib/asn/HomeFilled';
 
-const HomeFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={HomeFilledSvg}></Icon>;
+export default {
+  name: 'IconHomeFilled',
+  displayName: 'HomeFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: HomeFilledSvg } },
+      children,
+    ),
 };
-
-HomeFilled.inheritAttrs = false;
-export default HomeFilled;

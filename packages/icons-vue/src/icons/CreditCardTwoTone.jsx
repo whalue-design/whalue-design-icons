@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CreditCardTwoToneSvg from '@whalue-design/icons-svg/lib/asn/CreditCardTwoTone';
 
-const CreditCardTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CreditCardTwoToneSvg}></Icon>;
+export default {
+  name: 'IconCreditCardTwoTone',
+  displayName: 'CreditCardTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CreditCardTwoToneSvg } },
+      children,
+    ),
 };
-
-CreditCardTwoTone.inheritAttrs = false;
-export default CreditCardTwoTone;

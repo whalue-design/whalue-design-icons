@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import SlidersFilledSvg from '@whalue-design/icons-svg/lib/asn/SlidersFilled';
 
-const SlidersFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={SlidersFilledSvg}></Icon>;
+export default {
+  name: 'IconSlidersFilled',
+  displayName: 'SlidersFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: SlidersFilledSvg } },
+      children,
+    ),
 };
-
-SlidersFilled.inheritAttrs = false;
-export default SlidersFilled;

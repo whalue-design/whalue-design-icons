@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import HighlightTwoToneSvg from '@whalue-design/icons-svg/lib/asn/HighlightTwoTone';
 
-const HighlightTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={HighlightTwoToneSvg}></Icon>;
+export default {
+  name: 'IconHighlightTwoTone',
+  displayName: 'HighlightTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: HighlightTwoToneSvg } },
+      children,
+    ),
 };
-
-HighlightTwoTone.inheritAttrs = false;
-export default HighlightTwoTone;

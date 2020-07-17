@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ControlOutlinedSvg from '@whalue-design/icons-svg/lib/asn/ControlOutlined';
 
-const ControlOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ControlOutlinedSvg}></Icon>;
+export default {
+  name: 'IconControlOutlined',
+  displayName: 'ControlOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ControlOutlinedSvg } },
+      children,
+    ),
 };
-
-ControlOutlined.inheritAttrs = false;
-export default ControlOutlined;

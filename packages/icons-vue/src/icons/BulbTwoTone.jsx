@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import BulbTwoToneSvg from '@whalue-design/icons-svg/lib/asn/BulbTwoTone';
 
-const BulbTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={BulbTwoToneSvg}></Icon>;
+export default {
+  name: 'IconBulbTwoTone',
+  displayName: 'BulbTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: BulbTwoToneSvg } },
+      children,
+    ),
 };
-
-BulbTwoTone.inheritAttrs = false;
-export default BulbTwoTone;

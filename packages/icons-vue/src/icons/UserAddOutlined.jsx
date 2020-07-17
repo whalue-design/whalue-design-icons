@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import UserAddOutlinedSvg from '@whalue-design/icons-svg/lib/asn/UserAddOutlined';
 
-const UserAddOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={UserAddOutlinedSvg}></Icon>;
+export default {
+  name: 'IconUserAddOutlined',
+  displayName: 'UserAddOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: UserAddOutlinedSvg } },
+      children,
+    ),
 };
-
-UserAddOutlined.inheritAttrs = false;
-export default UserAddOutlined;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import DingtalkSquareFilledSvg from '@whalue-design/icons-svg/lib/asn/DingtalkSquareFilled';
 
-const DingtalkSquareFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={DingtalkSquareFilledSvg}></Icon>;
+export default {
+  name: 'IconDingtalkSquareFilled',
+  displayName: 'DingtalkSquareFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: DingtalkSquareFilledSvg } },
+      children,
+    ),
 };
-
-DingtalkSquareFilled.inheritAttrs = false;
-export default DingtalkSquareFilled;

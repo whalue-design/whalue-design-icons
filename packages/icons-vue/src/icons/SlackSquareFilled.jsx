@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import SlackSquareFilledSvg from '@whalue-design/icons-svg/lib/asn/SlackSquareFilled';
 
-const SlackSquareFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={SlackSquareFilledSvg}></Icon>;
+export default {
+  name: 'IconSlackSquareFilled',
+  displayName: 'SlackSquareFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: SlackSquareFilledSvg } },
+      children,
+    ),
 };
-
-SlackSquareFilled.inheritAttrs = false;
-export default SlackSquareFilled;

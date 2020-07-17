@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import EnterOutlinedSvg from '@whalue-design/icons-svg/lib/asn/EnterOutlined';
 
-const EnterOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={EnterOutlinedSvg}></Icon>;
+export default {
+  name: 'IconEnterOutlined',
+  displayName: 'EnterOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: EnterOutlinedSvg } },
+      children,
+    ),
 };
-
-EnterOutlined.inheritAttrs = false;
-export default EnterOutlined;

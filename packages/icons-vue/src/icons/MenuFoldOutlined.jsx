@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import MenuFoldOutlinedSvg from '@whalue-design/icons-svg/lib/asn/MenuFoldOutlined';
 
-const MenuFoldOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={MenuFoldOutlinedSvg}></Icon>;
+export default {
+  name: 'IconMenuFoldOutlined',
+  displayName: 'MenuFoldOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: MenuFoldOutlinedSvg } },
+      children,
+    ),
 };
-
-MenuFoldOutlined.inheritAttrs = false;
-export default MenuFoldOutlined;

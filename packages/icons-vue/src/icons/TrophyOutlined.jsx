@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import TrophyOutlinedSvg from '@whalue-design/icons-svg/lib/asn/TrophyOutlined';
 
-const TrophyOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={TrophyOutlinedSvg}></Icon>;
+export default {
+  name: 'IconTrophyOutlined',
+  displayName: 'TrophyOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: TrophyOutlinedSvg } },
+      children,
+    ),
 };
-
-TrophyOutlined.inheritAttrs = false;
-export default TrophyOutlined;

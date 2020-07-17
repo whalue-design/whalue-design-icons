@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import SortDescendingOutlinedSvg from '@whalue-design/icons-svg/lib/asn/SortDescendingOutlined';
 
-const SortDescendingOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={SortDescendingOutlinedSvg}></Icon>;
+export default {
+  name: 'IconSortDescendingOutlined',
+  displayName: 'SortDescendingOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: SortDescendingOutlinedSvg } },
+      children,
+    ),
 };
-
-SortDescendingOutlined.inheritAttrs = false;
-export default SortDescendingOutlined;

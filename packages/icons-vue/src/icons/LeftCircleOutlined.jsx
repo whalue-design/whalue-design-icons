@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import LeftCircleOutlinedSvg from '@whalue-design/icons-svg/lib/asn/LeftCircleOutlined';
 
-const LeftCircleOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={LeftCircleOutlinedSvg}></Icon>;
+export default {
+  name: 'IconLeftCircleOutlined',
+  displayName: 'LeftCircleOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: LeftCircleOutlinedSvg } },
+      children,
+    ),
 };
-
-LeftCircleOutlined.inheritAttrs = false;
-export default LeftCircleOutlined;

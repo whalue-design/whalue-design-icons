@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import BugOutlinedSvg from '@whalue-design/icons-svg/lib/asn/BugOutlined';
 
-const BugOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={BugOutlinedSvg}></Icon>;
+export default {
+  name: 'IconBugOutlined',
+  displayName: 'BugOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: BugOutlinedSvg } },
+      children,
+    ),
 };
-
-BugOutlined.inheritAttrs = false;
-export default BugOutlined;

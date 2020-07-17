@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import UnlockFilledSvg from '@whalue-design/icons-svg/lib/asn/UnlockFilled';
 
-const UnlockFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={UnlockFilledSvg}></Icon>;
+export default {
+  name: 'IconUnlockFilled',
+  displayName: 'UnlockFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: UnlockFilledSvg } },
+      children,
+    ),
 };
-
-UnlockFilled.inheritAttrs = false;
-export default UnlockFilled;

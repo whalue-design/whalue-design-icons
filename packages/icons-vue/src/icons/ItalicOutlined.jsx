@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ItalicOutlinedSvg from '@whalue-design/icons-svg/lib/asn/ItalicOutlined';
 
-const ItalicOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ItalicOutlinedSvg}></Icon>;
+export default {
+  name: 'IconItalicOutlined',
+  displayName: 'ItalicOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ItalicOutlinedSvg } },
+      children,
+    ),
 };
-
-ItalicOutlined.inheritAttrs = false;
-export default ItalicOutlined;

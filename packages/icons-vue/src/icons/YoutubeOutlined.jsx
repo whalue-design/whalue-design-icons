@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import YoutubeOutlinedSvg from '@whalue-design/icons-svg/lib/asn/YoutubeOutlined';
 
-const YoutubeOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={YoutubeOutlinedSvg}></Icon>;
+export default {
+  name: 'IconYoutubeOutlined',
+  displayName: 'YoutubeOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: YoutubeOutlinedSvg } },
+      children,
+    ),
 };
-
-YoutubeOutlined.inheritAttrs = false;
-export default YoutubeOutlined;

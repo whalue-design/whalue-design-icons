@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import MediumWorkmarkOutlinedSvg from '@whalue-design/icons-svg/lib/asn/MediumWorkmarkOutlined';
 
-const MediumWorkmarkOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={MediumWorkmarkOutlinedSvg}></Icon>;
+export default {
+  name: 'IconMediumWorkmarkOutlined',
+  displayName: 'MediumWorkmarkOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: MediumWorkmarkOutlinedSvg } },
+      children,
+    ),
 };
-
-MediumWorkmarkOutlined.inheritAttrs = false;
-export default MediumWorkmarkOutlined;

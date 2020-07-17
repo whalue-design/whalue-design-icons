@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import WindowsFilledSvg from '@whalue-design/icons-svg/lib/asn/WindowsFilled';
 
-const WindowsFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={WindowsFilledSvg}></Icon>;
+export default {
+  name: 'IconWindowsFilled',
+  displayName: 'WindowsFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: WindowsFilledSvg } },
+      children,
+    ),
 };
-
-WindowsFilled.inheritAttrs = false;
-export default WindowsFilled;

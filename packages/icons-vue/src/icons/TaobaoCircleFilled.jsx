@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import TaobaoCircleFilledSvg from '@whalue-design/icons-svg/lib/asn/TaobaoCircleFilled';
 
-const TaobaoCircleFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={TaobaoCircleFilledSvg}></Icon>;
+export default {
+  name: 'IconTaobaoCircleFilled',
+  displayName: 'TaobaoCircleFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: TaobaoCircleFilledSvg } },
+      children,
+    ),
 };
-
-TaobaoCircleFilled.inheritAttrs = false;
-export default TaobaoCircleFilled;

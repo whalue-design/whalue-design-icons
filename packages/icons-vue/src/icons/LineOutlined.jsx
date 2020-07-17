@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import LineOutlinedSvg from '@whalue-design/icons-svg/lib/asn/LineOutlined';
 
-const LineOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={LineOutlinedSvg}></Icon>;
+export default {
+  name: 'IconLineOutlined',
+  displayName: 'LineOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: LineOutlinedSvg } },
+      children,
+    ),
 };
-
-LineOutlined.inheritAttrs = false;
-export default LineOutlined;

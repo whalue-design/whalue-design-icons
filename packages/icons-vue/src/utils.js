@@ -3,8 +3,6 @@ import isPlainObject from 'lodash/isPlainObject';
 import { generate as generateColor } from '@whalue-design/colors';
 import { insertCss } from 'insert-css';
 
-const { h, nextTick } = Vue;
-
 export function warn(valid, message) {
   // Support uglify
   if (process.env.NODE_ENV !== 'production' && !valid && console !== undefined) {
@@ -40,12 +38,14 @@ export function normalizeAttrs(attrs = {}) {
   }, {});
 }
 
-export function generate(node, key, rootProps) {
+export function generate(h, node, key, rootProps) {
   if (!rootProps) {
     return h(
       node.tag,
-      { key, ...node.attrs },
-      (node.children || []).map((child, index) => generate(child, `${key}-${node.tag}-${index}`)),
+      { key, attrs: { ...normalizeAttrs(node.attrs) } },
+      (node.children || []).map((child, index) =>
+        generate(h, child, `${key}-${node.tag}-${index}`),
+      ),
     );
   }
   return h(
@@ -53,9 +53,9 @@ export function generate(node, key, rootProps) {
     {
       key,
       ...rootProps,
-      ...node.attrs,
+      attrs: { ...normalizeAttrs(node.attrs), ...rootProps.attrs },
     },
-    (node.children || []).map((child, index) => generate(child, `${key}-${node.tag}-${index}`)),
+    (node.children || []).map((child, index) => generate(h, child, `${key}-${node.tag}-${index}`)),
   );
 }
 
@@ -141,7 +141,7 @@ export const iconStyles = `
 let cssInjectedFlag = false;
 
 export const useInsertStyles = (styleStr = iconStyles) => {
-  nextTick(() => {
+  Vue.nextTick(() => {
     if (!cssInjectedFlag) {
       insertCss(styleStr, {
         prepend: true,

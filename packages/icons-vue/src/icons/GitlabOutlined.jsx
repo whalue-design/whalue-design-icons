@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import GitlabOutlinedSvg from '@whalue-design/icons-svg/lib/asn/GitlabOutlined';
 
-const GitlabOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={GitlabOutlinedSvg}></Icon>;
+export default {
+  name: 'IconGitlabOutlined',
+  displayName: 'GitlabOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: GitlabOutlinedSvg } },
+      children,
+    ),
 };
-
-GitlabOutlined.inheritAttrs = false;
-export default GitlabOutlined;

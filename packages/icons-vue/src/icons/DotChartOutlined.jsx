@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import DotChartOutlinedSvg from '@whalue-design/icons-svg/lib/asn/DotChartOutlined';
 
-const DotChartOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={DotChartOutlinedSvg}></Icon>;
+export default {
+  name: 'IconDotChartOutlined',
+  displayName: 'DotChartOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: DotChartOutlinedSvg } },
+      children,
+    ),
 };
-
-DotChartOutlined.inheritAttrs = false;
-export default DotChartOutlined;

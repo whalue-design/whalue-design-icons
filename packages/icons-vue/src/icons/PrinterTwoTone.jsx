@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import PrinterTwoToneSvg from '@whalue-design/icons-svg/lib/asn/PrinterTwoTone';
 
-const PrinterTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={PrinterTwoToneSvg}></Icon>;
+export default {
+  name: 'IconPrinterTwoTone',
+  displayName: 'PrinterTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: PrinterTwoToneSvg } },
+      children,
+    ),
 };
-
-PrinterTwoTone.inheritAttrs = false;
-export default PrinterTwoTone;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ArrowLeftOutlinedSvg from '@whalue-design/icons-svg/lib/asn/ArrowLeftOutlined';
 
-const ArrowLeftOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ArrowLeftOutlinedSvg}></Icon>;
+export default {
+  name: 'IconArrowLeftOutlined',
+  displayName: 'ArrowLeftOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ArrowLeftOutlinedSvg } },
+      children,
+    ),
 };
-
-ArrowLeftOutlined.inheritAttrs = false;
-export default ArrowLeftOutlined;

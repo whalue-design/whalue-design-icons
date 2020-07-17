@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import EyeOutlinedSvg from '@whalue-design/icons-svg/lib/asn/EyeOutlined';
 
-const EyeOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={EyeOutlinedSvg}></Icon>;
+export default {
+  name: 'IconEyeOutlined',
+  displayName: 'EyeOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: EyeOutlinedSvg } },
+      children,
+    ),
 };
-
-EyeOutlined.inheritAttrs = false;
-export default EyeOutlined;

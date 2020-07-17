@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ScheduleOutlinedSvg from '@whalue-design/icons-svg/lib/asn/ScheduleOutlined';
 
-const ScheduleOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ScheduleOutlinedSvg}></Icon>;
+export default {
+  name: 'IconScheduleOutlined',
+  displayName: 'ScheduleOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ScheduleOutlinedSvg } },
+      children,
+    ),
 };
-
-ScheduleOutlined.inheritAttrs = false;
-export default ScheduleOutlined;

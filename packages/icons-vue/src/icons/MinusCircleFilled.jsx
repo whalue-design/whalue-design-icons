@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import MinusCircleFilledSvg from '@whalue-design/icons-svg/lib/asn/MinusCircleFilled';
 
-const MinusCircleFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={MinusCircleFilledSvg}></Icon>;
+export default {
+  name: 'IconMinusCircleFilled',
+  displayName: 'MinusCircleFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: MinusCircleFilledSvg } },
+      children,
+    ),
 };
-
-MinusCircleFilled.inheritAttrs = false;
-export default MinusCircleFilled;

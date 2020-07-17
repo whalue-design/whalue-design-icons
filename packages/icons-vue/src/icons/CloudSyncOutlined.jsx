@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CloudSyncOutlinedSvg from '@whalue-design/icons-svg/lib/asn/CloudSyncOutlined';
 
-const CloudSyncOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CloudSyncOutlinedSvg}></Icon>;
+export default {
+  name: 'IconCloudSyncOutlined',
+  displayName: 'CloudSyncOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CloudSyncOutlinedSvg } },
+      children,
+    ),
 };
-
-CloudSyncOutlined.inheritAttrs = false;
-export default CloudSyncOutlined;

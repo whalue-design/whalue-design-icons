@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import QqCircleFilledSvg from '@whalue-design/icons-svg/lib/asn/QqCircleFilled';
 
-const QqCircleFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={QqCircleFilledSvg}></Icon>;
+export default {
+  name: 'IconQqCircleFilled',
+  displayName: 'QqCircleFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: QqCircleFilledSvg } },
+      children,
+    ),
 };
-
-QqCircleFilled.inheritAttrs = false;
-export default QqCircleFilled;

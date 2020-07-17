@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ToolFilledSvg from '@whalue-design/icons-svg/lib/asn/ToolFilled';
 
-const ToolFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ToolFilledSvg}></Icon>;
+export default {
+  name: 'IconToolFilled',
+  displayName: 'ToolFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ToolFilledSvg } },
+      children,
+    ),
 };
-
-ToolFilled.inheritAttrs = false;
-export default ToolFilled;

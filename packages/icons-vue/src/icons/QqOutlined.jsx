@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import QqOutlinedSvg from '@whalue-design/icons-svg/lib/asn/QqOutlined';
 
-const QqOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={QqOutlinedSvg}></Icon>;
+export default {
+  name: 'IconQqOutlined',
+  displayName: 'QqOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: QqOutlinedSvg } },
+      children,
+    ),
 };
-
-QqOutlined.inheritAttrs = false;
-export default QqOutlined;

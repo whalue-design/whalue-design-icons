@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ExperimentFilledSvg from '@whalue-design/icons-svg/lib/asn/ExperimentFilled';
 
-const ExperimentFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ExperimentFilledSvg}></Icon>;
+export default {
+  name: 'IconExperimentFilled',
+  displayName: 'ExperimentFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ExperimentFilledSvg } },
+      children,
+    ),
 };
-
-ExperimentFilled.inheritAttrs = false;
-export default ExperimentFilled;

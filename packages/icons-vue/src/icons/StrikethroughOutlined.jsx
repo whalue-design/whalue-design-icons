@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import StrikethroughOutlinedSvg from '@whalue-design/icons-svg/lib/asn/StrikethroughOutlined';
 
-const StrikethroughOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={StrikethroughOutlinedSvg}></Icon>;
+export default {
+  name: 'IconStrikethroughOutlined',
+  displayName: 'StrikethroughOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: StrikethroughOutlinedSvg } },
+      children,
+    ),
 };
-
-StrikethroughOutlined.inheritAttrs = false;
-export default StrikethroughOutlined;

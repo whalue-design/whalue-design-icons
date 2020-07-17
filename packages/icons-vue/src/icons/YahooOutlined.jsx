@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import YahooOutlinedSvg from '@whalue-design/icons-svg/lib/asn/YahooOutlined';
 
-const YahooOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={YahooOutlinedSvg}></Icon>;
+export default {
+  name: 'IconYahooOutlined',
+  displayName: 'YahooOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: YahooOutlinedSvg } },
+      children,
+    ),
 };
-
-YahooOutlined.inheritAttrs = false;
-export default YahooOutlined;

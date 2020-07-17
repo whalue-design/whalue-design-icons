@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import VerticalAlignTopOutlinedSvg from '@whalue-design/icons-svg/lib/asn/VerticalAlignTopOutlined';
 
-const VerticalAlignTopOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={VerticalAlignTopOutlinedSvg}></Icon>;
+export default {
+  name: 'IconVerticalAlignTopOutlined',
+  displayName: 'VerticalAlignTopOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: VerticalAlignTopOutlinedSvg } },
+      children,
+    ),
 };
-
-VerticalAlignTopOutlined.inheritAttrs = false;
-export default VerticalAlignTopOutlined;

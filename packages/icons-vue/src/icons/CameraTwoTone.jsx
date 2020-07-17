@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CameraTwoToneSvg from '@whalue-design/icons-svg/lib/asn/CameraTwoTone';
 
-const CameraTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CameraTwoToneSvg}></Icon>;
+export default {
+  name: 'IconCameraTwoTone',
+  displayName: 'CameraTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CameraTwoToneSvg } },
+      children,
+    ),
 };
-
-CameraTwoTone.inheritAttrs = false;
-export default CameraTwoTone;

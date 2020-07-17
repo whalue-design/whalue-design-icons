@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CalculatorFilledSvg from '@whalue-design/icons-svg/lib/asn/CalculatorFilled';
 
-const CalculatorFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CalculatorFilledSvg}></Icon>;
+export default {
+  name: 'IconCalculatorFilled',
+  displayName: 'CalculatorFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CalculatorFilledSvg } },
+      children,
+    ),
 };
-
-CalculatorFilled.inheritAttrs = false;
-export default CalculatorFilled;

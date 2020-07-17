@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import SwapOutlinedSvg from '@whalue-design/icons-svg/lib/asn/SwapOutlined';
 
-const SwapOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={SwapOutlinedSvg}></Icon>;
+export default {
+  name: 'IconSwapOutlined',
+  displayName: 'SwapOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: SwapOutlinedSvg } },
+      children,
+    ),
 };
-
-SwapOutlined.inheritAttrs = false;
-export default SwapOutlined;

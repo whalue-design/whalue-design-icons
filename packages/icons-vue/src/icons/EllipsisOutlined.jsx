@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import EllipsisOutlinedSvg from '@whalue-design/icons-svg/lib/asn/EllipsisOutlined';
 
-const EllipsisOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={EllipsisOutlinedSvg}></Icon>;
+export default {
+  name: 'IconEllipsisOutlined',
+  displayName: 'EllipsisOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: EllipsisOutlinedSvg } },
+      children,
+    ),
 };
-
-EllipsisOutlined.inheritAttrs = false;
-export default EllipsisOutlined;

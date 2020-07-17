@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import UsbTwoToneSvg from '@whalue-design/icons-svg/lib/asn/UsbTwoTone';
 
-const UsbTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={UsbTwoToneSvg}></Icon>;
+export default {
+  name: 'IconUsbTwoTone',
+  displayName: 'UsbTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: UsbTwoToneSvg } },
+      children,
+    ),
 };
-
-UsbTwoTone.inheritAttrs = false;
-export default UsbTwoTone;

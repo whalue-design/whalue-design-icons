@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FontSizeOutlinedSvg from '@whalue-design/icons-svg/lib/asn/FontSizeOutlined';
 
-const FontSizeOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FontSizeOutlinedSvg}></Icon>;
+export default {
+  name: 'IconFontSizeOutlined',
+  displayName: 'FontSizeOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FontSizeOutlinedSvg } },
+      children,
+    ),
 };
-
-FontSizeOutlined.inheritAttrs = false;
-export default FontSizeOutlined;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import WalletTwoToneSvg from '@whalue-design/icons-svg/lib/asn/WalletTwoTone';
 
-const WalletTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={WalletTwoToneSvg}></Icon>;
+export default {
+  name: 'IconWalletTwoTone',
+  displayName: 'WalletTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: WalletTwoToneSvg } },
+      children,
+    ),
 };
-
-WalletTwoTone.inheritAttrs = false;
-export default WalletTwoTone;

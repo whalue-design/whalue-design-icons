@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import LayoutTwoToneSvg from '@whalue-design/icons-svg/lib/asn/LayoutTwoTone';
 
-const LayoutTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={LayoutTwoToneSvg}></Icon>;
+export default {
+  name: 'IconLayoutTwoTone',
+  displayName: 'LayoutTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: LayoutTwoToneSvg } },
+      children,
+    ),
 };
-
-LayoutTwoTone.inheritAttrs = false;
-export default LayoutTwoTone;

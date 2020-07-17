@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ThunderboltOutlinedSvg from '@whalue-design/icons-svg/lib/asn/ThunderboltOutlined';
 
-const ThunderboltOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ThunderboltOutlinedSvg}></Icon>;
+export default {
+  name: 'IconThunderboltOutlined',
+  displayName: 'ThunderboltOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ThunderboltOutlinedSvg } },
+      children,
+    ),
 };
-
-ThunderboltOutlined.inheritAttrs = false;
-export default ThunderboltOutlined;

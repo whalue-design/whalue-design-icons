@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import MailFilledSvg from '@whalue-design/icons-svg/lib/asn/MailFilled';
 
-const MailFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={MailFilledSvg}></Icon>;
+export default {
+  name: 'IconMailFilled',
+  displayName: 'MailFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: MailFilledSvg } },
+      children,
+    ),
 };
-
-MailFilled.inheritAttrs = false;
-export default MailFilled;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FileZipFilledSvg from '@whalue-design/icons-svg/lib/asn/FileZipFilled';
 
-const FileZipFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FileZipFilledSvg}></Icon>;
+export default {
+  name: 'IconFileZipFilled',
+  displayName: 'FileZipFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FileZipFilledSvg } },
+      children,
+    ),
 };
-
-FileZipFilled.inheritAttrs = false;
-export default FileZipFilled;

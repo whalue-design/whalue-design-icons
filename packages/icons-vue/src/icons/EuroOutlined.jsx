@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import EuroOutlinedSvg from '@whalue-design/icons-svg/lib/asn/EuroOutlined';
 
-const EuroOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={EuroOutlinedSvg}></Icon>;
+export default {
+  name: 'IconEuroOutlined',
+  displayName: 'EuroOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: EuroOutlinedSvg } },
+      children,
+    ),
 };
-
-EuroOutlined.inheritAttrs = false;
-export default EuroOutlined;

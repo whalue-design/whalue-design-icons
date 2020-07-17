@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CopyrightCircleTwoToneSvg from '@whalue-design/icons-svg/lib/asn/CopyrightCircleTwoTone';
 
-const CopyrightCircleTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CopyrightCircleTwoToneSvg}></Icon>;
+export default {
+  name: 'IconCopyrightCircleTwoTone',
+  displayName: 'CopyrightCircleTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CopyrightCircleTwoToneSvg } },
+      children,
+    ),
 };
-
-CopyrightCircleTwoTone.inheritAttrs = false;
-export default CopyrightCircleTwoTone;

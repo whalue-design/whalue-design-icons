@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import StopTwoToneSvg from '@whalue-design/icons-svg/lib/asn/StopTwoTone';
 
-const StopTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={StopTwoToneSvg}></Icon>;
+export default {
+  name: 'IconStopTwoTone',
+  displayName: 'StopTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: StopTwoToneSvg } },
+      children,
+    ),
 };
-
-StopTwoTone.inheritAttrs = false;
-export default StopTwoTone;

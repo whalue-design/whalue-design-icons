@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import VideoCameraAddOutlinedSvg from '@whalue-design/icons-svg/lib/asn/VideoCameraAddOutlined';
 
-const VideoCameraAddOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={VideoCameraAddOutlinedSvg}></Icon>;
+export default {
+  name: 'IconVideoCameraAddOutlined',
+  displayName: 'VideoCameraAddOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: VideoCameraAddOutlinedSvg } },
+      children,
+    ),
 };
-
-VideoCameraAddOutlined.inheritAttrs = false;
-export default VideoCameraAddOutlined;

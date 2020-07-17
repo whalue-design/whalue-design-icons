@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ClockCircleFilledSvg from '@whalue-design/icons-svg/lib/asn/ClockCircleFilled';
 
-const ClockCircleFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ClockCircleFilledSvg}></Icon>;
+export default {
+  name: 'IconClockCircleFilled',
+  displayName: 'ClockCircleFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ClockCircleFilledSvg } },
+      children,
+    ),
 };
-
-ClockCircleFilled.inheritAttrs = false;
-export default ClockCircleFilled;

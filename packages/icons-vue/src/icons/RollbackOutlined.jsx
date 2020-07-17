@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import RollbackOutlinedSvg from '@whalue-design/icons-svg/lib/asn/RollbackOutlined';
 
-const RollbackOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={RollbackOutlinedSvg}></Icon>;
+export default {
+  name: 'IconRollbackOutlined',
+  displayName: 'RollbackOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: RollbackOutlinedSvg } },
+      children,
+    ),
 };
-
-RollbackOutlined.inheritAttrs = false;
-export default RollbackOutlined;

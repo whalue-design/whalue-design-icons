@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import AliwangwangFilledSvg from '@whalue-design/icons-svg/lib/asn/AliwangwangFilled';
 
-const AliwangwangFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={AliwangwangFilledSvg}></Icon>;
+export default {
+  name: 'IconAliwangwangFilled',
+  displayName: 'AliwangwangFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: AliwangwangFilledSvg } },
+      children,
+    ),
 };
-
-AliwangwangFilled.inheritAttrs = false;
-export default AliwangwangFilled;

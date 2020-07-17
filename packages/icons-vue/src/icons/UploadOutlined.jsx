@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import UploadOutlinedSvg from '@whalue-design/icons-svg/lib/asn/UploadOutlined';
 
-const UploadOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={UploadOutlinedSvg}></Icon>;
+export default {
+  name: 'IconUploadOutlined',
+  displayName: 'UploadOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: UploadOutlinedSvg } },
+      children,
+    ),
 };
-
-UploadOutlined.inheritAttrs = false;
-export default UploadOutlined;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import WindowsOutlinedSvg from '@whalue-design/icons-svg/lib/asn/WindowsOutlined';
 
-const WindowsOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={WindowsOutlinedSvg}></Icon>;
+export default {
+  name: 'IconWindowsOutlined',
+  displayName: 'WindowsOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: WindowsOutlinedSvg } },
+      children,
+    ),
 };
-
-WindowsOutlined.inheritAttrs = false;
-export default WindowsOutlined;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FolderAddFilledSvg from '@whalue-design/icons-svg/lib/asn/FolderAddFilled';
 
-const FolderAddFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FolderAddFilledSvg}></Icon>;
+export default {
+  name: 'IconFolderAddFilled',
+  displayName: 'FolderAddFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FolderAddFilledSvg } },
+      children,
+    ),
 };
-
-FolderAddFilled.inheritAttrs = false;
-export default FolderAddFilled;

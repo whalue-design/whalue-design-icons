@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import BankFilledSvg from '@whalue-design/icons-svg/lib/asn/BankFilled';
 
-const BankFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={BankFilledSvg}></Icon>;
+export default {
+  name: 'IconBankFilled',
+  displayName: 'BankFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: BankFilledSvg } },
+      children,
+    ),
 };
-
-BankFilled.inheritAttrs = false;
-export default BankFilled;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CalendarTwoToneSvg from '@whalue-design/icons-svg/lib/asn/CalendarTwoTone';
 
-const CalendarTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CalendarTwoToneSvg}></Icon>;
+export default {
+  name: 'IconCalendarTwoTone',
+  displayName: 'CalendarTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CalendarTwoToneSvg } },
+      children,
+    ),
 };
-
-CalendarTwoTone.inheritAttrs = false;
-export default CalendarTwoTone;

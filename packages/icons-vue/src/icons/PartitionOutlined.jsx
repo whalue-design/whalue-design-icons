@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import PartitionOutlinedSvg from '@whalue-design/icons-svg/lib/asn/PartitionOutlined';
 
-const PartitionOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={PartitionOutlinedSvg}></Icon>;
+export default {
+  name: 'IconPartitionOutlined',
+  displayName: 'PartitionOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: PartitionOutlinedSvg } },
+      children,
+    ),
 };
-
-PartitionOutlined.inheritAttrs = false;
-export default PartitionOutlined;

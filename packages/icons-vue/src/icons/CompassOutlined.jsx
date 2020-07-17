@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CompassOutlinedSvg from '@whalue-design/icons-svg/lib/asn/CompassOutlined';
 
-const CompassOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CompassOutlinedSvg}></Icon>;
+export default {
+  name: 'IconCompassOutlined',
+  displayName: 'CompassOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CompassOutlinedSvg } },
+      children,
+    ),
 };
-
-CompassOutlined.inheritAttrs = false;
-export default CompassOutlined;

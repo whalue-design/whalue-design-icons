@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import SafetyCertificateFilledSvg from '@whalue-design/icons-svg/lib/asn/SafetyCertificateFilled';
 
-const SafetyCertificateFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={SafetyCertificateFilledSvg}></Icon>;
+export default {
+  name: 'IconSafetyCertificateFilled',
+  displayName: 'SafetyCertificateFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: SafetyCertificateFilledSvg } },
+      children,
+    ),
 };
-
-SafetyCertificateFilled.inheritAttrs = false;
-export default SafetyCertificateFilled;

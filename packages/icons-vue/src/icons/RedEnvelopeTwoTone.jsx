@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import RedEnvelopeTwoToneSvg from '@whalue-design/icons-svg/lib/asn/RedEnvelopeTwoTone';
 
-const RedEnvelopeTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={RedEnvelopeTwoToneSvg}></Icon>;
+export default {
+  name: 'IconRedEnvelopeTwoTone',
+  displayName: 'RedEnvelopeTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: RedEnvelopeTwoToneSvg } },
+      children,
+    ),
 };
-
-RedEnvelopeTwoTone.inheritAttrs = false;
-export default RedEnvelopeTwoTone;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import DropboxCircleFilledSvg from '@whalue-design/icons-svg/lib/asn/DropboxCircleFilled';
 
-const DropboxCircleFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={DropboxCircleFilledSvg}></Icon>;
+export default {
+  name: 'IconDropboxCircleFilled',
+  displayName: 'DropboxCircleFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: DropboxCircleFilledSvg } },
+      children,
+    ),
 };
-
-DropboxCircleFilled.inheritAttrs = false;
-export default DropboxCircleFilled;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import SettingFilledSvg from '@whalue-design/icons-svg/lib/asn/SettingFilled';
 
-const SettingFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={SettingFilledSvg}></Icon>;
+export default {
+  name: 'IconSettingFilled',
+  displayName: 'SettingFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: SettingFilledSvg } },
+      children,
+    ),
 };
-
-SettingFilled.inheritAttrs = false;
-export default SettingFilled;

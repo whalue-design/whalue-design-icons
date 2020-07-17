@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import BehanceSquareOutlinedSvg from '@whalue-design/icons-svg/lib/asn/BehanceSquareOutlined';
 
-const BehanceSquareOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={BehanceSquareOutlinedSvg}></Icon>;
+export default {
+  name: 'IconBehanceSquareOutlined',
+  displayName: 'BehanceSquareOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: BehanceSquareOutlinedSvg } },
+      children,
+    ),
 };
-
-BehanceSquareOutlined.inheritAttrs = false;
-export default BehanceSquareOutlined;

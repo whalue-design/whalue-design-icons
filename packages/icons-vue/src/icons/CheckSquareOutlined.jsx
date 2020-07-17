@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CheckSquareOutlinedSvg from '@whalue-design/icons-svg/lib/asn/CheckSquareOutlined';
 
-const CheckSquareOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CheckSquareOutlinedSvg}></Icon>;
+export default {
+  name: 'IconCheckSquareOutlined',
+  displayName: 'CheckSquareOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CheckSquareOutlinedSvg } },
+      children,
+    ),
 };
-
-CheckSquareOutlined.inheritAttrs = false;
-export default CheckSquareOutlined;

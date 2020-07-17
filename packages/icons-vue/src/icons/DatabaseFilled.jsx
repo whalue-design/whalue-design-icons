@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import DatabaseFilledSvg from '@whalue-design/icons-svg/lib/asn/DatabaseFilled';
 
-const DatabaseFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={DatabaseFilledSvg}></Icon>;
+export default {
+  name: 'IconDatabaseFilled',
+  displayName: 'DatabaseFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: DatabaseFilledSvg } },
+      children,
+    ),
 };
-
-DatabaseFilled.inheritAttrs = false;
-export default DatabaseFilled;

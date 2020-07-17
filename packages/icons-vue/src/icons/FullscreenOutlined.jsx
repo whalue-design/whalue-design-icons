@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FullscreenOutlinedSvg from '@whalue-design/icons-svg/lib/asn/FullscreenOutlined';
 
-const FullscreenOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FullscreenOutlinedSvg}></Icon>;
+export default {
+  name: 'IconFullscreenOutlined',
+  displayName: 'FullscreenOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FullscreenOutlinedSvg } },
+      children,
+    ),
 };
-
-FullscreenOutlined.inheritAttrs = false;
-export default FullscreenOutlined;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import IdcardOutlinedSvg from '@whalue-design/icons-svg/lib/asn/IdcardOutlined';
 
-const IdcardOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={IdcardOutlinedSvg}></Icon>;
+export default {
+  name: 'IconIdcardOutlined',
+  displayName: 'IdcardOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: IdcardOutlinedSvg } },
+      children,
+    ),
 };
-
-IdcardOutlined.inheritAttrs = false;
-export default IdcardOutlined;

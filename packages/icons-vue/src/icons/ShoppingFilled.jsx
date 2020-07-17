@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ShoppingFilledSvg from '@whalue-design/icons-svg/lib/asn/ShoppingFilled';
 
-const ShoppingFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ShoppingFilledSvg}></Icon>;
+export default {
+  name: 'IconShoppingFilled',
+  displayName: 'ShoppingFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ShoppingFilledSvg } },
+      children,
+    ),
 };
-
-ShoppingFilled.inheritAttrs = false;
-export default ShoppingFilled;

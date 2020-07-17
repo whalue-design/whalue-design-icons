@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import WomanOutlinedSvg from '@whalue-design/icons-svg/lib/asn/WomanOutlined';
 
-const WomanOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={WomanOutlinedSvg}></Icon>;
+export default {
+  name: 'IconWomanOutlined',
+  displayName: 'WomanOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: WomanOutlinedSvg } },
+      children,
+    ),
 };
-
-WomanOutlined.inheritAttrs = false;
-export default WomanOutlined;

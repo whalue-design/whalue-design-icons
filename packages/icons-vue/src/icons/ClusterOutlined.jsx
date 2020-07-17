@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ClusterOutlinedSvg from '@whalue-design/icons-svg/lib/asn/ClusterOutlined';
 
-const ClusterOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ClusterOutlinedSvg}></Icon>;
+export default {
+  name: 'IconClusterOutlined',
+  displayName: 'ClusterOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ClusterOutlinedSvg } },
+      children,
+    ),
 };
-
-ClusterOutlined.inheritAttrs = false;
-export default ClusterOutlined;

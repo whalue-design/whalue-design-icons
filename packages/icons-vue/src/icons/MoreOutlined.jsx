@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import MoreOutlinedSvg from '@whalue-design/icons-svg/lib/asn/MoreOutlined';
 
-const MoreOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={MoreOutlinedSvg}></Icon>;
+export default {
+  name: 'IconMoreOutlined',
+  displayName: 'MoreOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: MoreOutlinedSvg } },
+      children,
+    ),
 };
-
-MoreOutlined.inheritAttrs = false;
-export default MoreOutlined;

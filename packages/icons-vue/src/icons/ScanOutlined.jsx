@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ScanOutlinedSvg from '@whalue-design/icons-svg/lib/asn/ScanOutlined';
 
-const ScanOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ScanOutlinedSvg}></Icon>;
+export default {
+  name: 'IconScanOutlined',
+  displayName: 'ScanOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ScanOutlinedSvg } },
+      children,
+    ),
 };
-
-ScanOutlined.inheritAttrs = false;
-export default ScanOutlined;

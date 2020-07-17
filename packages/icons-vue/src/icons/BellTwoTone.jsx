@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import BellTwoToneSvg from '@whalue-design/icons-svg/lib/asn/BellTwoTone';
 
-const BellTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={BellTwoToneSvg}></Icon>;
+export default {
+  name: 'IconBellTwoTone',
+  displayName: 'BellTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: BellTwoToneSvg } },
+      children,
+    ),
 };
-
-BellTwoTone.inheritAttrs = false;
-export default BellTwoTone;

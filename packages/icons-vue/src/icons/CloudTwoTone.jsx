@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CloudTwoToneSvg from '@whalue-design/icons-svg/lib/asn/CloudTwoTone';
 
-const CloudTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CloudTwoToneSvg}></Icon>;
+export default {
+  name: 'IconCloudTwoTone',
+  displayName: 'CloudTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CloudTwoToneSvg } },
+      children,
+    ),
 };
-
-CloudTwoTone.inheritAttrs = false;
-export default CloudTwoTone;

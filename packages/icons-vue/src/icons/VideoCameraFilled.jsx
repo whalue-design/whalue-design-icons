@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import VideoCameraFilledSvg from '@whalue-design/icons-svg/lib/asn/VideoCameraFilled';
 
-const VideoCameraFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={VideoCameraFilledSvg}></Icon>;
+export default {
+  name: 'IconVideoCameraFilled',
+  displayName: 'VideoCameraFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: VideoCameraFilledSvg } },
+      children,
+    ),
 };
-
-VideoCameraFilled.inheritAttrs = false;
-export default VideoCameraFilled;

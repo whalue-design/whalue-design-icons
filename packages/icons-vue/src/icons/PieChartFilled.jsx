@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import PieChartFilledSvg from '@whalue-design/icons-svg/lib/asn/PieChartFilled';
 
-const PieChartFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={PieChartFilledSvg}></Icon>;
+export default {
+  name: 'IconPieChartFilled',
+  displayName: 'PieChartFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: PieChartFilledSvg } },
+      children,
+    ),
 };
-
-PieChartFilled.inheritAttrs = false;
-export default PieChartFilled;

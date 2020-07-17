@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CompressOutlinedSvg from '@whalue-design/icons-svg/lib/asn/CompressOutlined';
 
-const CompressOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CompressOutlinedSvg}></Icon>;
+export default {
+  name: 'IconCompressOutlined',
+  displayName: 'CompressOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CompressOutlinedSvg } },
+      children,
+    ),
 };
-
-CompressOutlined.inheritAttrs = false;
-export default CompressOutlined;

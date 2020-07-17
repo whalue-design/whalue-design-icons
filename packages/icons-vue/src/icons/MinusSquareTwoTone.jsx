@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import MinusSquareTwoToneSvg from '@whalue-design/icons-svg/lib/asn/MinusSquareTwoTone';
 
-const MinusSquareTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={MinusSquareTwoToneSvg}></Icon>;
+export default {
+  name: 'IconMinusSquareTwoTone',
+  displayName: 'MinusSquareTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: MinusSquareTwoToneSvg } },
+      children,
+    ),
 };
-
-MinusSquareTwoTone.inheritAttrs = false;
-export default MinusSquareTwoTone;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import SecurityScanFilledSvg from '@whalue-design/icons-svg/lib/asn/SecurityScanFilled';
 
-const SecurityScanFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={SecurityScanFilledSvg}></Icon>;
+export default {
+  name: 'IconSecurityScanFilled',
+  displayName: 'SecurityScanFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: SecurityScanFilledSvg } },
+      children,
+    ),
 };
-
-SecurityScanFilled.inheritAttrs = false;
-export default SecurityScanFilled;

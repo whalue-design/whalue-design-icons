@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import IdcardFilledSvg from '@whalue-design/icons-svg/lib/asn/IdcardFilled';
 
-const IdcardFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={IdcardFilledSvg}></Icon>;
+export default {
+  name: 'IconIdcardFilled',
+  displayName: 'IdcardFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: IdcardFilledSvg } },
+      children,
+    ),
 };
-
-IdcardFilled.inheritAttrs = false;
-export default IdcardFilled;

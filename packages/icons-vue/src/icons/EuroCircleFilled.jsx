@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import EuroCircleFilledSvg from '@whalue-design/icons-svg/lib/asn/EuroCircleFilled';
 
-const EuroCircleFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={EuroCircleFilledSvg}></Icon>;
+export default {
+  name: 'IconEuroCircleFilled',
+  displayName: 'EuroCircleFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: EuroCircleFilledSvg } },
+      children,
+    ),
 };
-
-EuroCircleFilled.inheritAttrs = false;
-export default EuroCircleFilled;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CameraFilledSvg from '@whalue-design/icons-svg/lib/asn/CameraFilled';
 
-const CameraFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CameraFilledSvg}></Icon>;
+export default {
+  name: 'IconCameraFilled',
+  displayName: 'CameraFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CameraFilledSvg } },
+      children,
+    ),
 };
-
-CameraFilled.inheritAttrs = false;
-export default CameraFilled;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import PercentageOutlinedSvg from '@whalue-design/icons-svg/lib/asn/PercentageOutlined';
 
-const PercentageOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={PercentageOutlinedSvg}></Icon>;
+export default {
+  name: 'IconPercentageOutlined',
+  displayName: 'PercentageOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: PercentageOutlinedSvg } },
+      children,
+    ),
 };
-
-PercentageOutlined.inheritAttrs = false;
-export default PercentageOutlined;

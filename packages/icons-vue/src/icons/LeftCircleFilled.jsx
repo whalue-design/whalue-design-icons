@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import LeftCircleFilledSvg from '@whalue-design/icons-svg/lib/asn/LeftCircleFilled';
 
-const LeftCircleFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={LeftCircleFilledSvg}></Icon>;
+export default {
+  name: 'IconLeftCircleFilled',
+  displayName: 'LeftCircleFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: LeftCircleFilledSvg } },
+      children,
+    ),
 };
-
-LeftCircleFilled.inheritAttrs = false;
-export default LeftCircleFilled;

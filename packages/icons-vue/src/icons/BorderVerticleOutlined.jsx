@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import BorderVerticleOutlinedSvg from '@whalue-design/icons-svg/lib/asn/BorderVerticleOutlined';
 
-const BorderVerticleOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={BorderVerticleOutlinedSvg}></Icon>;
+export default {
+  name: 'IconBorderVerticleOutlined',
+  displayName: 'BorderVerticleOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: BorderVerticleOutlinedSvg } },
+      children,
+    ),
 };
-
-BorderVerticleOutlined.inheritAttrs = false;
-export default BorderVerticleOutlined;

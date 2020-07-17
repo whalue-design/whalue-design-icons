@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import GiftFilledSvg from '@whalue-design/icons-svg/lib/asn/GiftFilled';
 
-const GiftFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={GiftFilledSvg}></Icon>;
+export default {
+  name: 'IconGiftFilled',
+  displayName: 'GiftFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: GiftFilledSvg } },
+      children,
+    ),
 };
-
-GiftFilled.inheritAttrs = false;
-export default GiftFilled;

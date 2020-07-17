@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import RedditSquareFilledSvg from '@whalue-design/icons-svg/lib/asn/RedditSquareFilled';
 
-const RedditSquareFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={RedditSquareFilledSvg}></Icon>;
+export default {
+  name: 'IconRedditSquareFilled',
+  displayName: 'RedditSquareFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: RedditSquareFilledSvg } },
+      children,
+    ),
 };
-
-RedditSquareFilled.inheritAttrs = false;
-export default RedditSquareFilled;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import PlaySquareTwoToneSvg from '@whalue-design/icons-svg/lib/asn/PlaySquareTwoTone';
 
-const PlaySquareTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={PlaySquareTwoToneSvg}></Icon>;
+export default {
+  name: 'IconPlaySquareTwoTone',
+  displayName: 'PlaySquareTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: PlaySquareTwoToneSvg } },
+      children,
+    ),
 };
-
-PlaySquareTwoTone.inheritAttrs = false;
-export default PlaySquareTwoTone;

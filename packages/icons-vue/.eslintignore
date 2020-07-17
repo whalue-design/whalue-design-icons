@@ -4,3 +4,5 @@ node_modules/
 *.html
 src/icons
 **/*.d.ts
+/*.js
+/*.d.ts

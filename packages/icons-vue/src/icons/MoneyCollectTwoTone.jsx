@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import MoneyCollectTwoToneSvg from '@whalue-design/icons-svg/lib/asn/MoneyCollectTwoTone';
 
-const MoneyCollectTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={MoneyCollectTwoToneSvg}></Icon>;
+export default {
+  name: 'IconMoneyCollectTwoTone',
+  displayName: 'MoneyCollectTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: MoneyCollectTwoToneSvg } },
+      children,
+    ),
 };
-
-MoneyCollectTwoTone.inheritAttrs = false;
-export default MoneyCollectTwoTone;

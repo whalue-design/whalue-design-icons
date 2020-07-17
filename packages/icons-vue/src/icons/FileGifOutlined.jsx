@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FileGifOutlinedSvg from '@whalue-design/icons-svg/lib/asn/FileGifOutlined';
 
-const FileGifOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FileGifOutlinedSvg}></Icon>;
+export default {
+  name: 'IconFileGifOutlined',
+  displayName: 'FileGifOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FileGifOutlinedSvg } },
+      children,
+    ),
 };
-
-FileGifOutlined.inheritAttrs = false;
-export default FileGifOutlined;

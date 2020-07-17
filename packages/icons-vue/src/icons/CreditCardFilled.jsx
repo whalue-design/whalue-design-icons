@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CreditCardFilledSvg from '@whalue-design/icons-svg/lib/asn/CreditCardFilled';
 
-const CreditCardFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CreditCardFilledSvg}></Icon>;
+export default {
+  name: 'IconCreditCardFilled',
+  displayName: 'CreditCardFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CreditCardFilledSvg } },
+      children,
+    ),
 };
-
-CreditCardFilled.inheritAttrs = false;
-export default CreditCardFilled;

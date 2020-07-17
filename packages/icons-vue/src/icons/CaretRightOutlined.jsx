@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CaretRightOutlinedSvg from '@whalue-design/icons-svg/lib/asn/CaretRightOutlined';
 
-const CaretRightOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CaretRightOutlinedSvg}></Icon>;
+export default {
+  name: 'IconCaretRightOutlined',
+  displayName: 'CaretRightOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CaretRightOutlinedSvg } },
+      children,
+    ),
 };
-
-CaretRightOutlined.inheritAttrs = false;
-export default CaretRightOutlined;

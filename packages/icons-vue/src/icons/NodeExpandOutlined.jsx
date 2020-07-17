@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import NodeExpandOutlinedSvg from '@whalue-design/icons-svg/lib/asn/NodeExpandOutlined';
 
-const NodeExpandOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={NodeExpandOutlinedSvg}></Icon>;
+export default {
+  name: 'IconNodeExpandOutlined',
+  displayName: 'NodeExpandOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: NodeExpandOutlinedSvg } },
+      children,
+    ),
 };
-
-NodeExpandOutlined.inheritAttrs = false;
-export default NodeExpandOutlined;

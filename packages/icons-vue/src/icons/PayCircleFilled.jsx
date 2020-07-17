@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import PayCircleFilledSvg from '@whalue-design/icons-svg/lib/asn/PayCircleFilled';
 
-const PayCircleFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={PayCircleFilledSvg}></Icon>;
+export default {
+  name: 'IconPayCircleFilled',
+  displayName: 'PayCircleFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: PayCircleFilledSvg } },
+      children,
+    ),
 };
-
-PayCircleFilled.inheritAttrs = false;
-export default PayCircleFilled;

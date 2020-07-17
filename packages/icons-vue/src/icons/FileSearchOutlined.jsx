@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FileSearchOutlinedSvg from '@whalue-design/icons-svg/lib/asn/FileSearchOutlined';
 
-const FileSearchOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FileSearchOutlinedSvg}></Icon>;
+export default {
+  name: 'IconFileSearchOutlined',
+  displayName: 'FileSearchOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FileSearchOutlinedSvg } },
+      children,
+    ),
 };
-
-FileSearchOutlined.inheritAttrs = false;
-export default FileSearchOutlined;

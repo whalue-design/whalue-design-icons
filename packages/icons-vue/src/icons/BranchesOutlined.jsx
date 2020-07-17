@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import BranchesOutlinedSvg from '@whalue-design/icons-svg/lib/asn/BranchesOutlined';
 
-const BranchesOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={BranchesOutlinedSvg}></Icon>;
+export default {
+  name: 'IconBranchesOutlined',
+  displayName: 'BranchesOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: BranchesOutlinedSvg } },
+      children,
+    ),
 };
-
-BranchesOutlined.inheritAttrs = false;
-export default BranchesOutlined;

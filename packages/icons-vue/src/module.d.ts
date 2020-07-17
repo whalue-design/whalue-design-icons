@@ -11,6 +11,5 @@ declare module '@whalue-design/colors' {
     string,
     string,
   ];
-
   export function generate(color: string): ColorPalettes;
 }

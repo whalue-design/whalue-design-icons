@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import SmileFilledSvg from '@whalue-design/icons-svg/lib/asn/SmileFilled';
 
-const SmileFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={SmileFilledSvg}></Icon>;
+export default {
+  name: 'IconSmileFilled',
+  displayName: 'SmileFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: SmileFilledSvg } },
+      children,
+    ),
 };
-
-SmileFilled.inheritAttrs = false;
-export default SmileFilled;

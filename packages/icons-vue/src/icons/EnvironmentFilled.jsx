@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import EnvironmentFilledSvg from '@whalue-design/icons-svg/lib/asn/EnvironmentFilled';
 
-const EnvironmentFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={EnvironmentFilledSvg}></Icon>;
+export default {
+  name: 'IconEnvironmentFilled',
+  displayName: 'EnvironmentFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: EnvironmentFilledSvg } },
+      children,
+    ),
 };
-
-EnvironmentFilled.inheritAttrs = false;
-export default EnvironmentFilled;

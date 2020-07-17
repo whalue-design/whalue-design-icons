@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CodepenCircleFilledSvg from '@whalue-design/icons-svg/lib/asn/CodepenCircleFilled';
 
-const CodepenCircleFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CodepenCircleFilledSvg}></Icon>;
+export default {
+  name: 'IconCodepenCircleFilled',
+  displayName: 'CodepenCircleFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CodepenCircleFilledSvg } },
+      children,
+    ),
 };
-
-CodepenCircleFilled.inheritAttrs = false;
-export default CodepenCircleFilled;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import SlackOutlinedSvg from '@whalue-design/icons-svg/lib/asn/SlackOutlined';
 
-const SlackOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={SlackOutlinedSvg}></Icon>;
+export default {
+  name: 'IconSlackOutlined',
+  displayName: 'SlackOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: SlackOutlinedSvg } },
+      children,
+    ),
 };
-
-SlackOutlined.inheritAttrs = false;
-export default SlackOutlined;

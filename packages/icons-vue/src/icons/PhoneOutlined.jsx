@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import PhoneOutlinedSvg from '@whalue-design/icons-svg/lib/asn/PhoneOutlined';
 
-const PhoneOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={PhoneOutlinedSvg}></Icon>;
+export default {
+  name: 'IconPhoneOutlined',
+  displayName: 'PhoneOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: PhoneOutlinedSvg } },
+      children,
+    ),
 };
-
-PhoneOutlined.inheritAttrs = false;
-export default PhoneOutlined;

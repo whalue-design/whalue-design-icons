@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FileZipOutlinedSvg from '@whalue-design/icons-svg/lib/asn/FileZipOutlined';
 
-const FileZipOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FileZipOutlinedSvg}></Icon>;
+export default {
+  name: 'IconFileZipOutlined',
+  displayName: 'FileZipOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FileZipOutlinedSvg } },
+      children,
+    ),
 };
-
-FileZipOutlined.inheritAttrs = false;
-export default FileZipOutlined;

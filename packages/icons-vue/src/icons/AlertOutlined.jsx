@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import AlertOutlinedSvg from '@whalue-design/icons-svg/lib/asn/AlertOutlined';
 
-const AlertOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={AlertOutlinedSvg}></Icon>;
+export default {
+  name: 'IconAlertOutlined',
+  displayName: 'AlertOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: AlertOutlinedSvg } },
+      children,
+    ),
 };
-
-AlertOutlined.inheritAttrs = false;
-export default AlertOutlined;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import SafetyOutlinedSvg from '@whalue-design/icons-svg/lib/asn/SafetyOutlined';
 
-const SafetyOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={SafetyOutlinedSvg}></Icon>;
+export default {
+  name: 'IconSafetyOutlined',
+  displayName: 'SafetyOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: SafetyOutlinedSvg } },
+      children,
+    ),
 };
-
-SafetyOutlined.inheritAttrs = false;
-export default SafetyOutlined;

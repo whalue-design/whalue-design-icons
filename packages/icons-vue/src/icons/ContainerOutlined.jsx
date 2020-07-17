@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ContainerOutlinedSvg from '@whalue-design/icons-svg/lib/asn/ContainerOutlined';
 
-const ContainerOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ContainerOutlinedSvg}></Icon>;
+export default {
+  name: 'IconContainerOutlined',
+  displayName: 'ContainerOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ContainerOutlinedSvg } },
+      children,
+    ),
 };
-
-ContainerOutlined.inheritAttrs = false;
-export default ContainerOutlined;

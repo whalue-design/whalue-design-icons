@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import DeliveredProcedureOutlinedSvg from '@whalue-design/icons-svg/lib/asn/DeliveredProcedureOutlined';
 
-const DeliveredProcedureOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={DeliveredProcedureOutlinedSvg}></Icon>;
+export default {
+  name: 'IconDeliveredProcedureOutlined',
+  displayName: 'DeliveredProcedureOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: DeliveredProcedureOutlinedSvg } },
+      children,
+    ),
 };
-
-DeliveredProcedureOutlined.inheritAttrs = false;
-export default DeliveredProcedureOutlined;

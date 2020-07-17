@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import WhatsAppOutlinedSvg from '@whalue-design/icons-svg/lib/asn/WhatsAppOutlined';
 
-const WhatsAppOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={WhatsAppOutlinedSvg}></Icon>;
+export default {
+  name: 'IconWhatsAppOutlined',
+  displayName: 'WhatsAppOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: WhatsAppOutlinedSvg } },
+      children,
+    ),
 };
-
-WhatsAppOutlined.inheritAttrs = false;
-export default WhatsAppOutlined;

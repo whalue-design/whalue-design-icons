@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import YoutubeFilledSvg from '@whalue-design/icons-svg/lib/asn/YoutubeFilled';
 
-const YoutubeFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={YoutubeFilledSvg}></Icon>;
+export default {
+  name: 'IconYoutubeFilled',
+  displayName: 'YoutubeFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: YoutubeFilledSvg } },
+      children,
+    ),
 };
-
-YoutubeFilled.inheritAttrs = false;
-export default YoutubeFilled;

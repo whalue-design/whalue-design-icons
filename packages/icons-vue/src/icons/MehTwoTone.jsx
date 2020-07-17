@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import MehTwoToneSvg from '@whalue-design/icons-svg/lib/asn/MehTwoTone';
 
-const MehTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={MehTwoToneSvg}></Icon>;
+export default {
+  name: 'IconMehTwoTone',
+  displayName: 'MehTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: MehTwoToneSvg } },
+      children,
+    ),
 };
-
-MehTwoTone.inheritAttrs = false;
-export default MehTwoTone;

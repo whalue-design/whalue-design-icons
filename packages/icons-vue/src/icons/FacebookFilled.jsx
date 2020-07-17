@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FacebookFilledSvg from '@whalue-design/icons-svg/lib/asn/FacebookFilled';
 
-const FacebookFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FacebookFilledSvg}></Icon>;
+export default {
+  name: 'IconFacebookFilled',
+  displayName: 'FacebookFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FacebookFilledSvg } },
+      children,
+    ),
 };
-
-FacebookFilled.inheritAttrs = false;
-export default FacebookFilled;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import RadiusBottomrightOutlinedSvg from '@whalue-design/icons-svg/lib/asn/RadiusBottomrightOutlined';
 
-const RadiusBottomrightOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={RadiusBottomrightOutlinedSvg}></Icon>;
+export default {
+  name: 'IconRadiusBottomrightOutlined',
+  displayName: 'RadiusBottomrightOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: RadiusBottomrightOutlinedSvg } },
+      children,
+    ),
 };
-
-RadiusBottomrightOutlined.inheritAttrs = false;
-export default RadiusBottomrightOutlined;

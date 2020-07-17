@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import DollarOutlinedSvg from '@whalue-design/icons-svg/lib/asn/DollarOutlined';
 
-const DollarOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={DollarOutlinedSvg}></Icon>;
+export default {
+  name: 'IconDollarOutlined',
+  displayName: 'DollarOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: DollarOutlinedSvg } },
+      children,
+    ),
 };
-
-DollarOutlined.inheritAttrs = false;
-export default DollarOutlined;

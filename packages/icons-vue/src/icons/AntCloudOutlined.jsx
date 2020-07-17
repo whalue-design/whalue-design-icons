@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import AntCloudOutlinedSvg from '@whalue-design/icons-svg/lib/asn/AntCloudOutlined';
 
-const AntCloudOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={AntCloudOutlinedSvg}></Icon>;
+export default {
+  name: 'IconAntCloudOutlined',
+  displayName: 'AntCloudOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: AntCloudOutlinedSvg } },
+      children,
+    ),
 };
-
-AntCloudOutlined.inheritAttrs = false;
-export default AntCloudOutlined;

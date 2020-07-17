@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ClockCircleTwoToneSvg from '@whalue-design/icons-svg/lib/asn/ClockCircleTwoTone';
 
-const ClockCircleTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ClockCircleTwoToneSvg}></Icon>;
+export default {
+  name: 'IconClockCircleTwoTone',
+  displayName: 'ClockCircleTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ClockCircleTwoToneSvg } },
+      children,
+    ),
 };
-
-ClockCircleTwoTone.inheritAttrs = false;
-export default ClockCircleTwoTone;

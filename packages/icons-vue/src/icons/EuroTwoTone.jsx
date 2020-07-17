@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import EuroTwoToneSvg from '@whalue-design/icons-svg/lib/asn/EuroTwoTone';
 
-const EuroTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={EuroTwoToneSvg}></Icon>;
+export default {
+  name: 'IconEuroTwoTone',
+  displayName: 'EuroTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: EuroTwoToneSvg } },
+      children,
+    ),
 };
-
-EuroTwoTone.inheritAttrs = false;
-export default EuroTwoTone;

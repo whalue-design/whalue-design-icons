@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import UnlockOutlinedSvg from '@whalue-design/icons-svg/lib/asn/UnlockOutlined';
 
-const UnlockOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={UnlockOutlinedSvg}></Icon>;
+export default {
+  name: 'IconUnlockOutlined',
+  displayName: 'UnlockOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: UnlockOutlinedSvg } },
+      children,
+    ),
 };
-
-UnlockOutlined.inheritAttrs = false;
-export default UnlockOutlined;

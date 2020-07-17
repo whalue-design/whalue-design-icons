@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ApiFilledSvg from '@whalue-design/icons-svg/lib/asn/ApiFilled';
 
-const ApiFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ApiFilledSvg}></Icon>;
+export default {
+  name: 'IconApiFilled',
+  displayName: 'ApiFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ApiFilledSvg } },
+      children,
+    ),
 };
-
-ApiFilled.inheritAttrs = false;
-export default ApiFilled;

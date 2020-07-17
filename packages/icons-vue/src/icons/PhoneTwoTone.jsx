@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import PhoneTwoToneSvg from '@whalue-design/icons-svg/lib/asn/PhoneTwoTone';
 
-const PhoneTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={PhoneTwoToneSvg}></Icon>;
+export default {
+  name: 'IconPhoneTwoTone',
+  displayName: 'PhoneTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: PhoneTwoToneSvg } },
+      children,
+    ),
 };
-
-PhoneTwoTone.inheritAttrs = false;
-export default PhoneTwoTone;

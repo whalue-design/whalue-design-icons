@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ShoppingTwoToneSvg from '@whalue-design/icons-svg/lib/asn/ShoppingTwoTone';
 
-const ShoppingTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ShoppingTwoToneSvg}></Icon>;
+export default {
+  name: 'IconShoppingTwoTone',
+  displayName: 'ShoppingTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ShoppingTwoToneSvg } },
+      children,
+    ),
 };
-
-ShoppingTwoTone.inheritAttrs = false;
-export default ShoppingTwoTone;

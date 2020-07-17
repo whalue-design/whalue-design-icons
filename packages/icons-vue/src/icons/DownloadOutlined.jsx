@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import DownloadOutlinedSvg from '@whalue-design/icons-svg/lib/asn/DownloadOutlined';
 
-const DownloadOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={DownloadOutlinedSvg}></Icon>;
+export default {
+  name: 'IconDownloadOutlined',
+  displayName: 'DownloadOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: DownloadOutlinedSvg } },
+      children,
+    ),
 };
-
-DownloadOutlined.inheritAttrs = false;
-export default DownloadOutlined;

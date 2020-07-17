@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import GlobalOutlinedSvg from '@whalue-design/icons-svg/lib/asn/GlobalOutlined';
 
-const GlobalOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={GlobalOutlinedSvg}></Icon>;
+export default {
+  name: 'IconGlobalOutlined',
+  displayName: 'GlobalOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: GlobalOutlinedSvg } },
+      children,
+    ),
 };
-
-GlobalOutlined.inheritAttrs = false;
-export default GlobalOutlined;

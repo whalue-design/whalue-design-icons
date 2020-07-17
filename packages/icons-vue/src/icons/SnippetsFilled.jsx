@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import SnippetsFilledSvg from '@whalue-design/icons-svg/lib/asn/SnippetsFilled';
 
-const SnippetsFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={SnippetsFilledSvg}></Icon>;
+export default {
+  name: 'IconSnippetsFilled',
+  displayName: 'SnippetsFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: SnippetsFilledSvg } },
+      children,
+    ),
 };
-
-SnippetsFilled.inheritAttrs = false;
-export default SnippetsFilled;

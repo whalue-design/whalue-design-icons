@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CopyOutlinedSvg from '@whalue-design/icons-svg/lib/asn/CopyOutlined';
 
-const CopyOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CopyOutlinedSvg}></Icon>;
+export default {
+  name: 'IconCopyOutlined',
+  displayName: 'CopyOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CopyOutlinedSvg } },
+      children,
+    ),
 };
-
-CopyOutlined.inheritAttrs = false;
-export default CopyOutlined;

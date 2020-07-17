@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import AudioFilledSvg from '@whalue-design/icons-svg/lib/asn/AudioFilled';
 
-const AudioFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={AudioFilledSvg}></Icon>;
+export default {
+  name: 'IconAudioFilled',
+  displayName: 'AudioFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: AudioFilledSvg } },
+      children,
+    ),
 };
-
-AudioFilled.inheritAttrs = false;
-export default AudioFilled;

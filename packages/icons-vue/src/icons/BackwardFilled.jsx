@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import BackwardFilledSvg from '@whalue-design/icons-svg/lib/asn/BackwardFilled';
 
-const BackwardFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={BackwardFilledSvg}></Icon>;
+export default {
+  name: 'IconBackwardFilled',
+  displayName: 'BackwardFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: BackwardFilledSvg } },
+      children,
+    ),
 };
-
-BackwardFilled.inheritAttrs = false;
-export default BackwardFilled;

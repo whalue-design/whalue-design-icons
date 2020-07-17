@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import DashboardOutlinedSvg from '@whalue-design/icons-svg/lib/asn/DashboardOutlined';
 
-const DashboardOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={DashboardOutlinedSvg}></Icon>;
+export default {
+  name: 'IconDashboardOutlined',
+  displayName: 'DashboardOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: DashboardOutlinedSvg } },
+      children,
+    ),
 };
-
-DashboardOutlined.inheritAttrs = false;
-export default DashboardOutlined;

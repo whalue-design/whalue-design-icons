@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CloseSquareFilledSvg from '@whalue-design/icons-svg/lib/asn/CloseSquareFilled';
 
-const CloseSquareFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CloseSquareFilledSvg}></Icon>;
+export default {
+  name: 'IconCloseSquareFilled',
+  displayName: 'CloseSquareFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CloseSquareFilledSvg } },
+      children,
+    ),
 };
-
-CloseSquareFilled.inheritAttrs = false;
-export default CloseSquareFilled;

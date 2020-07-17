@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import YahooFilledSvg from '@whalue-design/icons-svg/lib/asn/YahooFilled';
 
-const YahooFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={YahooFilledSvg}></Icon>;
+export default {
+  name: 'IconYahooFilled',
+  displayName: 'YahooFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: YahooFilledSvg } },
+      children,
+    ),
 };
-
-YahooFilled.inheritAttrs = false;
-export default YahooFilled;

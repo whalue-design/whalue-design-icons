@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import PauseOutlinedSvg from '@whalue-design/icons-svg/lib/asn/PauseOutlined';
 
-const PauseOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={PauseOutlinedSvg}></Icon>;
+export default {
+  name: 'IconPauseOutlined',
+  displayName: 'PauseOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: PauseOutlinedSvg } },
+      children,
+    ),
 };
-
-PauseOutlined.inheritAttrs = false;
-export default PauseOutlined;

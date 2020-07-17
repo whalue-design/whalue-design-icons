@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import SettingTwoToneSvg from '@whalue-design/icons-svg/lib/asn/SettingTwoTone';
 
-const SettingTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={SettingTwoToneSvg}></Icon>;
+export default {
+  name: 'IconSettingTwoTone',
+  displayName: 'SettingTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: SettingTwoToneSvg } },
+      children,
+    ),
 };
-
-SettingTwoTone.inheritAttrs = false;
-export default SettingTwoTone;

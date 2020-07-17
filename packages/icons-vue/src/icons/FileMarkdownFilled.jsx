@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FileMarkdownFilledSvg from '@whalue-design/icons-svg/lib/asn/FileMarkdownFilled';
 
-const FileMarkdownFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FileMarkdownFilledSvg}></Icon>;
+export default {
+  name: 'IconFileMarkdownFilled',
+  displayName: 'FileMarkdownFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FileMarkdownFilledSvg } },
+      children,
+    ),
 };
-
-FileMarkdownFilled.inheritAttrs = false;
-export default FileMarkdownFilled;

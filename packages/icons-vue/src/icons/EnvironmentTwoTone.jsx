@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import EnvironmentTwoToneSvg from '@whalue-design/icons-svg/lib/asn/EnvironmentTwoTone';
 
-const EnvironmentTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={EnvironmentTwoToneSvg}></Icon>;
+export default {
+  name: 'IconEnvironmentTwoTone',
+  displayName: 'EnvironmentTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: EnvironmentTwoToneSvg } },
+      children,
+    ),
 };
-
-EnvironmentTwoTone.inheritAttrs = false;
-export default EnvironmentTwoTone;

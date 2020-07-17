@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import RotateRightOutlinedSvg from '@whalue-design/icons-svg/lib/asn/RotateRightOutlined';
 
-const RotateRightOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={RotateRightOutlinedSvg}></Icon>;
+export default {
+  name: 'IconRotateRightOutlined',
+  displayName: 'RotateRightOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: RotateRightOutlinedSvg } },
+      children,
+    ),
 };
-
-RotateRightOutlined.inheritAttrs = false;
-export default RotateRightOutlined;

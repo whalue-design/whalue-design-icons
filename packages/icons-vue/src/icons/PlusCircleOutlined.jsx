@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import PlusCircleOutlinedSvg from '@whalue-design/icons-svg/lib/asn/PlusCircleOutlined';
 
-const PlusCircleOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={PlusCircleOutlinedSvg}></Icon>;
+export default {
+  name: 'IconPlusCircleOutlined',
+  displayName: 'PlusCircleOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: PlusCircleOutlinedSvg } },
+      children,
+    ),
 };
-
-PlusCircleOutlined.inheritAttrs = false;
-export default PlusCircleOutlined;

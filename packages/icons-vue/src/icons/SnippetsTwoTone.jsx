@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import SnippetsTwoToneSvg from '@whalue-design/icons-svg/lib/asn/SnippetsTwoTone';
 
-const SnippetsTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={SnippetsTwoToneSvg}></Icon>;
+export default {
+  name: 'IconSnippetsTwoTone',
+  displayName: 'SnippetsTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: SnippetsTwoToneSvg } },
+      children,
+    ),
 };
-
-SnippetsTwoTone.inheritAttrs = false;
-export default SnippetsTwoTone;

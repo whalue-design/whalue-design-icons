@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FundTwoToneSvg from '@whalue-design/icons-svg/lib/asn/FundTwoTone';
 
-const FundTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FundTwoToneSvg}></Icon>;
+export default {
+  name: 'IconFundTwoTone',
+  displayName: 'FundTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FundTwoToneSvg } },
+      children,
+    ),
 };
-
-FundTwoTone.inheritAttrs = false;
-export default FundTwoTone;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import HistoryOutlinedSvg from '@whalue-design/icons-svg/lib/asn/HistoryOutlined';
 
-const HistoryOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={HistoryOutlinedSvg}></Icon>;
+export default {
+  name: 'IconHistoryOutlined',
+  displayName: 'HistoryOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: HistoryOutlinedSvg } },
+      children,
+    ),
 };
-
-HistoryOutlined.inheritAttrs = false;
-export default HistoryOutlined;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import HddFilledSvg from '@whalue-design/icons-svg/lib/asn/HddFilled';
 
-const HddFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={HddFilledSvg}></Icon>;
+export default {
+  name: 'IconHddFilled',
+  displayName: 'HddFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: HddFilledSvg } },
+      children,
+    ),
 };
-
-HddFilled.inheritAttrs = false;
-export default HddFilled;

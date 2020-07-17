@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ClockCircleOutlinedSvg from '@whalue-design/icons-svg/lib/asn/ClockCircleOutlined';
 
-const ClockCircleOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ClockCircleOutlinedSvg}></Icon>;
+export default {
+  name: 'IconClockCircleOutlined',
+  displayName: 'ClockCircleOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ClockCircleOutlinedSvg } },
+      children,
+    ),
 };
-
-ClockCircleOutlined.inheritAttrs = false;
-export default ClockCircleOutlined;

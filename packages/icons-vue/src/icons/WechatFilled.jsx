@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import WechatFilledSvg from '@whalue-design/icons-svg/lib/asn/WechatFilled';
 
-const WechatFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={WechatFilledSvg}></Icon>;
+export default {
+  name: 'IconWechatFilled',
+  displayName: 'WechatFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: WechatFilledSvg } },
+      children,
+    ),
 };
-
-WechatFilled.inheritAttrs = false;
-export default WechatFilled;

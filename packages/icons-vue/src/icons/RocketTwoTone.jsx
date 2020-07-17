@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import RocketTwoToneSvg from '@whalue-design/icons-svg/lib/asn/RocketTwoTone';
 
-const RocketTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={RocketTwoToneSvg}></Icon>;
+export default {
+  name: 'IconRocketTwoTone',
+  displayName: 'RocketTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: RocketTwoToneSvg } },
+      children,
+    ),
 };
-
-RocketTwoTone.inheritAttrs = false;
-export default RocketTwoTone;

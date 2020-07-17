@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CloudServerOutlinedSvg from '@whalue-design/icons-svg/lib/asn/CloudServerOutlined';
 
-const CloudServerOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CloudServerOutlinedSvg}></Icon>;
+export default {
+  name: 'IconCloudServerOutlined',
+  displayName: 'CloudServerOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CloudServerOutlinedSvg } },
+      children,
+    ),
 };
-
-CloudServerOutlined.inheritAttrs = false;
-export default CloudServerOutlined;

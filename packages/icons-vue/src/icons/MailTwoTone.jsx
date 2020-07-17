@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import MailTwoToneSvg from '@whalue-design/icons-svg/lib/asn/MailTwoTone';
 
-const MailTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={MailTwoToneSvg}></Icon>;
+export default {
+  name: 'IconMailTwoTone',
+  displayName: 'MailTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: MailTwoToneSvg } },
+      children,
+    ),
 };
-
-MailTwoTone.inheritAttrs = false;
-export default MailTwoTone;

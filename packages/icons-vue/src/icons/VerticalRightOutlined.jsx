@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import VerticalRightOutlinedSvg from '@whalue-design/icons-svg/lib/asn/VerticalRightOutlined';
 
-const VerticalRightOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={VerticalRightOutlinedSvg}></Icon>;
+export default {
+  name: 'IconVerticalRightOutlined',
+  displayName: 'VerticalRightOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: VerticalRightOutlinedSvg } },
+      children,
+    ),
 };
-
-VerticalRightOutlined.inheritAttrs = false;
-export default VerticalRightOutlined;

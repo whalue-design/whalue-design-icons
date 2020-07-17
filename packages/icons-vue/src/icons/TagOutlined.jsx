@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import TagOutlinedSvg from '@whalue-design/icons-svg/lib/asn/TagOutlined';
 
-const TagOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={TagOutlinedSvg}></Icon>;
+export default {
+  name: 'IconTagOutlined',
+  displayName: 'TagOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: TagOutlinedSvg } },
+      children,
+    ),
 };
-
-TagOutlined.inheritAttrs = false;
-export default TagOutlined;

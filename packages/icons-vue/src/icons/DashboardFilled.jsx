@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import DashboardFilledSvg from '@whalue-design/icons-svg/lib/asn/DashboardFilled';
 
-const DashboardFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={DashboardFilledSvg}></Icon>;
+export default {
+  name: 'IconDashboardFilled',
+  displayName: 'DashboardFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: DashboardFilledSvg } },
+      children,
+    ),
 };
-
-DashboardFilled.inheritAttrs = false;
-export default DashboardFilled;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import QrcodeOutlinedSvg from '@whalue-design/icons-svg/lib/asn/QrcodeOutlined';
 
-const QrcodeOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={QrcodeOutlinedSvg}></Icon>;
+export default {
+  name: 'IconQrcodeOutlined',
+  displayName: 'QrcodeOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: QrcodeOutlinedSvg } },
+      children,
+    ),
 };
-
-QrcodeOutlined.inheritAttrs = false;
-export default QrcodeOutlined;

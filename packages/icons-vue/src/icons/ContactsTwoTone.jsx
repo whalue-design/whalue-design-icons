@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ContactsTwoToneSvg from '@whalue-design/icons-svg/lib/asn/ContactsTwoTone';
 
-const ContactsTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ContactsTwoToneSvg}></Icon>;
+export default {
+  name: 'IconContactsTwoTone',
+  displayName: 'ContactsTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ContactsTwoToneSvg } },
+      children,
+    ),
 };
-
-ContactsTwoTone.inheritAttrs = false;
-export default ContactsTwoTone;

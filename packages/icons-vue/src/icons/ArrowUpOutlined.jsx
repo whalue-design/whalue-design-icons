@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ArrowUpOutlinedSvg from '@whalue-design/icons-svg/lib/asn/ArrowUpOutlined';
 
-const ArrowUpOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ArrowUpOutlinedSvg}></Icon>;
+export default {
+  name: 'IconArrowUpOutlined',
+  displayName: 'ArrowUpOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ArrowUpOutlinedSvg } },
+      children,
+    ),
 };
-
-ArrowUpOutlined.inheritAttrs = false;
-export default ArrowUpOutlined;

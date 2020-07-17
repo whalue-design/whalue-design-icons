@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import SmallDashOutlinedSvg from '@whalue-design/icons-svg/lib/asn/SmallDashOutlined';
 
-const SmallDashOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={SmallDashOutlinedSvg}></Icon>;
+export default {
+  name: 'IconSmallDashOutlined',
+  displayName: 'SmallDashOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: SmallDashOutlinedSvg } },
+      children,
+    ),
 };
-
-SmallDashOutlined.inheritAttrs = false;
-export default SmallDashOutlined;

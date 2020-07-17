@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import AudioTwoToneSvg from '@whalue-design/icons-svg/lib/asn/AudioTwoTone';
 
-const AudioTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={AudioTwoToneSvg}></Icon>;
+export default {
+  name: 'IconAudioTwoTone',
+  displayName: 'AudioTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: AudioTwoToneSvg } },
+      children,
+    ),
 };
-
-AudioTwoTone.inheritAttrs = false;
-export default AudioTwoTone;

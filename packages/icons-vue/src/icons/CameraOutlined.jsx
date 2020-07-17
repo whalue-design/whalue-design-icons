@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CameraOutlinedSvg from '@whalue-design/icons-svg/lib/asn/CameraOutlined';
 
-const CameraOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CameraOutlinedSvg}></Icon>;
+export default {
+  name: 'IconCameraOutlined',
+  displayName: 'CameraOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CameraOutlinedSvg } },
+      children,
+    ),
 };
-
-CameraOutlined.inheritAttrs = false;
-export default CameraOutlined;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import GooglePlusSquareFilledSvg from '@whalue-design/icons-svg/lib/asn/GooglePlusSquareFilled';
 
-const GooglePlusSquareFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={GooglePlusSquareFilledSvg}></Icon>;
+export default {
+  name: 'IconGooglePlusSquareFilled',
+  displayName: 'GooglePlusSquareFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: GooglePlusSquareFilledSvg } },
+      children,
+    ),
 };
-
-GooglePlusSquareFilled.inheritAttrs = false;
-export default GooglePlusSquareFilled;

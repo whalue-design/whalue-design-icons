@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import OneToOneOutlinedSvg from '@whalue-design/icons-svg/lib/asn/OneToOneOutlined';
 
-const OneToOneOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={OneToOneOutlinedSvg}></Icon>;
+export default {
+  name: 'IconOneToOneOutlined',
+  displayName: 'OneToOneOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: OneToOneOutlinedSvg } },
+      children,
+    ),
 };
-
-OneToOneOutlined.inheritAttrs = false;
-export default OneToOneOutlined;

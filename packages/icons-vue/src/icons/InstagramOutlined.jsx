@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import InstagramOutlinedSvg from '@whalue-design/icons-svg/lib/asn/InstagramOutlined';
 
-const InstagramOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={InstagramOutlinedSvg}></Icon>;
+export default {
+  name: 'IconInstagramOutlined',
+  displayName: 'InstagramOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: InstagramOutlinedSvg } },
+      children,
+    ),
 };
-
-InstagramOutlined.inheritAttrs = false;
-export default InstagramOutlined;

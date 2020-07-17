@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import RedEnvelopeFilledSvg from '@whalue-design/icons-svg/lib/asn/RedEnvelopeFilled';
 
-const RedEnvelopeFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={RedEnvelopeFilledSvg}></Icon>;
+export default {
+  name: 'IconRedEnvelopeFilled',
+  displayName: 'RedEnvelopeFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: RedEnvelopeFilledSvg } },
+      children,
+    ),
 };
-
-RedEnvelopeFilled.inheritAttrs = false;
-export default RedEnvelopeFilled;

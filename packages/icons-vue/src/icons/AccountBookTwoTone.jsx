@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import AccountBookTwoToneSvg from '@whalue-design/icons-svg/lib/asn/AccountBookTwoTone';
 
-const AccountBookTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={AccountBookTwoToneSvg}></Icon>;
+export default {
+  name: 'IconAccountBookTwoTone',
+  displayName: 'AccountBookTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: AccountBookTwoToneSvg } },
+      children,
+    ),
 };
-
-AccountBookTwoTone.inheritAttrs = false;
-export default AccountBookTwoTone;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import WalletOutlinedSvg from '@whalue-design/icons-svg/lib/asn/WalletOutlined';
 
-const WalletOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={WalletOutlinedSvg}></Icon>;
+export default {
+  name: 'IconWalletOutlined',
+  displayName: 'WalletOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: WalletOutlinedSvg } },
+      children,
+    ),
 };
-
-WalletOutlined.inheritAttrs = false;
-export default WalletOutlined;

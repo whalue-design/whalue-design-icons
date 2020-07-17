@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import PullRequestOutlinedSvg from '@whalue-design/icons-svg/lib/asn/PullRequestOutlined';
 
-const PullRequestOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={PullRequestOutlinedSvg}></Icon>;
+export default {
+  name: 'IconPullRequestOutlined',
+  displayName: 'PullRequestOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: PullRequestOutlinedSvg } },
+      children,
+    ),
 };
-
-PullRequestOutlined.inheritAttrs = false;
-export default PullRequestOutlined;

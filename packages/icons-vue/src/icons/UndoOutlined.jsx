@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import UndoOutlinedSvg from '@whalue-design/icons-svg/lib/asn/UndoOutlined';
 
-const UndoOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={UndoOutlinedSvg}></Icon>;
+export default {
+  name: 'IconUndoOutlined',
+  displayName: 'UndoOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: UndoOutlinedSvg } },
+      children,
+    ),
 };
-
-UndoOutlined.inheritAttrs = false;
-export default UndoOutlined;

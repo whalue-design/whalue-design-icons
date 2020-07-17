@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import DesktopOutlinedSvg from '@whalue-design/icons-svg/lib/asn/DesktopOutlined';
 
-const DesktopOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={DesktopOutlinedSvg}></Icon>;
+export default {
+  name: 'IconDesktopOutlined',
+  displayName: 'DesktopOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: DesktopOutlinedSvg } },
+      children,
+    ),
 };
-
-DesktopOutlined.inheritAttrs = false;
-export default DesktopOutlined;

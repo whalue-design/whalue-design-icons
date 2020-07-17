@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import UnorderedListOutlinedSvg from '@whalue-design/icons-svg/lib/asn/UnorderedListOutlined';
 
-const UnorderedListOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={UnorderedListOutlinedSvg}></Icon>;
+export default {
+  name: 'IconUnorderedListOutlined',
+  displayName: 'UnorderedListOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: UnorderedListOutlinedSvg } },
+      children,
+    ),
 };
-
-UnorderedListOutlined.inheritAttrs = false;
-export default UnorderedListOutlined;

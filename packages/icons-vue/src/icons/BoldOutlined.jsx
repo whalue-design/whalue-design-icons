@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import BoldOutlinedSvg from '@whalue-design/icons-svg/lib/asn/BoldOutlined';
 
-const BoldOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={BoldOutlinedSvg}></Icon>;
+export default {
+  name: 'IconBoldOutlined',
+  displayName: 'BoldOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: BoldOutlinedSvg } },
+      children,
+    ),
 };
-
-BoldOutlined.inheritAttrs = false;
-export default BoldOutlined;

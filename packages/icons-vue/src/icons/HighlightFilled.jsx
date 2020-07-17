@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import HighlightFilledSvg from '@whalue-design/icons-svg/lib/asn/HighlightFilled';
 
-const HighlightFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={HighlightFilledSvg}></Icon>;
+export default {
+  name: 'IconHighlightFilled',
+  displayName: 'HighlightFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: HighlightFilledSvg } },
+      children,
+    ),
 };
-
-HighlightFilled.inheritAttrs = false;
-export default HighlightFilled;

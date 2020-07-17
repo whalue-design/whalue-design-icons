@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FundViewOutlinedSvg from '@whalue-design/icons-svg/lib/asn/FundViewOutlined';
 
-const FundViewOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FundViewOutlinedSvg}></Icon>;
+export default {
+  name: 'IconFundViewOutlined',
+  displayName: 'FundViewOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FundViewOutlinedSvg } },
+      children,
+    ),
 };
-
-FundViewOutlined.inheritAttrs = false;
-export default FundViewOutlined;

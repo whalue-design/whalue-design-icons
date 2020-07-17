@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import AmazonCircleFilledSvg from '@whalue-design/icons-svg/lib/asn/AmazonCircleFilled';
 
-const AmazonCircleFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={AmazonCircleFilledSvg}></Icon>;
+export default {
+  name: 'IconAmazonCircleFilled',
+  displayName: 'AmazonCircleFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: AmazonCircleFilledSvg } },
+      children,
+    ),
 };
-
-AmazonCircleFilled.inheritAttrs = false;
-export default AmazonCircleFilled;

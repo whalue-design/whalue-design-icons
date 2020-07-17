@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import Html5OutlinedSvg from '@whalue-design/icons-svg/lib/asn/Html5Outlined';
 
-const Html5Outlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={Html5OutlinedSvg}></Icon>;
+export default {
+  name: 'IconHtml5Outlined',
+  displayName: 'Html5Outlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: Html5OutlinedSvg } },
+      children,
+    ),
 };
-
-Html5Outlined.inheritAttrs = false;
-export default Html5Outlined;

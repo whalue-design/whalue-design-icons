@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import SkinFilledSvg from '@whalue-design/icons-svg/lib/asn/SkinFilled';
 
-const SkinFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={SkinFilledSvg}></Icon>;
+export default {
+  name: 'IconSkinFilled',
+  displayName: 'SkinFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: SkinFilledSvg } },
+      children,
+    ),
 };
-
-SkinFilled.inheritAttrs = false;
-export default SkinFilled;

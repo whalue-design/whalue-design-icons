@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import SignalFilledSvg from '@whalue-design/icons-svg/lib/asn/SignalFilled';
 
-const SignalFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={SignalFilledSvg}></Icon>;
+export default {
+  name: 'IconSignalFilled',
+  displayName: 'SignalFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: SignalFilledSvg } },
+      children,
+    ),
 };
-
-SignalFilled.inheritAttrs = false;
-export default SignalFilled;

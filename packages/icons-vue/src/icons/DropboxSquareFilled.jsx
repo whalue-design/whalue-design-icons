@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import DropboxSquareFilledSvg from '@whalue-design/icons-svg/lib/asn/DropboxSquareFilled';
 
-const DropboxSquareFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={DropboxSquareFilledSvg}></Icon>;
+export default {
+  name: 'IconDropboxSquareFilled',
+  displayName: 'DropboxSquareFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: DropboxSquareFilledSvg } },
+      children,
+    ),
 };
-
-DropboxSquareFilled.inheritAttrs = false;
-export default DropboxSquareFilled;

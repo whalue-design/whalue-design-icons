@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import RightCircleTwoToneSvg from '@whalue-design/icons-svg/lib/asn/RightCircleTwoTone';
 
-const RightCircleTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={RightCircleTwoToneSvg}></Icon>;
+export default {
+  name: 'IconRightCircleTwoTone',
+  displayName: 'RightCircleTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: RightCircleTwoToneSvg } },
+      children,
+    ),
 };
-
-RightCircleTwoTone.inheritAttrs = false;
-export default RightCircleTwoTone;

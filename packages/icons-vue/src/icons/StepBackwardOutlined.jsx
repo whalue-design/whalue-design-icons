@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import StepBackwardOutlinedSvg from '@whalue-design/icons-svg/lib/asn/StepBackwardOutlined';
 
-const StepBackwardOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={StepBackwardOutlinedSvg}></Icon>;
+export default {
+  name: 'IconStepBackwardOutlined',
+  displayName: 'StepBackwardOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: StepBackwardOutlinedSvg } },
+      children,
+    ),
 };
-
-StepBackwardOutlined.inheritAttrs = false;
-export default StepBackwardOutlined;

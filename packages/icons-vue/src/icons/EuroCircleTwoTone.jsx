@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import EuroCircleTwoToneSvg from '@whalue-design/icons-svg/lib/asn/EuroCircleTwoTone';
 
-const EuroCircleTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={EuroCircleTwoToneSvg}></Icon>;
+export default {
+  name: 'IconEuroCircleTwoTone',
+  displayName: 'EuroCircleTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: EuroCircleTwoToneSvg } },
+      children,
+    ),
 };
-
-EuroCircleTwoTone.inheritAttrs = false;
-export default EuroCircleTwoTone;

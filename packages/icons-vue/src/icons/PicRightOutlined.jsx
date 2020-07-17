@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import PicRightOutlinedSvg from '@whalue-design/icons-svg/lib/asn/PicRightOutlined';
 
-const PicRightOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={PicRightOutlinedSvg}></Icon>;
+export default {
+  name: 'IconPicRightOutlined',
+  displayName: 'PicRightOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: PicRightOutlinedSvg } },
+      children,
+    ),
 };
-
-PicRightOutlined.inheritAttrs = false;
-export default PicRightOutlined;

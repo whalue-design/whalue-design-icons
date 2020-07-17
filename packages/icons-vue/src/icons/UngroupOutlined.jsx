@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import UngroupOutlinedSvg from '@whalue-design/icons-svg/lib/asn/UngroupOutlined';
 
-const UngroupOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={UngroupOutlinedSvg}></Icon>;
+export default {
+  name: 'IconUngroupOutlined',
+  displayName: 'UngroupOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: UngroupOutlinedSvg } },
+      children,
+    ),
 };
-
-UngroupOutlined.inheritAttrs = false;
-export default UngroupOutlined;

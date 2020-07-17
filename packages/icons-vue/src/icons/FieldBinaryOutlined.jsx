@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FieldBinaryOutlinedSvg from '@whalue-design/icons-svg/lib/asn/FieldBinaryOutlined';
 
-const FieldBinaryOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FieldBinaryOutlinedSvg}></Icon>;
+export default {
+  name: 'IconFieldBinaryOutlined',
+  displayName: 'FieldBinaryOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FieldBinaryOutlinedSvg } },
+      children,
+    ),
 };
-
-FieldBinaryOutlined.inheritAttrs = false;
-export default FieldBinaryOutlined;

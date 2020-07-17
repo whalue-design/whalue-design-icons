@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import DislikeOutlinedSvg from '@whalue-design/icons-svg/lib/asn/DislikeOutlined';
 
-const DislikeOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={DislikeOutlinedSvg}></Icon>;
+export default {
+  name: 'IconDislikeOutlined',
+  displayName: 'DislikeOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: DislikeOutlinedSvg } },
+      children,
+    ),
 };
-
-DislikeOutlined.inheritAttrs = false;
-export default DislikeOutlined;

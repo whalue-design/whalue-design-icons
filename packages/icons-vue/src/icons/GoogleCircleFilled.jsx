@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import GoogleCircleFilledSvg from '@whalue-design/icons-svg/lib/asn/GoogleCircleFilled';
 
-const GoogleCircleFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={GoogleCircleFilledSvg}></Icon>;
+export default {
+  name: 'IconGoogleCircleFilled',
+  displayName: 'GoogleCircleFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: GoogleCircleFilledSvg } },
+      children,
+    ),
 };
-
-GoogleCircleFilled.inheritAttrs = false;
-export default GoogleCircleFilled;

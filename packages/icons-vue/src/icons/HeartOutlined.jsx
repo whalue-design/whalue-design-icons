@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import HeartOutlinedSvg from '@whalue-design/icons-svg/lib/asn/HeartOutlined';
 
-const HeartOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={HeartOutlinedSvg}></Icon>;
+export default {
+  name: 'IconHeartOutlined',
+  displayName: 'HeartOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: HeartOutlinedSvg } },
+      children,
+    ),
 };
-
-HeartOutlined.inheritAttrs = false;
-export default HeartOutlined;

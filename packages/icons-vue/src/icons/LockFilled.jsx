@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import LockFilledSvg from '@whalue-design/icons-svg/lib/asn/LockFilled';
 
-const LockFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={LockFilledSvg}></Icon>;
+export default {
+  name: 'IconLockFilled',
+  displayName: 'LockFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: LockFilledSvg } },
+      children,
+    ),
 };
-
-LockFilled.inheritAttrs = false;
-export default LockFilled;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import TaobaoCircleOutlinedSvg from '@whalue-design/icons-svg/lib/asn/TaobaoCircleOutlined';
 
-const TaobaoCircleOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={TaobaoCircleOutlinedSvg}></Icon>;
+export default {
+  name: 'IconTaobaoCircleOutlined',
+  displayName: 'TaobaoCircleOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: TaobaoCircleOutlinedSvg } },
+      children,
+    ),
 };
-
-TaobaoCircleOutlined.inheritAttrs = false;
-export default TaobaoCircleOutlined;

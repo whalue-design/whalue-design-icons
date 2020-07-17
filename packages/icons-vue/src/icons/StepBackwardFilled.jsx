@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import StepBackwardFilledSvg from '@whalue-design/icons-svg/lib/asn/StepBackwardFilled';
 
-const StepBackwardFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={StepBackwardFilledSvg}></Icon>;
+export default {
+  name: 'IconStepBackwardFilled',
+  displayName: 'StepBackwardFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: StepBackwardFilledSvg } },
+      children,
+    ),
 };
-
-StepBackwardFilled.inheritAttrs = false;
-export default StepBackwardFilled;

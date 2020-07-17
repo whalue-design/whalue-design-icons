@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import NumberOutlinedSvg from '@whalue-design/icons-svg/lib/asn/NumberOutlined';
 
-const NumberOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={NumberOutlinedSvg}></Icon>;
+export default {
+  name: 'IconNumberOutlined',
+  displayName: 'NumberOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: NumberOutlinedSvg } },
+      children,
+    ),
 };
-
-NumberOutlined.inheritAttrs = false;
-export default NumberOutlined;

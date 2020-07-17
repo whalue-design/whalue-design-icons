@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FireFilledSvg from '@whalue-design/icons-svg/lib/asn/FireFilled';
 
-const FireFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FireFilledSvg}></Icon>;
+export default {
+  name: 'IconFireFilled',
+  displayName: 'FireFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FireFilledSvg } },
+      children,
+    ),
 };
-
-FireFilled.inheritAttrs = false;
-export default FireFilled;

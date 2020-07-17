@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import DiffTwoToneSvg from '@whalue-design/icons-svg/lib/asn/DiffTwoTone';
 
-const DiffTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={DiffTwoToneSvg}></Icon>;
+export default {
+  name: 'IconDiffTwoTone',
+  displayName: 'DiffTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: DiffTwoToneSvg } },
+      children,
+    ),
 };
-
-DiffTwoTone.inheritAttrs = false;
-export default DiffTwoTone;

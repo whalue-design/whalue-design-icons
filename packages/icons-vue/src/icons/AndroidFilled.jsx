@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import AndroidFilledSvg from '@whalue-design/icons-svg/lib/asn/AndroidFilled';
 
-const AndroidFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={AndroidFilledSvg}></Icon>;
+export default {
+  name: 'IconAndroidFilled',
+  displayName: 'AndroidFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: AndroidFilledSvg } },
+      children,
+    ),
 };
-
-AndroidFilled.inheritAttrs = false;
-export default AndroidFilled;

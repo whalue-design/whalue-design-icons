@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import YuqueOutlinedSvg from '@whalue-design/icons-svg/lib/asn/YuqueOutlined';
 
-const YuqueOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={YuqueOutlinedSvg}></Icon>;
+export default {
+  name: 'IconYuqueOutlined',
+  displayName: 'YuqueOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: YuqueOutlinedSvg } },
+      children,
+    ),
 };
-
-YuqueOutlined.inheritAttrs = false;
-export default YuqueOutlined;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import BankTwoToneSvg from '@whalue-design/icons-svg/lib/asn/BankTwoTone';
 
-const BankTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={BankTwoToneSvg}></Icon>;
+export default {
+  name: 'IconBankTwoTone',
+  displayName: 'BankTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: BankTwoToneSvg } },
+      children,
+    ),
 };
-
-BankTwoTone.inheritAttrs = false;
-export default BankTwoTone;

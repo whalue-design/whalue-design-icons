@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import AmazonSquareFilledSvg from '@whalue-design/icons-svg/lib/asn/AmazonSquareFilled';
 
-const AmazonSquareFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={AmazonSquareFilledSvg}></Icon>;
+export default {
+  name: 'IconAmazonSquareFilled',
+  displayName: 'AmazonSquareFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: AmazonSquareFilledSvg } },
+      children,
+    ),
 };
-
-AmazonSquareFilled.inheritAttrs = false;
-export default AmazonSquareFilled;

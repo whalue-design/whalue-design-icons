@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CodepenSquareFilledSvg from '@whalue-design/icons-svg/lib/asn/CodepenSquareFilled';
 
-const CodepenSquareFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CodepenSquareFilledSvg}></Icon>;
+export default {
+  name: 'IconCodepenSquareFilled',
+  displayName: 'CodepenSquareFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CodepenSquareFilledSvg } },
+      children,
+    ),
 };
-
-CodepenSquareFilled.inheritAttrs = false;
-export default CodepenSquareFilled;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FundProjectionScreenOutlinedSvg from '@whalue-design/icons-svg/lib/asn/FundProjectionScreenOutlined';
 
-const FundProjectionScreenOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FundProjectionScreenOutlinedSvg}></Icon>;
+export default {
+  name: 'IconFundProjectionScreenOutlined',
+  displayName: 'FundProjectionScreenOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FundProjectionScreenOutlinedSvg } },
+      children,
+    ),
 };
-
-FundProjectionScreenOutlined.inheritAttrs = false;
-export default FundProjectionScreenOutlined;

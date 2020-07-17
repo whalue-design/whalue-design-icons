@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import TrophyTwoToneSvg from '@whalue-design/icons-svg/lib/asn/TrophyTwoTone';
 
-const TrophyTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={TrophyTwoToneSvg}></Icon>;
+export default {
+  name: 'IconTrophyTwoTone',
+  displayName: 'TrophyTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: TrophyTwoToneSvg } },
+      children,
+    ),
 };
-
-TrophyTwoTone.inheritAttrs = false;
-export default TrophyTwoTone;

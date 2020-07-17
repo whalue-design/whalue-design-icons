@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import PushpinOutlinedSvg from '@whalue-design/icons-svg/lib/asn/PushpinOutlined';
 
-const PushpinOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={PushpinOutlinedSvg}></Icon>;
+export default {
+  name: 'IconPushpinOutlined',
+  displayName: 'PushpinOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: PushpinOutlinedSvg } },
+      children,
+    ),
 };
-
-PushpinOutlined.inheritAttrs = false;
-export default PushpinOutlined;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import SyncOutlinedSvg from '@whalue-design/icons-svg/lib/asn/SyncOutlined';
 
-const SyncOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={SyncOutlinedSvg}></Icon>;
+export default {
+  name: 'IconSyncOutlined',
+  displayName: 'SyncOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: SyncOutlinedSvg } },
+      children,
+    ),
 };
-
-SyncOutlined.inheritAttrs = false;
-export default SyncOutlined;

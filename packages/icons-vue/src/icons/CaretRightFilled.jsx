@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CaretRightFilledSvg from '@whalue-design/icons-svg/lib/asn/CaretRightFilled';
 
-const CaretRightFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CaretRightFilledSvg}></Icon>;
+export default {
+  name: 'IconCaretRightFilled',
+  displayName: 'CaretRightFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CaretRightFilledSvg } },
+      children,
+    ),
 };
-
-CaretRightFilled.inheritAttrs = false;
-export default CaretRightFilled;

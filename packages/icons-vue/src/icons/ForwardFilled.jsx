@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ForwardFilledSvg from '@whalue-design/icons-svg/lib/asn/ForwardFilled';
 
-const ForwardFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ForwardFilledSvg}></Icon>;
+export default {
+  name: 'IconForwardFilled',
+  displayName: 'ForwardFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ForwardFilledSvg } },
+      children,
+    ),
 };
-
-ForwardFilled.inheritAttrs = false;
-export default ForwardFilled;

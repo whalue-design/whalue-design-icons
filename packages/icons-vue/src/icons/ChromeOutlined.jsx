@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ChromeOutlinedSvg from '@whalue-design/icons-svg/lib/asn/ChromeOutlined';
 
-const ChromeOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ChromeOutlinedSvg}></Icon>;
+export default {
+  name: 'IconChromeOutlined',
+  displayName: 'ChromeOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ChromeOutlinedSvg } },
+      children,
+    ),
 };
-
-ChromeOutlined.inheritAttrs = false;
-export default ChromeOutlined;

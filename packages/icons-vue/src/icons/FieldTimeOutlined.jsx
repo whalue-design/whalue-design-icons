@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FieldTimeOutlinedSvg from '@whalue-design/icons-svg/lib/asn/FieldTimeOutlined';
 
-const FieldTimeOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FieldTimeOutlinedSvg}></Icon>;
+export default {
+  name: 'IconFieldTimeOutlined',
+  displayName: 'FieldTimeOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FieldTimeOutlinedSvg } },
+      children,
+    ),
 };
-
-FieldTimeOutlined.inheritAttrs = false;
-export default FieldTimeOutlined;

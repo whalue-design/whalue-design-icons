@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CloseOutlinedSvg from '@whalue-design/icons-svg/lib/asn/CloseOutlined';
 
-const CloseOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CloseOutlinedSvg}></Icon>;
+export default {
+  name: 'IconCloseOutlined',
+  displayName: 'CloseOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CloseOutlinedSvg } },
+      children,
+    ),
 };
-
-CloseOutlined.inheritAttrs = false;
-export default CloseOutlined;

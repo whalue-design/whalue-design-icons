@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import PropertySafetyTwoToneSvg from '@whalue-design/icons-svg/lib/asn/PropertySafetyTwoTone';
 
-const PropertySafetyTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={PropertySafetyTwoToneSvg}></Icon>;
+export default {
+  name: 'IconPropertySafetyTwoTone',
+  displayName: 'PropertySafetyTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: PropertySafetyTwoToneSvg } },
+      children,
+    ),
 };
-
-PropertySafetyTwoTone.inheritAttrs = false;
-export default PropertySafetyTwoTone;

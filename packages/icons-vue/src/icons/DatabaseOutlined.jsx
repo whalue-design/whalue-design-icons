@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import DatabaseOutlinedSvg from '@whalue-design/icons-svg/lib/asn/DatabaseOutlined';
 
-const DatabaseOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={DatabaseOutlinedSvg}></Icon>;
+export default {
+  name: 'IconDatabaseOutlined',
+  displayName: 'DatabaseOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: DatabaseOutlinedSvg } },
+      children,
+    ),
 };
-
-DatabaseOutlined.inheritAttrs = false;
-export default DatabaseOutlined;

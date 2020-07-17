@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import BookOutlinedSvg from '@whalue-design/icons-svg/lib/asn/BookOutlined';
 
-const BookOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={BookOutlinedSvg}></Icon>;
+export default {
+  name: 'IconBookOutlined',
+  displayName: 'BookOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: BookOutlinedSvg } },
+      children,
+    ),
 };
-
-BookOutlined.inheritAttrs = false;
-export default BookOutlined;

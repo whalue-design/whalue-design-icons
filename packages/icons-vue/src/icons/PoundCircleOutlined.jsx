@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import PoundCircleOutlinedSvg from '@whalue-design/icons-svg/lib/asn/PoundCircleOutlined';
 
-const PoundCircleOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={PoundCircleOutlinedSvg}></Icon>;
+export default {
+  name: 'IconPoundCircleOutlined',
+  displayName: 'PoundCircleOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: PoundCircleOutlinedSvg } },
+      children,
+    ),
 };
-
-PoundCircleOutlined.inheritAttrs = false;
-export default PoundCircleOutlined;

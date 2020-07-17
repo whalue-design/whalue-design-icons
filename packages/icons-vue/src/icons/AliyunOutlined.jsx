@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import AliyunOutlinedSvg from '@whalue-design/icons-svg/lib/asn/AliyunOutlined';
 
-const AliyunOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={AliyunOutlinedSvg}></Icon>;
+export default {
+  name: 'IconAliyunOutlined',
+  displayName: 'AliyunOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: AliyunOutlinedSvg } },
+      children,
+    ),
 };
-
-AliyunOutlined.inheritAttrs = false;
-export default AliyunOutlined;

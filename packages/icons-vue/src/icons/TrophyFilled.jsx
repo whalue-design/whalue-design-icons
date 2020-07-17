@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import TrophyFilledSvg from '@whalue-design/icons-svg/lib/asn/TrophyFilled';
 
-const TrophyFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={TrophyFilledSvg}></Icon>;
+export default {
+  name: 'IconTrophyFilled',
+  displayName: 'TrophyFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: TrophyFilledSvg } },
+      children,
+    ),
 };
-
-TrophyFilled.inheritAttrs = false;
-export default TrophyFilled;

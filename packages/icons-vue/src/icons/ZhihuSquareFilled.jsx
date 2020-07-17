@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ZhihuSquareFilledSvg from '@whalue-design/icons-svg/lib/asn/ZhihuSquareFilled';
 
-const ZhihuSquareFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ZhihuSquareFilledSvg}></Icon>;
+export default {
+  name: 'IconZhihuSquareFilled',
+  displayName: 'ZhihuSquareFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ZhihuSquareFilledSvg } },
+      children,
+    ),
 };
-
-ZhihuSquareFilled.inheritAttrs = false;
-export default ZhihuSquareFilled;

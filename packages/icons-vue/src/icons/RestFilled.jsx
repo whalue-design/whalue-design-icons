@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import RestFilledSvg from '@whalue-design/icons-svg/lib/asn/RestFilled';
 
-const RestFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={RestFilledSvg}></Icon>;
+export default {
+  name: 'IconRestFilled',
+  displayName: 'RestFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: RestFilledSvg } },
+      children,
+    ),
 };
-
-RestFilled.inheritAttrs = false;
-export default RestFilled;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import AppstoreTwoToneSvg from '@whalue-design/icons-svg/lib/asn/AppstoreTwoTone';
 
-const AppstoreTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={AppstoreTwoToneSvg}></Icon>;
+export default {
+  name: 'IconAppstoreTwoTone',
+  displayName: 'AppstoreTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: AppstoreTwoToneSvg } },
+      children,
+    ),
 };
-
-AppstoreTwoTone.inheritAttrs = false;
-export default AppstoreTwoTone;

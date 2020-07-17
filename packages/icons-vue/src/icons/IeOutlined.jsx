@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import IeOutlinedSvg from '@whalue-design/icons-svg/lib/asn/IeOutlined';
 
-const IeOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={IeOutlinedSvg}></Icon>;
+export default {
+  name: 'IconIeOutlined',
+  displayName: 'IeOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: IeOutlinedSvg } },
+      children,
+    ),
 };
-
-IeOutlined.inheritAttrs = false;
-export default IeOutlined;

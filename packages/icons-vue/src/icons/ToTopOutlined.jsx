@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ToTopOutlinedSvg from '@whalue-design/icons-svg/lib/asn/ToTopOutlined';
 
-const ToTopOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ToTopOutlinedSvg}></Icon>;
+export default {
+  name: 'IconToTopOutlined',
+  displayName: 'ToTopOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ToTopOutlinedSvg } },
+      children,
+    ),
 };
-
-ToTopOutlined.inheritAttrs = false;
-export default ToTopOutlined;

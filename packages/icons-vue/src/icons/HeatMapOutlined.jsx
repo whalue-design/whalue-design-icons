@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import HeatMapOutlinedSvg from '@whalue-design/icons-svg/lib/asn/HeatMapOutlined';
 
-const HeatMapOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={HeatMapOutlinedSvg}></Icon>;
+export default {
+  name: 'IconHeatMapOutlined',
+  displayName: 'HeatMapOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: HeatMapOutlinedSvg } },
+      children,
+    ),
 };
-
-HeatMapOutlined.inheritAttrs = false;
-export default HeatMapOutlined;

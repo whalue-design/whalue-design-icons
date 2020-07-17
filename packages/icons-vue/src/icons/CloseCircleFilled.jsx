@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CloseCircleFilledSvg from '@whalue-design/icons-svg/lib/asn/CloseCircleFilled';
 
-const CloseCircleFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CloseCircleFilledSvg}></Icon>;
+export default {
+  name: 'IconCloseCircleFilled',
+  displayName: 'CloseCircleFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CloseCircleFilledSvg } },
+      children,
+    ),
 };
-
-CloseCircleFilled.inheritAttrs = false;
-export default CloseCircleFilled;

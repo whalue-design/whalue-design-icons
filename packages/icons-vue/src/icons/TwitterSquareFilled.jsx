@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import TwitterSquareFilledSvg from '@whalue-design/icons-svg/lib/asn/TwitterSquareFilled';
 
-const TwitterSquareFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={TwitterSquareFilledSvg}></Icon>;
+export default {
+  name: 'IconTwitterSquareFilled',
+  displayName: 'TwitterSquareFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: TwitterSquareFilledSvg } },
+      children,
+    ),
 };
-
-TwitterSquareFilled.inheritAttrs = false;
-export default TwitterSquareFilled;

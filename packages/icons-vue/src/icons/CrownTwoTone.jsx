@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CrownTwoToneSvg from '@whalue-design/icons-svg/lib/asn/CrownTwoTone';
 
-const CrownTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CrownTwoToneSvg}></Icon>;
+export default {
+  name: 'IconCrownTwoTone',
+  displayName: 'CrownTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CrownTwoToneSvg } },
+      children,
+    ),
 };
-
-CrownTwoTone.inheritAttrs = false;
-export default CrownTwoTone;

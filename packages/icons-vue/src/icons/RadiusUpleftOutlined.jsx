@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import RadiusUpleftOutlinedSvg from '@whalue-design/icons-svg/lib/asn/RadiusUpleftOutlined';
 
-const RadiusUpleftOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={RadiusUpleftOutlinedSvg}></Icon>;
+export default {
+  name: 'IconRadiusUpleftOutlined',
+  displayName: 'RadiusUpleftOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: RadiusUpleftOutlinedSvg } },
+      children,
+    ),
 };
-
-RadiusUpleftOutlined.inheritAttrs = false;
-export default RadiusUpleftOutlined;

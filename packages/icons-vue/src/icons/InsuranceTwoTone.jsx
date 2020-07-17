@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import InsuranceTwoToneSvg from '@whalue-design/icons-svg/lib/asn/InsuranceTwoTone';
 
-const InsuranceTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={InsuranceTwoToneSvg}></Icon>;
+export default {
+  name: 'IconInsuranceTwoTone',
+  displayName: 'InsuranceTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: InsuranceTwoToneSvg } },
+      children,
+    ),
 };
-
-InsuranceTwoTone.inheritAttrs = false;
-export default InsuranceTwoTone;

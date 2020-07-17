@@ -22,8 +22,10 @@ package-lock.json*
 /.idea
 .vscode
 
-es/
 lib/
+es/
+dist/
+build/
 
 # publish
 *.tgz

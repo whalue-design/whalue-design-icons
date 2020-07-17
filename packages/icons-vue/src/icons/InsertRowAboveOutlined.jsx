@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import InsertRowAboveOutlinedSvg from '@whalue-design/icons-svg/lib/asn/InsertRowAboveOutlined';
 
-const InsertRowAboveOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={InsertRowAboveOutlinedSvg}></Icon>;
+export default {
+  name: 'IconInsertRowAboveOutlined',
+  displayName: 'InsertRowAboveOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: InsertRowAboveOutlinedSvg } },
+      children,
+    ),
 };
-
-InsertRowAboveOutlined.inheritAttrs = false;
-export default InsertRowAboveOutlined;

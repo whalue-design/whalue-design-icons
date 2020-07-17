@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CiTwoToneSvg from '@whalue-design/icons-svg/lib/asn/CiTwoTone';
 
-const CiTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CiTwoToneSvg}></Icon>;
+export default {
+  name: 'IconCiTwoTone',
+  displayName: 'CiTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CiTwoToneSvg } },
+      children,
+    ),
 };
-
-CiTwoTone.inheritAttrs = false;
-export default CiTwoTone;

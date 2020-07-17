@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import DeleteColumnOutlinedSvg from '@whalue-design/icons-svg/lib/asn/DeleteColumnOutlined';
 
-const DeleteColumnOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={DeleteColumnOutlinedSvg}></Icon>;
+export default {
+  name: 'IconDeleteColumnOutlined',
+  displayName: 'DeleteColumnOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: DeleteColumnOutlinedSvg } },
+      children,
+    ),
 };
-
-DeleteColumnOutlined.inheritAttrs = false;
-export default DeleteColumnOutlined;

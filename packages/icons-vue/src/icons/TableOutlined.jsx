@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import TableOutlinedSvg from '@whalue-design/icons-svg/lib/asn/TableOutlined';
 
-const TableOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={TableOutlinedSvg}></Icon>;
+export default {
+  name: 'IconTableOutlined',
+  displayName: 'TableOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: TableOutlinedSvg } },
+      children,
+    ),
 };
-
-TableOutlined.inheritAttrs = false;
-export default TableOutlined;

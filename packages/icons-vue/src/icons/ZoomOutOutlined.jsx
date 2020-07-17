@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ZoomOutOutlinedSvg from '@whalue-design/icons-svg/lib/asn/ZoomOutOutlined';
 
-const ZoomOutOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ZoomOutOutlinedSvg}></Icon>;
+export default {
+  name: 'IconZoomOutOutlined',
+  displayName: 'ZoomOutOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ZoomOutOutlinedSvg } },
+      children,
+    ),
 };
-
-ZoomOutOutlined.inheritAttrs = false;
-export default ZoomOutOutlined;

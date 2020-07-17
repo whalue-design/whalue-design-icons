@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import PlayCircleFilledSvg from '@whalue-design/icons-svg/lib/asn/PlayCircleFilled';
 
-const PlayCircleFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={PlayCircleFilledSvg}></Icon>;
+export default {
+  name: 'IconPlayCircleFilled',
+  displayName: 'PlayCircleFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: PlayCircleFilledSvg } },
+      children,
+    ),
 };
-
-PlayCircleFilled.inheritAttrs = false;
-export default PlayCircleFilled;

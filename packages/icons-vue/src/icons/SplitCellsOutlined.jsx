@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import SplitCellsOutlinedSvg from '@whalue-design/icons-svg/lib/asn/SplitCellsOutlined';
 
-const SplitCellsOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={SplitCellsOutlinedSvg}></Icon>;
+export default {
+  name: 'IconSplitCellsOutlined',
+  displayName: 'SplitCellsOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: SplitCellsOutlinedSvg } },
+      children,
+    ),
 };
-
-SplitCellsOutlined.inheritAttrs = false;
-export default SplitCellsOutlined;

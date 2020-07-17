@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CopyTwoToneSvg from '@whalue-design/icons-svg/lib/asn/CopyTwoTone';
 
-const CopyTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CopyTwoToneSvg}></Icon>;
+export default {
+  name: 'IconCopyTwoTone',
+  displayName: 'CopyTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CopyTwoToneSvg } },
+      children,
+    ),
 };
-
-CopyTwoTone.inheritAttrs = false;
-export default CopyTwoTone;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ExclamationCircleOutlinedSvg from '@whalue-design/icons-svg/lib/asn/ExclamationCircleOutlined';
 
-const ExclamationCircleOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ExclamationCircleOutlinedSvg}></Icon>;
+export default {
+  name: 'IconExclamationCircleOutlined',
+  displayName: 'ExclamationCircleOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ExclamationCircleOutlinedSvg } },
+      children,
+    ),
 };
-
-ExclamationCircleOutlined.inheritAttrs = false;
-export default ExclamationCircleOutlined;

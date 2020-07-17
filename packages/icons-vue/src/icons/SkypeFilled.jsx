@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import SkypeFilledSvg from '@whalue-design/icons-svg/lib/asn/SkypeFilled';
 
-const SkypeFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={SkypeFilledSvg}></Icon>;
+export default {
+  name: 'IconSkypeFilled',
+  displayName: 'SkypeFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: SkypeFilledSvg } },
+      children,
+    ),
 };
-
-SkypeFilled.inheritAttrs = false;
-export default SkypeFilled;

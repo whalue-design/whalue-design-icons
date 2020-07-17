@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import StepForwardFilledSvg from '@whalue-design/icons-svg/lib/asn/StepForwardFilled';
 
-const StepForwardFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={StepForwardFilledSvg}></Icon>;
+export default {
+  name: 'IconStepForwardFilled',
+  displayName: 'StepForwardFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: StepForwardFilledSvg } },
+      children,
+    ),
 };
-
-StepForwardFilled.inheritAttrs = false;
-export default StepForwardFilled;

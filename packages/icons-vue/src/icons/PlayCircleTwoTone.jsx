@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import PlayCircleTwoToneSvg from '@whalue-design/icons-svg/lib/asn/PlayCircleTwoTone';
 
-const PlayCircleTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={PlayCircleTwoToneSvg}></Icon>;
+export default {
+  name: 'IconPlayCircleTwoTone',
+  displayName: 'PlayCircleTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: PlayCircleTwoToneSvg } },
+      children,
+    ),
 };
-
-PlayCircleTwoTone.inheritAttrs = false;
-export default PlayCircleTwoTone;

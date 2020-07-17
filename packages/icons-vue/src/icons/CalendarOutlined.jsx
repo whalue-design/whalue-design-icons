@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CalendarOutlinedSvg from '@whalue-design/icons-svg/lib/asn/CalendarOutlined';
 
-const CalendarOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CalendarOutlinedSvg}></Icon>;
+export default {
+  name: 'IconCalendarOutlined',
+  displayName: 'CalendarOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CalendarOutlinedSvg } },
+      children,
+    ),
 };
-
-CalendarOutlined.inheritAttrs = false;
-export default CalendarOutlined;

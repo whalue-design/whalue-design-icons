@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import DislikeFilledSvg from '@whalue-design/icons-svg/lib/asn/DislikeFilled';
 
-const DislikeFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={DislikeFilledSvg}></Icon>;
+export default {
+  name: 'IconDislikeFilled',
+  displayName: 'DislikeFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: DislikeFilledSvg } },
+      children,
+    ),
 };
-
-DislikeFilled.inheritAttrs = false;
-export default DislikeFilled;

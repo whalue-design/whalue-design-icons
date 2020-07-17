@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FileUnknownOutlinedSvg from '@whalue-design/icons-svg/lib/asn/FileUnknownOutlined';
 
-const FileUnknownOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FileUnknownOutlinedSvg}></Icon>;
+export default {
+  name: 'IconFileUnknownOutlined',
+  displayName: 'FileUnknownOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FileUnknownOutlinedSvg } },
+      children,
+    ),
 };
-
-FileUnknownOutlined.inheritAttrs = false;
-export default FileUnknownOutlined;

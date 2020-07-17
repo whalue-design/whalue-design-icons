@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import DeleteFilledSvg from '@whalue-design/icons-svg/lib/asn/DeleteFilled';
 
-const DeleteFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={DeleteFilledSvg}></Icon>;
+export default {
+  name: 'IconDeleteFilled',
+  displayName: 'DeleteFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: DeleteFilledSvg } },
+      children,
+    ),
 };
-
-DeleteFilled.inheritAttrs = false;
-export default DeleteFilled;

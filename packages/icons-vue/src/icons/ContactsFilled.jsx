@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ContactsFilledSvg from '@whalue-design/icons-svg/lib/asn/ContactsFilled';
 
-const ContactsFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ContactsFilledSvg}></Icon>;
+export default {
+  name: 'IconContactsFilled',
+  displayName: 'ContactsFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ContactsFilledSvg } },
+      children,
+    ),
 };
-
-ContactsFilled.inheritAttrs = false;
-export default ContactsFilled;

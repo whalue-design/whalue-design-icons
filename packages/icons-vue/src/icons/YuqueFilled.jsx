@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import YuqueFilledSvg from '@whalue-design/icons-svg/lib/asn/YuqueFilled';
 
-const YuqueFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={YuqueFilledSvg}></Icon>;
+export default {
+  name: 'IconYuqueFilled',
+  displayName: 'YuqueFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: YuqueFilledSvg } },
+      children,
+    ),
 };
-
-YuqueFilled.inheritAttrs = false;
-export default YuqueFilled;

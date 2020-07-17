@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CompassTwoToneSvg from '@whalue-design/icons-svg/lib/asn/CompassTwoTone';
 
-const CompassTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CompassTwoToneSvg}></Icon>;
+export default {
+  name: 'IconCompassTwoTone',
+  displayName: 'CompassTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CompassTwoToneSvg } },
+      children,
+    ),
 };
-
-CompassTwoTone.inheritAttrs = false;
-export default CompassTwoTone;

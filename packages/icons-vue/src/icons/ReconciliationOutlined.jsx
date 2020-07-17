@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ReconciliationOutlinedSvg from '@whalue-design/icons-svg/lib/asn/ReconciliationOutlined';
 
-const ReconciliationOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ReconciliationOutlinedSvg}></Icon>;
+export default {
+  name: 'IconReconciliationOutlined',
+  displayName: 'ReconciliationOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ReconciliationOutlinedSvg } },
+      children,
+    ),
 };
-
-ReconciliationOutlined.inheritAttrs = false;
-export default ReconciliationOutlined;

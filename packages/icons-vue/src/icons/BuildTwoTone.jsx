@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import BuildTwoToneSvg from '@whalue-design/icons-svg/lib/asn/BuildTwoTone';
 
-const BuildTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={BuildTwoToneSvg}></Icon>;
+export default {
+  name: 'IconBuildTwoTone',
+  displayName: 'BuildTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: BuildTwoToneSvg } },
+      children,
+    ),
 };
-
-BuildTwoTone.inheritAttrs = false;
-export default BuildTwoTone;

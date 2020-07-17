@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import LinkedinFilledSvg from '@whalue-design/icons-svg/lib/asn/LinkedinFilled';
 
-const LinkedinFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={LinkedinFilledSvg}></Icon>;
+export default {
+  name: 'IconLinkedinFilled',
+  displayName: 'LinkedinFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: LinkedinFilledSvg } },
+      children,
+    ),
 };
-
-LinkedinFilled.inheritAttrs = false;
-export default LinkedinFilled;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ReadFilledSvg from '@whalue-design/icons-svg/lib/asn/ReadFilled';
 
-const ReadFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ReadFilledSvg}></Icon>;
+export default {
+  name: 'IconReadFilled',
+  displayName: 'ReadFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ReadFilledSvg } },
+      children,
+    ),
 };
-
-ReadFilled.inheritAttrs = false;
-export default ReadFilled;

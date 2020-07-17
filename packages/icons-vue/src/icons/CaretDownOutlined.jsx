@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CaretDownOutlinedSvg from '@whalue-design/icons-svg/lib/asn/CaretDownOutlined';
 
-const CaretDownOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CaretDownOutlinedSvg}></Icon>;
+export default {
+  name: 'IconCaretDownOutlined',
+  displayName: 'CaretDownOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CaretDownOutlinedSvg } },
+      children,
+    ),
 };
-
-CaretDownOutlined.inheritAttrs = false;
-export default CaretDownOutlined;

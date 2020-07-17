@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import DownSquareFilledSvg from '@whalue-design/icons-svg/lib/asn/DownSquareFilled';
 
-const DownSquareFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={DownSquareFilledSvg}></Icon>;
+export default {
+  name: 'IconDownSquareFilled',
+  displayName: 'DownSquareFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: DownSquareFilledSvg } },
+      children,
+    ),
 };
-
-DownSquareFilled.inheritAttrs = false;
-export default DownSquareFilled;

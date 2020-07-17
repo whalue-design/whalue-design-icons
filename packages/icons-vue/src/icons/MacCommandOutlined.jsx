@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import MacCommandOutlinedSvg from '@whalue-design/icons-svg/lib/asn/MacCommandOutlined';
 
-const MacCommandOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={MacCommandOutlinedSvg}></Icon>;
+export default {
+  name: 'IconMacCommandOutlined',
+  displayName: 'MacCommandOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: MacCommandOutlinedSvg } },
+      children,
+    ),
 };
-
-MacCommandOutlined.inheritAttrs = false;
-export default MacCommandOutlined;

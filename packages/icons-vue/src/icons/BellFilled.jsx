@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import BellFilledSvg from '@whalue-design/icons-svg/lib/asn/BellFilled';
 
-const BellFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={BellFilledSvg}></Icon>;
+export default {
+  name: 'IconBellFilled',
+  displayName: 'BellFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: BellFilledSvg } },
+      children,
+    ),
 };
-
-BellFilled.inheritAttrs = false;
-export default BellFilled;

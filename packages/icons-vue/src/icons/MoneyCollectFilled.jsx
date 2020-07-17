@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import MoneyCollectFilledSvg from '@whalue-design/icons-svg/lib/asn/MoneyCollectFilled';
 
-const MoneyCollectFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={MoneyCollectFilledSvg}></Icon>;
+export default {
+  name: 'IconMoneyCollectFilled',
+  displayName: 'MoneyCollectFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: MoneyCollectFilledSvg } },
+      children,
+    ),
 };
-
-MoneyCollectFilled.inheritAttrs = false;
-export default MoneyCollectFilled;

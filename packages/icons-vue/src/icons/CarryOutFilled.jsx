@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CarryOutFilledSvg from '@whalue-design/icons-svg/lib/asn/CarryOutFilled';
 
-const CarryOutFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CarryOutFilledSvg}></Icon>;
+export default {
+  name: 'IconCarryOutFilled',
+  displayName: 'CarryOutFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CarryOutFilledSvg } },
+      children,
+    ),
 };
-
-CarryOutFilled.inheritAttrs = false;
-export default CarryOutFilled;

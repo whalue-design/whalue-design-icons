@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FastBackwardOutlinedSvg from '@whalue-design/icons-svg/lib/asn/FastBackwardOutlined';
 
-const FastBackwardOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FastBackwardOutlinedSvg}></Icon>;
+export default {
+  name: 'IconFastBackwardOutlined',
+  displayName: 'FastBackwardOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FastBackwardOutlinedSvg } },
+      children,
+    ),
 };
-
-FastBackwardOutlined.inheritAttrs = false;
-export default FastBackwardOutlined;

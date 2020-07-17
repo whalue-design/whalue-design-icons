@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import WeiboSquareFilledSvg from '@whalue-design/icons-svg/lib/asn/WeiboSquareFilled';
 
-const WeiboSquareFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={WeiboSquareFilledSvg}></Icon>;
+export default {
+  name: 'IconWeiboSquareFilled',
+  displayName: 'WeiboSquareFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: WeiboSquareFilledSvg } },
+      children,
+    ),
 };
-
-WeiboSquareFilled.inheritAttrs = false;
-export default WeiboSquareFilled;

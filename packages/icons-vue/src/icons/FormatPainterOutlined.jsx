@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FormatPainterOutlinedSvg from '@whalue-design/icons-svg/lib/asn/FormatPainterOutlined';
 
-const FormatPainterOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FormatPainterOutlinedSvg}></Icon>;
+export default {
+  name: 'IconFormatPainterOutlined',
+  displayName: 'FormatPainterOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FormatPainterOutlinedSvg } },
+      children,
+    ),
 };
-
-FormatPainterOutlined.inheritAttrs = false;
-export default FormatPainterOutlined;

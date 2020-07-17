@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ApartmentOutlinedSvg from '@whalue-design/icons-svg/lib/asn/ApartmentOutlined';
 
-const ApartmentOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ApartmentOutlinedSvg}></Icon>;
+export default {
+  name: 'IconApartmentOutlined',
+  displayName: 'ApartmentOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ApartmentOutlinedSvg } },
+      children,
+    ),
 };
-
-ApartmentOutlined.inheritAttrs = false;
-export default ApartmentOutlined;

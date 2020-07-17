@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FallOutlinedSvg from '@whalue-design/icons-svg/lib/asn/FallOutlined';
 
-const FallOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FallOutlinedSvg}></Icon>;
+export default {
+  name: 'IconFallOutlined',
+  displayName: 'FallOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FallOutlinedSvg } },
+      children,
+    ),
 };
-
-FallOutlined.inheritAttrs = false;
-export default FallOutlined;

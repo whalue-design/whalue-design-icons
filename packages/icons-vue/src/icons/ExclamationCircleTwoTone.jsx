@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ExclamationCircleTwoToneSvg from '@whalue-design/icons-svg/lib/asn/ExclamationCircleTwoTone';
 
-const ExclamationCircleTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ExclamationCircleTwoToneSvg}></Icon>;
+export default {
+  name: 'IconExclamationCircleTwoTone',
+  displayName: 'ExclamationCircleTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ExclamationCircleTwoToneSvg } },
+      children,
+    ),
 };
-
-ExclamationCircleTwoTone.inheritAttrs = false;
-export default ExclamationCircleTwoTone;

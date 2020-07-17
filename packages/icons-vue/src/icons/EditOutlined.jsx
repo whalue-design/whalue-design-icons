@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import EditOutlinedSvg from '@whalue-design/icons-svg/lib/asn/EditOutlined';
 
-const EditOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={EditOutlinedSvg}></Icon>;
+export default {
+  name: 'IconEditOutlined',
+  displayName: 'EditOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: EditOutlinedSvg } },
+      children,
+    ),
 };
-
-EditOutlined.inheritAttrs = false;
-export default EditOutlined;

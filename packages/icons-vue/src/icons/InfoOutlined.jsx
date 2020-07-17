@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import InfoOutlinedSvg from '@whalue-design/icons-svg/lib/asn/InfoOutlined';
 
-const InfoOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={InfoOutlinedSvg}></Icon>;
+export default {
+  name: 'IconInfoOutlined',
+  displayName: 'InfoOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: InfoOutlinedSvg } },
+      children,
+    ),
 };
-
-InfoOutlined.inheritAttrs = false;
-export default InfoOutlined;

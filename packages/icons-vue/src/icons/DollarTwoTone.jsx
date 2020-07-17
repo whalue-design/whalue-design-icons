@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import DollarTwoToneSvg from '@whalue-design/icons-svg/lib/asn/DollarTwoTone';
 
-const DollarTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={DollarTwoToneSvg}></Icon>;
+export default {
+  name: 'IconDollarTwoTone',
+  displayName: 'DollarTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: DollarTwoToneSvg } },
+      children,
+    ),
 };
-
-DollarTwoTone.inheritAttrs = false;
-export default DollarTwoTone;

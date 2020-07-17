@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import GoogleSquareFilledSvg from '@whalue-design/icons-svg/lib/asn/GoogleSquareFilled';
 
-const GoogleSquareFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={GoogleSquareFilledSvg}></Icon>;
+export default {
+  name: 'IconGoogleSquareFilled',
+  displayName: 'GoogleSquareFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: GoogleSquareFilledSvg } },
+      children,
+    ),
 };
-
-GoogleSquareFilled.inheritAttrs = false;
-export default GoogleSquareFilled;

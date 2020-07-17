@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FilterFilledSvg from '@whalue-design/icons-svg/lib/asn/FilterFilled';
 
-const FilterFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FilterFilledSvg}></Icon>;
+export default {
+  name: 'IconFilterFilled',
+  displayName: 'FilterFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FilterFilledSvg } },
+      children,
+    ),
 };
-
-FilterFilled.inheritAttrs = false;
-export default FilterFilled;

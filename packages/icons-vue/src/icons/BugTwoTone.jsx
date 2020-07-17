@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import BugTwoToneSvg from '@whalue-design/icons-svg/lib/asn/BugTwoTone';
 
-const BugTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={BugTwoToneSvg}></Icon>;
+export default {
+  name: 'IconBugTwoTone',
+  displayName: 'BugTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: BugTwoToneSvg } },
+      children,
+    ),
 };
-
-BugTwoTone.inheritAttrs = false;
-export default BugTwoTone;

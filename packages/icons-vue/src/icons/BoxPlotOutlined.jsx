@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import BoxPlotOutlinedSvg from '@whalue-design/icons-svg/lib/asn/BoxPlotOutlined';
 
-const BoxPlotOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={BoxPlotOutlinedSvg}></Icon>;
+export default {
+  name: 'IconBoxPlotOutlined',
+  displayName: 'BoxPlotOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: BoxPlotOutlinedSvg } },
+      children,
+    ),
 };
-
-BoxPlotOutlined.inheritAttrs = false;
-export default BoxPlotOutlined;

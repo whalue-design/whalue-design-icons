@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import BulbOutlinedSvg from '@whalue-design/icons-svg/lib/asn/BulbOutlined';
 
-const BulbOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={BulbOutlinedSvg}></Icon>;
+export default {
+  name: 'IconBulbOutlined',
+  displayName: 'BulbOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: BulbOutlinedSvg } },
+      children,
+    ),
 };
-
-BulbOutlined.inheritAttrs = false;
-export default BulbOutlined;

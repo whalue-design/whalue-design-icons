@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import PauseCircleTwoToneSvg from '@whalue-design/icons-svg/lib/asn/PauseCircleTwoTone';
 
-const PauseCircleTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={PauseCircleTwoToneSvg}></Icon>;
+export default {
+  name: 'IconPauseCircleTwoTone',
+  displayName: 'PauseCircleTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: PauseCircleTwoToneSvg } },
+      children,
+    ),
 };
-
-PauseCircleTwoTone.inheritAttrs = false;
-export default PauseCircleTwoTone;

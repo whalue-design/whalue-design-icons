@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import InteractionFilledSvg from '@whalue-design/icons-svg/lib/asn/InteractionFilled';
 
-const InteractionFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={InteractionFilledSvg}></Icon>;
+export default {
+  name: 'IconInteractionFilled',
+  displayName: 'InteractionFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: InteractionFilledSvg } },
+      children,
+    ),
 };
-
-InteractionFilled.inheritAttrs = false;
-export default InteractionFilled;

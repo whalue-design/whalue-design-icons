@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import AppleOutlinedSvg from '@whalue-design/icons-svg/lib/asn/AppleOutlined';
 
-const AppleOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={AppleOutlinedSvg}></Icon>;
+export default {
+  name: 'IconAppleOutlined',
+  displayName: 'AppleOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: AppleOutlinedSvg } },
+      children,
+    ),
 };
-
-AppleOutlined.inheritAttrs = false;
-export default AppleOutlined;

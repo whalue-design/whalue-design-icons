@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import SisternodeOutlinedSvg from '@whalue-design/icons-svg/lib/asn/SisternodeOutlined';
 
-const SisternodeOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={SisternodeOutlinedSvg}></Icon>;
+export default {
+  name: 'IconSisternodeOutlined',
+  displayName: 'SisternodeOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: SisternodeOutlinedSvg } },
+      children,
+    ),
 };
-
-SisternodeOutlined.inheritAttrs = false;
-export default SisternodeOutlined;

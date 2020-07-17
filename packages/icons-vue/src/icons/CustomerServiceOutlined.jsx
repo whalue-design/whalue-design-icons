@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CustomerServiceOutlinedSvg from '@whalue-design/icons-svg/lib/asn/CustomerServiceOutlined';
 
-const CustomerServiceOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CustomerServiceOutlinedSvg}></Icon>;
+export default {
+  name: 'IconCustomerServiceOutlined',
+  displayName: 'CustomerServiceOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CustomerServiceOutlinedSvg } },
+      children,
+    ),
 };
-
-CustomerServiceOutlined.inheritAttrs = false;
-export default CustomerServiceOutlined;

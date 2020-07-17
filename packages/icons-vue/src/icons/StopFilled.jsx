@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import StopFilledSvg from '@whalue-design/icons-svg/lib/asn/StopFilled';
 
-const StopFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={StopFilledSvg}></Icon>;
+export default {
+  name: 'IconStopFilled',
+  displayName: 'StopFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: StopFilledSvg } },
+      children,
+    ),
 };
-
-StopFilled.inheritAttrs = false;
-export default StopFilled;

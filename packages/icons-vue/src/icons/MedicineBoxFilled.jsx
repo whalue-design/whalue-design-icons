@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import MedicineBoxFilledSvg from '@whalue-design/icons-svg/lib/asn/MedicineBoxFilled';
 
-const MedicineBoxFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={MedicineBoxFilledSvg}></Icon>;
+export default {
+  name: 'IconMedicineBoxFilled',
+  displayName: 'MedicineBoxFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: MedicineBoxFilledSvg } },
+      children,
+    ),
 };
-
-MedicineBoxFilled.inheritAttrs = false;
-export default MedicineBoxFilled;

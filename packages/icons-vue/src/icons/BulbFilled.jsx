@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import BulbFilledSvg from '@whalue-design/icons-svg/lib/asn/BulbFilled';
 
-const BulbFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={BulbFilledSvg}></Icon>;
+export default {
+  name: 'IconBulbFilled',
+  displayName: 'BulbFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: BulbFilledSvg } },
+      children,
+    ),
 };
-
-BulbFilled.inheritAttrs = false;
-export default BulbFilled;

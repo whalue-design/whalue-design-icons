@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import LikeOutlinedSvg from '@whalue-design/icons-svg/lib/asn/LikeOutlined';
 
-const LikeOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={LikeOutlinedSvg}></Icon>;
+export default {
+  name: 'IconLikeOutlined',
+  displayName: 'LikeOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: LikeOutlinedSvg } },
+      children,
+    ),
 };
-
-LikeOutlined.inheritAttrs = false;
-export default LikeOutlined;

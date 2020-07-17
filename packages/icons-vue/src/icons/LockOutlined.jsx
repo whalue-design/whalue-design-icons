@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import LockOutlinedSvg from '@whalue-design/icons-svg/lib/asn/LockOutlined';
 
-const LockOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={LockOutlinedSvg}></Icon>;
+export default {
+  name: 'IconLockOutlined',
+  displayName: 'LockOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: LockOutlinedSvg } },
+      children,
+    ),
 };
-
-LockOutlined.inheritAttrs = false;
-export default LockOutlined;

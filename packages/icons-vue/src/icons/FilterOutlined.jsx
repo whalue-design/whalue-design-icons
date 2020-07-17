@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FilterOutlinedSvg from '@whalue-design/icons-svg/lib/asn/FilterOutlined';
 
-const FilterOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FilterOutlinedSvg}></Icon>;
+export default {
+  name: 'IconFilterOutlined',
+  displayName: 'FilterOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FilterOutlinedSvg } },
+      children,
+    ),
 };
-
-FilterOutlined.inheritAttrs = false;
-export default FilterOutlined;

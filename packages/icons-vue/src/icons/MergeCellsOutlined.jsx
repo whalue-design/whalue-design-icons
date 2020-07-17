@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import MergeCellsOutlinedSvg from '@whalue-design/icons-svg/lib/asn/MergeCellsOutlined';
 
-const MergeCellsOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={MergeCellsOutlinedSvg}></Icon>;
+export default {
+  name: 'IconMergeCellsOutlined',
+  displayName: 'MergeCellsOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: MergeCellsOutlinedSvg } },
+      children,
+    ),
 };
-
-MergeCellsOutlined.inheritAttrs = false;
-export default MergeCellsOutlined;

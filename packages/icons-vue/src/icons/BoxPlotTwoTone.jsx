@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import BoxPlotTwoToneSvg from '@whalue-design/icons-svg/lib/asn/BoxPlotTwoTone';
 
-const BoxPlotTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={BoxPlotTwoToneSvg}></Icon>;
+export default {
+  name: 'IconBoxPlotTwoTone',
+  displayName: 'BoxPlotTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: BoxPlotTwoToneSvg } },
+      children,
+    ),
 };
-
-BoxPlotTwoTone.inheritAttrs = false;
-export default BoxPlotTwoTone;

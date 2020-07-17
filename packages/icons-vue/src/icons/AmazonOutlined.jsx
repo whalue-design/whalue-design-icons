@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import AmazonOutlinedSvg from '@whalue-design/icons-svg/lib/asn/AmazonOutlined';
 
-const AmazonOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={AmazonOutlinedSvg}></Icon>;
+export default {
+  name: 'IconAmazonOutlined',
+  displayName: 'AmazonOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: AmazonOutlinedSvg } },
+      children,
+    ),
 };
-
-AmazonOutlined.inheritAttrs = false;
-export default AmazonOutlined;

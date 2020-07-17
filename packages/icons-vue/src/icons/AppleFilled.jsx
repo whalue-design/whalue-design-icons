@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import AppleFilledSvg from '@whalue-design/icons-svg/lib/asn/AppleFilled';
 
-const AppleFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={AppleFilledSvg}></Icon>;
+export default {
+  name: 'IconAppleFilled',
+  displayName: 'AppleFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: AppleFilledSvg } },
+      children,
+    ),
 };
-
-AppleFilled.inheritAttrs = false;
-export default AppleFilled;

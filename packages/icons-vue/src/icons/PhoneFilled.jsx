@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import PhoneFilledSvg from '@whalue-design/icons-svg/lib/asn/PhoneFilled';
 
-const PhoneFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={PhoneFilledSvg}></Icon>;
+export default {
+  name: 'IconPhoneFilled',
+  displayName: 'PhoneFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: PhoneFilledSvg } },
+      children,
+    ),
 };
-
-PhoneFilled.inheritAttrs = false;
-export default PhoneFilled;

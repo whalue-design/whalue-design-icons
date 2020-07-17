@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ContainerTwoToneSvg from '@whalue-design/icons-svg/lib/asn/ContainerTwoTone';
 
-const ContainerTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ContainerTwoToneSvg}></Icon>;
+export default {
+  name: 'IconContainerTwoTone',
+  displayName: 'ContainerTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ContainerTwoToneSvg } },
+      children,
+    ),
 };
-
-ContainerTwoTone.inheritAttrs = false;
-export default ContainerTwoTone;

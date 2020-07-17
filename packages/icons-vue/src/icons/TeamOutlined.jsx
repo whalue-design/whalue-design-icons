@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import TeamOutlinedSvg from '@whalue-design/icons-svg/lib/asn/TeamOutlined';
 
-const TeamOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={TeamOutlinedSvg}></Icon>;
+export default {
+  name: 'IconTeamOutlined',
+  displayName: 'TeamOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: TeamOutlinedSvg } },
+      children,
+    ),
 };
-
-TeamOutlined.inheritAttrs = false;
-export default TeamOutlined;

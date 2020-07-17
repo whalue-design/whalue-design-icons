@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FundFilledSvg from '@whalue-design/icons-svg/lib/asn/FundFilled';
 
-const FundFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FundFilledSvg}></Icon>;
+export default {
+  name: 'IconFundFilled',
+  displayName: 'FundFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FundFilledSvg } },
+      children,
+    ),
 };
-
-FundFilled.inheritAttrs = false;
-export default FundFilled;

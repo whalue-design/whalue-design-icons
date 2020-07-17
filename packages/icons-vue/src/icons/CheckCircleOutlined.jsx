@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CheckCircleOutlinedSvg from '@whalue-design/icons-svg/lib/asn/CheckCircleOutlined';
 
-const CheckCircleOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CheckCircleOutlinedSvg}></Icon>;
+export default {
+  name: 'IconCheckCircleOutlined',
+  displayName: 'CheckCircleOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CheckCircleOutlinedSvg } },
+      children,
+    ),
 };
-
-CheckCircleOutlined.inheritAttrs = false;
-export default CheckCircleOutlined;

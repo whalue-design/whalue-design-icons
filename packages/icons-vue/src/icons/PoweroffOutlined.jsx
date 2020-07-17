@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import PoweroffOutlinedSvg from '@whalue-design/icons-svg/lib/asn/PoweroffOutlined';
 
-const PoweroffOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={PoweroffOutlinedSvg}></Icon>;
+export default {
+  name: 'IconPoweroffOutlined',
+  displayName: 'PoweroffOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: PoweroffOutlinedSvg } },
+      children,
+    ),
 };
-
-PoweroffOutlined.inheritAttrs = false;
-export default PoweroffOutlined;

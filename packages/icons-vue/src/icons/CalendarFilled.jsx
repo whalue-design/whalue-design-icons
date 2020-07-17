@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CalendarFilledSvg from '@whalue-design/icons-svg/lib/asn/CalendarFilled';
 
-const CalendarFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CalendarFilledSvg}></Icon>;
+export default {
+  name: 'IconCalendarFilled',
+  displayName: 'CalendarFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CalendarFilledSvg } },
+      children,
+    ),
 };
-
-CalendarFilled.inheritAttrs = false;
-export default CalendarFilled;

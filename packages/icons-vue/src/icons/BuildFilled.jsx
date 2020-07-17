@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import BuildFilledSvg from '@whalue-design/icons-svg/lib/asn/BuildFilled';
 
-const BuildFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={BuildFilledSvg}></Icon>;
+export default {
+  name: 'IconBuildFilled',
+  displayName: 'BuildFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: BuildFilledSvg } },
+      children,
+    ),
 };
-
-BuildFilled.inheritAttrs = false;
-export default BuildFilled;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import DribbbleSquareFilledSvg from '@whalue-design/icons-svg/lib/asn/DribbbleSquareFilled';
 
-const DribbbleSquareFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={DribbbleSquareFilledSvg}></Icon>;
+export default {
+  name: 'IconDribbbleSquareFilled',
+  displayName: 'DribbbleSquareFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: DribbbleSquareFilledSvg } },
+      children,
+    ),
 };
-
-DribbbleSquareFilled.inheritAttrs = false;
-export default DribbbleSquareFilled;

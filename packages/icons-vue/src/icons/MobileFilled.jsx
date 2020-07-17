@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import MobileFilledSvg from '@whalue-design/icons-svg/lib/asn/MobileFilled';
 
-const MobileFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={MobileFilledSvg}></Icon>;
+export default {
+  name: 'IconMobileFilled',
+  displayName: 'MobileFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: MobileFilledSvg } },
+      children,
+    ),
 };
-
-MobileFilled.inheritAttrs = false;
-export default MobileFilled;

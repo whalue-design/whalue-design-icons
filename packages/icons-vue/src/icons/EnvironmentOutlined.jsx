@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import EnvironmentOutlinedSvg from '@whalue-design/icons-svg/lib/asn/EnvironmentOutlined';
 
-const EnvironmentOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={EnvironmentOutlinedSvg}></Icon>;
+export default {
+  name: 'IconEnvironmentOutlined',
+  displayName: 'EnvironmentOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: EnvironmentOutlinedSvg } },
+      children,
+    ),
 };
-
-EnvironmentOutlined.inheritAttrs = false;
-export default EnvironmentOutlined;

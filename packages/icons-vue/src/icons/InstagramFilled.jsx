@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import InstagramFilledSvg from '@whalue-design/icons-svg/lib/asn/InstagramFilled';
 
-const InstagramFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={InstagramFilledSvg}></Icon>;
+export default {
+  name: 'IconInstagramFilled',
+  displayName: 'InstagramFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: InstagramFilledSvg } },
+      children,
+    ),
 };
-
-InstagramFilled.inheritAttrs = false;
-export default InstagramFilled;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import RedditCircleFilledSvg from '@whalue-design/icons-svg/lib/asn/RedditCircleFilled';
 
-const RedditCircleFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={RedditCircleFilledSvg}></Icon>;
+export default {
+  name: 'IconRedditCircleFilled',
+  displayName: 'RedditCircleFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: RedditCircleFilledSvg } },
+      children,
+    ),
 };
-
-RedditCircleFilled.inheritAttrs = false;
-export default RedditCircleFilled;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CiOutlinedSvg from '@whalue-design/icons-svg/lib/asn/CiOutlined';
 
-const CiOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CiOutlinedSvg}></Icon>;
+export default {
+  name: 'IconCiOutlined',
+  displayName: 'CiOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CiOutlinedSvg } },
+      children,
+    ),
 };
-
-CiOutlined.inheritAttrs = false;
-export default CiOutlined;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import DownCircleFilledSvg from '@whalue-design/icons-svg/lib/asn/DownCircleFilled';
 
-const DownCircleFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={DownCircleFilledSvg}></Icon>;
+export default {
+  name: 'IconDownCircleFilled',
+  displayName: 'DownCircleFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: DownCircleFilledSvg } },
+      children,
+    ),
 };
-
-DownCircleFilled.inheritAttrs = false;
-export default DownCircleFilled;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import TrademarkCircleOutlinedSvg from '@whalue-design/icons-svg/lib/asn/TrademarkCircleOutlined';
 
-const TrademarkCircleOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={TrademarkCircleOutlinedSvg}></Icon>;
+export default {
+  name: 'IconTrademarkCircleOutlined',
+  displayName: 'TrademarkCircleOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: TrademarkCircleOutlinedSvg } },
+      children,
+    ),
 };
-
-TrademarkCircleOutlined.inheritAttrs = false;
-export default TrademarkCircleOutlined;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import TwitterOutlinedSvg from '@whalue-design/icons-svg/lib/asn/TwitterOutlined';
 
-const TwitterOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={TwitterOutlinedSvg}></Icon>;
+export default {
+  name: 'IconTwitterOutlined',
+  displayName: 'TwitterOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: TwitterOutlinedSvg } },
+      children,
+    ),
 };
-
-TwitterOutlined.inheritAttrs = false;
-export default TwitterOutlined;

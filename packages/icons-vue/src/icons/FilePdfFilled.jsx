@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FilePdfFilledSvg from '@whalue-design/icons-svg/lib/asn/FilePdfFilled';
 
-const FilePdfFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FilePdfFilledSvg}></Icon>;
+export default {
+  name: 'IconFilePdfFilled',
+  displayName: 'FilePdfFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FilePdfFilledSvg } },
+      children,
+    ),
 };
-
-FilePdfFilled.inheritAttrs = false;
-export default FilePdfFilled;

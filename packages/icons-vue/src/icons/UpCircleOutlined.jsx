@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import UpCircleOutlinedSvg from '@whalue-design/icons-svg/lib/asn/UpCircleOutlined';
 
-const UpCircleOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={UpCircleOutlinedSvg}></Icon>;
+export default {
+  name: 'IconUpCircleOutlined',
+  displayName: 'UpCircleOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: UpCircleOutlinedSvg } },
+      children,
+    ),
 };
-
-UpCircleOutlined.inheritAttrs = false;
-export default UpCircleOutlined;

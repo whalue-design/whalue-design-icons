@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import LaptopOutlinedSvg from '@whalue-design/icons-svg/lib/asn/LaptopOutlined';
 
-const LaptopOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={LaptopOutlinedSvg}></Icon>;
+export default {
+  name: 'IconLaptopOutlined',
+  displayName: 'LaptopOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: LaptopOutlinedSvg } },
+      children,
+    ),
 };
-
-LaptopOutlined.inheritAttrs = false;
-export default LaptopOutlined;

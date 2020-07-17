@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import WechatOutlinedSvg from '@whalue-design/icons-svg/lib/asn/WechatOutlined';
 
-const WechatOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={WechatOutlinedSvg}></Icon>;
+export default {
+  name: 'IconWechatOutlined',
+  displayName: 'WechatOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: WechatOutlinedSvg } },
+      children,
+    ),
 };
-
-WechatOutlined.inheritAttrs = false;
-export default WechatOutlined;

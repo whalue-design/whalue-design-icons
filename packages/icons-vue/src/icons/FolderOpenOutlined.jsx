@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FolderOpenOutlinedSvg from '@whalue-design/icons-svg/lib/asn/FolderOpenOutlined';
 
-const FolderOpenOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FolderOpenOutlinedSvg}></Icon>;
+export default {
+  name: 'IconFolderOpenOutlined',
+  displayName: 'FolderOpenOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FolderOpenOutlinedSvg } },
+      children,
+    ),
 };
-
-FolderOpenOutlined.inheritAttrs = false;
-export default FolderOpenOutlined;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import BellOutlinedSvg from '@whalue-design/icons-svg/lib/asn/BellOutlined';
 
-const BellOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={BellOutlinedSvg}></Icon>;
+export default {
+  name: 'IconBellOutlined',
+  displayName: 'BellOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: BellOutlinedSvg } },
+      children,
+    ),
 };
-
-BellOutlined.inheritAttrs = false;
-export default BellOutlined;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import StarTwoToneSvg from '@whalue-design/icons-svg/lib/asn/StarTwoTone';
 
-const StarTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={StarTwoToneSvg}></Icon>;
+export default {
+  name: 'IconStarTwoTone',
+  displayName: 'StarTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: StarTwoToneSvg } },
+      children,
+    ),
 };
-
-StarTwoTone.inheritAttrs = false;
-export default StarTwoTone;

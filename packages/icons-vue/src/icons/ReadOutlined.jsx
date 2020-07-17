@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ReadOutlinedSvg from '@whalue-design/icons-svg/lib/asn/ReadOutlined';
 
-const ReadOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ReadOutlinedSvg}></Icon>;
+export default {
+  name: 'IconReadOutlined',
+  displayName: 'ReadOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ReadOutlinedSvg } },
+      children,
+    ),
 };
-
-ReadOutlined.inheritAttrs = false;
-export default ReadOutlined;

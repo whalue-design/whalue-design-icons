@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import InfoCircleTwoToneSvg from '@whalue-design/icons-svg/lib/asn/InfoCircleTwoTone';
 
-const InfoCircleTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={InfoCircleTwoToneSvg}></Icon>;
+export default {
+  name: 'IconInfoCircleTwoTone',
+  displayName: 'InfoCircleTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: InfoCircleTwoToneSvg } },
+      children,
+    ),
 };
-
-InfoCircleTwoTone.inheritAttrs = false;
-export default InfoCircleTwoTone;

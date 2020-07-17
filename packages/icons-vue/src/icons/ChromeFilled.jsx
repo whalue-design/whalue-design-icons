@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ChromeFilledSvg from '@whalue-design/icons-svg/lib/asn/ChromeFilled';
 
-const ChromeFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ChromeFilledSvg}></Icon>;
+export default {
+  name: 'IconChromeFilled',
+  displayName: 'ChromeFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ChromeFilledSvg } },
+      children,
+    ),
 };
-
-ChromeFilled.inheritAttrs = false;
-export default ChromeFilled;

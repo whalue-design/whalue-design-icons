@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import WeiboSquareOutlinedSvg from '@whalue-design/icons-svg/lib/asn/WeiboSquareOutlined';
 
-const WeiboSquareOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={WeiboSquareOutlinedSvg}></Icon>;
+export default {
+  name: 'IconWeiboSquareOutlined',
+  displayName: 'WeiboSquareOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: WeiboSquareOutlinedSvg } },
+      children,
+    ),
 };
-
-WeiboSquareOutlined.inheritAttrs = false;
-export default WeiboSquareOutlined;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FrownTwoToneSvg from '@whalue-design/icons-svg/lib/asn/FrownTwoTone';
 
-const FrownTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FrownTwoToneSvg}></Icon>;
+export default {
+  name: 'IconFrownTwoTone',
+  displayName: 'FrownTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FrownTwoToneSvg } },
+      children,
+    ),
 };
-
-FrownTwoTone.inheritAttrs = false;
-export default FrownTwoTone;

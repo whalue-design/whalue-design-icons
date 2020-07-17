@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CheckSquareFilledSvg from '@whalue-design/icons-svg/lib/asn/CheckSquareFilled';
 
-const CheckSquareFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CheckSquareFilledSvg}></Icon>;
+export default {
+  name: 'IconCheckSquareFilled',
+  displayName: 'CheckSquareFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CheckSquareFilledSvg } },
+      children,
+    ),
 };
-
-CheckSquareFilled.inheritAttrs = false;
-export default CheckSquareFilled;

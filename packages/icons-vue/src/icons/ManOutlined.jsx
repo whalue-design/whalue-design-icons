@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ManOutlinedSvg from '@whalue-design/icons-svg/lib/asn/ManOutlined';
 
-const ManOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ManOutlinedSvg}></Icon>;
+export default {
+  name: 'IconManOutlined',
+  displayName: 'ManOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ManOutlinedSvg } },
+      children,
+    ),
 };
-
-ManOutlined.inheritAttrs = false;
-export default ManOutlined;

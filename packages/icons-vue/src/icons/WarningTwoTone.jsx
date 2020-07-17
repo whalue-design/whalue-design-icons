@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import WarningTwoToneSvg from '@whalue-design/icons-svg/lib/asn/WarningTwoTone';
 
-const WarningTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={WarningTwoToneSvg}></Icon>;
+export default {
+  name: 'IconWarningTwoTone',
+  displayName: 'WarningTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: WarningTwoToneSvg } },
+      children,
+    ),
 };
-
-WarningTwoTone.inheritAttrs = false;
-export default WarningTwoTone;

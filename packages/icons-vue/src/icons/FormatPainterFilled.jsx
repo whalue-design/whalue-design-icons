@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FormatPainterFilledSvg from '@whalue-design/icons-svg/lib/asn/FormatPainterFilled';
 
-const FormatPainterFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FormatPainterFilledSvg}></Icon>;
+export default {
+  name: 'IconFormatPainterFilled',
+  displayName: 'FormatPainterFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FormatPainterFilledSvg } },
+      children,
+    ),
 };
-
-FormatPainterFilled.inheritAttrs = false;
-export default FormatPainterFilled;

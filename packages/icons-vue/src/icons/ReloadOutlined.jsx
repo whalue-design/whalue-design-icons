@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ReloadOutlinedSvg from '@whalue-design/icons-svg/lib/asn/ReloadOutlined';
 
-const ReloadOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ReloadOutlinedSvg}></Icon>;
+export default {
+  name: 'IconReloadOutlined',
+  displayName: 'ReloadOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ReloadOutlinedSvg } },
+      children,
+    ),
 };
-
-ReloadOutlined.inheritAttrs = false;
-export default ReloadOutlined;

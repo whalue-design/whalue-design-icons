@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import SwitcherTwoToneSvg from '@whalue-design/icons-svg/lib/asn/SwitcherTwoTone';
 
-const SwitcherTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={SwitcherTwoToneSvg}></Icon>;
+export default {
+  name: 'IconSwitcherTwoTone',
+  displayName: 'SwitcherTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: SwitcherTwoToneSvg } },
+      children,
+    ),
 };
-
-SwitcherTwoTone.inheritAttrs = false;
-export default SwitcherTwoTone;

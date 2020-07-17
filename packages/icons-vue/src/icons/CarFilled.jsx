@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CarFilledSvg from '@whalue-design/icons-svg/lib/asn/CarFilled';
 
-const CarFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CarFilledSvg}></Icon>;
+export default {
+  name: 'IconCarFilled',
+  displayName: 'CarFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CarFilledSvg } },
+      children,
+    ),
 };
-
-CarFilled.inheritAttrs = false;
-export default CarFilled;

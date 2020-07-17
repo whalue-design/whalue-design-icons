@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import EuroCircleOutlinedSvg from '@whalue-design/icons-svg/lib/asn/EuroCircleOutlined';
 
-const EuroCircleOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={EuroCircleOutlinedSvg}></Icon>;
+export default {
+  name: 'IconEuroCircleOutlined',
+  displayName: 'EuroCircleOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: EuroCircleOutlinedSvg } },
+      children,
+    ),
 };
-
-EuroCircleOutlined.inheritAttrs = false;
-export default EuroCircleOutlined;

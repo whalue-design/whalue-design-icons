@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CoffeeOutlinedSvg from '@whalue-design/icons-svg/lib/asn/CoffeeOutlined';
 
-const CoffeeOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CoffeeOutlinedSvg}></Icon>;
+export default {
+  name: 'IconCoffeeOutlined',
+  displayName: 'CoffeeOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CoffeeOutlinedSvg } },
+      children,
+    ),
 };
-
-CoffeeOutlined.inheritAttrs = false;
-export default CoffeeOutlined;

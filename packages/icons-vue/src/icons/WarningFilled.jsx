@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import WarningFilledSvg from '@whalue-design/icons-svg/lib/asn/WarningFilled';
 
-const WarningFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={WarningFilledSvg}></Icon>;
+export default {
+  name: 'IconWarningFilled',
+  displayName: 'WarningFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: WarningFilledSvg } },
+      children,
+    ),
 };
-
-WarningFilled.inheritAttrs = false;
-export default WarningFilled;

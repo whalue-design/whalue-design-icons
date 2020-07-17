@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import TabletFilledSvg from '@whalue-design/icons-svg/lib/asn/TabletFilled';
 
-const TabletFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={TabletFilledSvg}></Icon>;
+export default {
+  name: 'IconTabletFilled',
+  displayName: 'TabletFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: TabletFilledSvg } },
+      children,
+    ),
 };
-
-TabletFilled.inheritAttrs = false;
-export default TabletFilled;

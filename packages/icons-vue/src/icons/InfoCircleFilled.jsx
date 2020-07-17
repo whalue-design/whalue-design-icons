@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import InfoCircleFilledSvg from '@whalue-design/icons-svg/lib/asn/InfoCircleFilled';
 
-const InfoCircleFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={InfoCircleFilledSvg}></Icon>;
+export default {
+  name: 'IconInfoCircleFilled',
+  displayName: 'InfoCircleFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: InfoCircleFilledSvg } },
+      children,
+    ),
 };
-
-InfoCircleFilled.inheritAttrs = false;
-export default InfoCircleFilled;

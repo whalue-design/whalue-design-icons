@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FunnelPlotOutlinedSvg from '@whalue-design/icons-svg/lib/asn/FunnelPlotOutlined';
 
-const FunnelPlotOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FunnelPlotOutlinedSvg}></Icon>;
+export default {
+  name: 'IconFunnelPlotOutlined',
+  displayName: 'FunnelPlotOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FunnelPlotOutlinedSvg } },
+      children,
+    ),
 };
-
-FunnelPlotOutlined.inheritAttrs = false;
-export default FunnelPlotOutlined;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import RightSquareFilledSvg from '@whalue-design/icons-svg/lib/asn/RightSquareFilled';
 
-const RightSquareFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={RightSquareFilledSvg}></Icon>;
+export default {
+  name: 'IconRightSquareFilled',
+  displayName: 'RightSquareFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: RightSquareFilledSvg } },
+      children,
+    ),
 };
-
-RightSquareFilled.inheritAttrs = false;
-export default RightSquareFilled;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FrownOutlinedSvg from '@whalue-design/icons-svg/lib/asn/FrownOutlined';
 
-const FrownOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FrownOutlinedSvg}></Icon>;
+export default {
+  name: 'IconFrownOutlined',
+  displayName: 'FrownOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FrownOutlinedSvg } },
+      children,
+    ),
 };
-
-FrownOutlined.inheritAttrs = false;
-export default FrownOutlined;

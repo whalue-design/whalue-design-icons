@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CheckCircleTwoToneSvg from '@whalue-design/icons-svg/lib/asn/CheckCircleTwoTone';
 
-const CheckCircleTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CheckCircleTwoToneSvg}></Icon>;
+export default {
+  name: 'IconCheckCircleTwoTone',
+  displayName: 'CheckCircleTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CheckCircleTwoToneSvg } },
+      children,
+    ),
 };
-
-CheckCircleTwoTone.inheritAttrs = false;
-export default CheckCircleTwoTone;

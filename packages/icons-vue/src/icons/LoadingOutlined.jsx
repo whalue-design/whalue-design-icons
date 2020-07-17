@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import LoadingOutlinedSvg from '@whalue-design/icons-svg/lib/asn/LoadingOutlined';
 
-const LoadingOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={LoadingOutlinedSvg}></Icon>;
+export default {
+  name: 'IconLoadingOutlined',
+  displayName: 'LoadingOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: LoadingOutlinedSvg } },
+      children,
+    ),
 };
-
-LoadingOutlined.inheritAttrs = false;
-export default LoadingOutlined;

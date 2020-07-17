@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FileExclamationOutlinedSvg from '@whalue-design/icons-svg/lib/asn/FileExclamationOutlined';
 
-const FileExclamationOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FileExclamationOutlinedSvg}></Icon>;
+export default {
+  name: 'IconFileExclamationOutlined',
+  displayName: 'FileExclamationOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FileExclamationOutlinedSvg } },
+      children,
+    ),
 };
-
-FileExclamationOutlined.inheritAttrs = false;
-export default FileExclamationOutlined;

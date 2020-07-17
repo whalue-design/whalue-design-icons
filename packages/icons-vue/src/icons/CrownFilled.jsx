@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CrownFilledSvg from '@whalue-design/icons-svg/lib/asn/CrownFilled';
 
-const CrownFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CrownFilledSvg}></Icon>;
+export default {
+  name: 'IconCrownFilled',
+  displayName: 'CrownFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CrownFilledSvg } },
+      children,
+    ),
 };
-
-CrownFilled.inheritAttrs = false;
-export default CrownFilled;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import InsuranceFilledSvg from '@whalue-design/icons-svg/lib/asn/InsuranceFilled';
 
-const InsuranceFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={InsuranceFilledSvg}></Icon>;
+export default {
+  name: 'IconInsuranceFilled',
+  displayName: 'InsuranceFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: InsuranceFilledSvg } },
+      children,
+    ),
 };
-
-InsuranceFilled.inheritAttrs = false;
-export default InsuranceFilled;

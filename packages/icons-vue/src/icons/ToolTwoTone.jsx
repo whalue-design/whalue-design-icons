@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ToolTwoToneSvg from '@whalue-design/icons-svg/lib/asn/ToolTwoTone';
 
-const ToolTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ToolTwoToneSvg}></Icon>;
+export default {
+  name: 'IconToolTwoTone',
+  displayName: 'ToolTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ToolTwoToneSvg } },
+      children,
+    ),
 };
-
-ToolTwoTone.inheritAttrs = false;
-export default ToolTwoTone;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ZhihuOutlinedSvg from '@whalue-design/icons-svg/lib/asn/ZhihuOutlined';
 
-const ZhihuOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ZhihuOutlinedSvg}></Icon>;
+export default {
+  name: 'IconZhihuOutlined',
+  displayName: 'ZhihuOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ZhihuOutlinedSvg } },
+      children,
+    ),
 };
-
-ZhihuOutlined.inheritAttrs = false;
-export default ZhihuOutlined;

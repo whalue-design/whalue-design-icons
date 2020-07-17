@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import RocketOutlinedSvg from '@whalue-design/icons-svg/lib/asn/RocketOutlined';
 
-const RocketOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={RocketOutlinedSvg}></Icon>;
+export default {
+  name: 'IconRocketOutlined',
+  displayName: 'RocketOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: RocketOutlinedSvg } },
+      children,
+    ),
 };
-
-RocketOutlined.inheritAttrs = false;
-export default RocketOutlined;

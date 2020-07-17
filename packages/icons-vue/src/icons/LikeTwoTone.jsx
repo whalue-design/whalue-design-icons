@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import LikeTwoToneSvg from '@whalue-design/icons-svg/lib/asn/LikeTwoTone';
 
-const LikeTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={LikeTwoToneSvg}></Icon>;
+export default {
+  name: 'IconLikeTwoTone',
+  displayName: 'LikeTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: LikeTwoToneSvg } },
+      children,
+    ),
 };
-
-LikeTwoTone.inheritAttrs = false;
-export default LikeTwoTone;

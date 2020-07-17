@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import LeftSquareTwoToneSvg from '@whalue-design/icons-svg/lib/asn/LeftSquareTwoTone';
 
-const LeftSquareTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={LeftSquareTwoToneSvg}></Icon>;
+export default {
+  name: 'IconLeftSquareTwoTone',
+  displayName: 'LeftSquareTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: LeftSquareTwoToneSvg } },
+      children,
+    ),
 };
-
-LeftSquareTwoTone.inheritAttrs = false;
-export default LeftSquareTwoTone;

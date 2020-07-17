@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import UpSquareTwoToneSvg from '@whalue-design/icons-svg/lib/asn/UpSquareTwoTone';
 
-const UpSquareTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={UpSquareTwoToneSvg}></Icon>;
+export default {
+  name: 'IconUpSquareTwoTone',
+  displayName: 'UpSquareTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: UpSquareTwoToneSvg } },
+      children,
+    ),
 };
-
-UpSquareTwoTone.inheritAttrs = false;
-export default UpSquareTwoTone;

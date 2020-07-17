@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FlagTwoToneSvg from '@whalue-design/icons-svg/lib/asn/FlagTwoTone';
 
-const FlagTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FlagTwoToneSvg}></Icon>;
+export default {
+  name: 'IconFlagTwoTone',
+  displayName: 'FlagTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FlagTwoToneSvg } },
+      children,
+    ),
 };
-
-FlagTwoTone.inheritAttrs = false;
-export default FlagTwoTone;

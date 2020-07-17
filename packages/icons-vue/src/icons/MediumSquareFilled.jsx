@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import MediumSquareFilledSvg from '@whalue-design/icons-svg/lib/asn/MediumSquareFilled';
 
-const MediumSquareFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={MediumSquareFilledSvg}></Icon>;
+export default {
+  name: 'IconMediumSquareFilled',
+  displayName: 'MediumSquareFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: MediumSquareFilledSvg } },
+      children,
+    ),
 };
-
-MediumSquareFilled.inheritAttrs = false;
-export default MediumSquareFilled;

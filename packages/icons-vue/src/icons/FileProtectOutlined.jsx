@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FileProtectOutlinedSvg from '@whalue-design/icons-svg/lib/asn/FileProtectOutlined';
 
-const FileProtectOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FileProtectOutlinedSvg}></Icon>;
+export default {
+  name: 'IconFileProtectOutlined',
+  displayName: 'FileProtectOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FileProtectOutlinedSvg } },
+      children,
+    ),
 };
-
-FileProtectOutlined.inheritAttrs = false;
-export default FileProtectOutlined;

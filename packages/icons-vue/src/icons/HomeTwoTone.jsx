@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import HomeTwoToneSvg from '@whalue-design/icons-svg/lib/asn/HomeTwoTone';
 
-const HomeTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={HomeTwoToneSvg}></Icon>;
+export default {
+  name: 'IconHomeTwoTone',
+  displayName: 'HomeTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: HomeTwoToneSvg } },
+      children,
+    ),
 };
-
-HomeTwoTone.inheritAttrs = false;
-export default HomeTwoTone;

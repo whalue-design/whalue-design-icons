@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CiCircleTwoToneSvg from '@whalue-design/icons-svg/lib/asn/CiCircleTwoTone';
 
-const CiCircleTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CiCircleTwoToneSvg}></Icon>;
+export default {
+  name: 'IconCiCircleTwoTone',
+  displayName: 'CiCircleTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CiCircleTwoToneSvg } },
+      children,
+    ),
 };
-
-CiCircleTwoTone.inheritAttrs = false;
-export default CiCircleTwoTone;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import GitlabFilledSvg from '@whalue-design/icons-svg/lib/asn/GitlabFilled';
 
-const GitlabFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={GitlabFilledSvg}></Icon>;
+export default {
+  name: 'IconGitlabFilled',
+  displayName: 'GitlabFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: GitlabFilledSvg } },
+      children,
+    ),
 };
-
-GitlabFilled.inheritAttrs = false;
-export default GitlabFilled;

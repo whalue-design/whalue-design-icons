@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import EyeInvisibleTwoToneSvg from '@whalue-design/icons-svg/lib/asn/EyeInvisibleTwoTone';
 
-const EyeInvisibleTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={EyeInvisibleTwoToneSvg}></Icon>;
+export default {
+  name: 'IconEyeInvisibleTwoTone',
+  displayName: 'EyeInvisibleTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: EyeInvisibleTwoToneSvg } },
+      children,
+    ),
 };
-
-EyeInvisibleTwoTone.inheritAttrs = false;
-export default EyeInvisibleTwoTone;

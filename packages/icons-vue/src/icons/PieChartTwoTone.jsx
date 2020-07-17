@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import PieChartTwoToneSvg from '@whalue-design/icons-svg/lib/asn/PieChartTwoTone';
 
-const PieChartTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={PieChartTwoToneSvg}></Icon>;
+export default {
+  name: 'IconPieChartTwoTone',
+  displayName: 'PieChartTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: PieChartTwoToneSvg } },
+      children,
+    ),
 };
-
-PieChartTwoTone.inheritAttrs = false;
-export default PieChartTwoTone;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import SlidersOutlinedSvg from '@whalue-design/icons-svg/lib/asn/SlidersOutlined';
 
-const SlidersOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={SlidersOutlinedSvg}></Icon>;
+export default {
+  name: 'IconSlidersOutlined',
+  displayName: 'SlidersOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: SlidersOutlinedSvg } },
+      children,
+    ),
 };
-
-SlidersOutlined.inheritAttrs = false;
-export default SlidersOutlined;

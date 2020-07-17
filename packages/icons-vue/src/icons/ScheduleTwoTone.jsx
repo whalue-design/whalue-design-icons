@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ScheduleTwoToneSvg from '@whalue-design/icons-svg/lib/asn/ScheduleTwoTone';
 
-const ScheduleTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ScheduleTwoToneSvg}></Icon>;
+export default {
+  name: 'IconScheduleTwoTone',
+  displayName: 'ScheduleTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ScheduleTwoToneSvg } },
+      children,
+    ),
 };
-
-ScheduleTwoTone.inheritAttrs = false;
-export default ScheduleTwoTone;

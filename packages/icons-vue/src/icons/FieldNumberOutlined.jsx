@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FieldNumberOutlinedSvg from '@whalue-design/icons-svg/lib/asn/FieldNumberOutlined';
 
-const FieldNumberOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FieldNumberOutlinedSvg}></Icon>;
+export default {
+  name: 'IconFieldNumberOutlined',
+  displayName: 'FieldNumberOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FieldNumberOutlinedSvg } },
+      children,
+    ),
 };
-
-FieldNumberOutlined.inheritAttrs = false;
-export default FieldNumberOutlined;

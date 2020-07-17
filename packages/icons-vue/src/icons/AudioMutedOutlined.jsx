@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import AudioMutedOutlinedSvg from '@whalue-design/icons-svg/lib/asn/AudioMutedOutlined';
 
-const AudioMutedOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={AudioMutedOutlinedSvg}></Icon>;
+export default {
+  name: 'IconAudioMutedOutlined',
+  displayName: 'AudioMutedOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: AudioMutedOutlinedSvg } },
+      children,
+    ),
 };
-
-AudioMutedOutlined.inheritAttrs = false;
-export default AudioMutedOutlined;

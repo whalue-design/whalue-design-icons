@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import TagTwoToneSvg from '@whalue-design/icons-svg/lib/asn/TagTwoTone';
 
-const TagTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={TagTwoToneSvg}></Icon>;
+export default {
+  name: 'IconTagTwoTone',
+  displayName: 'TagTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: TagTwoToneSvg } },
+      children,
+    ),
 };
-
-TagTwoTone.inheritAttrs = false;
-export default TagTwoTone;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import TrademarkCircleFilledSvg from '@whalue-design/icons-svg/lib/asn/TrademarkCircleFilled';
 
-const TrademarkCircleFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={TrademarkCircleFilledSvg}></Icon>;
+export default {
+  name: 'IconTrademarkCircleFilled',
+  displayName: 'TrademarkCircleFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: TrademarkCircleFilledSvg } },
+      children,
+    ),
 };
-
-TrademarkCircleFilled.inheritAttrs = false;
-export default TrademarkCircleFilled;

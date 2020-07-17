@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import DownSquareOutlinedSvg from '@whalue-design/icons-svg/lib/asn/DownSquareOutlined';
 
-const DownSquareOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={DownSquareOutlinedSvg}></Icon>;
+export default {
+  name: 'IconDownSquareOutlined',
+  displayName: 'DownSquareOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: DownSquareOutlinedSvg } },
+      children,
+    ),
 };
-
-DownSquareOutlined.inheritAttrs = false;
-export default DownSquareOutlined;

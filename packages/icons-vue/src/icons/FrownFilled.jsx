@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FrownFilledSvg from '@whalue-design/icons-svg/lib/asn/FrownFilled';
 
-const FrownFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FrownFilledSvg}></Icon>;
+export default {
+  name: 'IconFrownFilled',
+  displayName: 'FrownFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FrownFilledSvg } },
+      children,
+    ),
 };
-
-FrownFilled.inheritAttrs = false;
-export default FrownFilled;

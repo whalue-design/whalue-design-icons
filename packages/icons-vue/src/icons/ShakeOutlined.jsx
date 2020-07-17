@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ShakeOutlinedSvg from '@whalue-design/icons-svg/lib/asn/ShakeOutlined';
 
-const ShakeOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ShakeOutlinedSvg}></Icon>;
+export default {
+  name: 'IconShakeOutlined',
+  displayName: 'ShakeOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ShakeOutlinedSvg } },
+      children,
+    ),
 };
-
-ShakeOutlined.inheritAttrs = false;
-export default ShakeOutlined;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import AuditOutlinedSvg from '@whalue-design/icons-svg/lib/asn/AuditOutlined';
 
-const AuditOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={AuditOutlinedSvg}></Icon>;
+export default {
+  name: 'IconAuditOutlined',
+  displayName: 'AuditOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: AuditOutlinedSvg } },
+      children,
+    ),
 };
-
-AuditOutlined.inheritAttrs = false;
-export default AuditOutlined;

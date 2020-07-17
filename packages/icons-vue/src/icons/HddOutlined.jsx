@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import HddOutlinedSvg from '@whalue-design/icons-svg/lib/asn/HddOutlined';
 
-const HddOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={HddOutlinedSvg}></Icon>;
+export default {
+  name: 'IconHddOutlined',
+  displayName: 'HddOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: HddOutlinedSvg } },
+      children,
+    ),
 };
-
-HddOutlined.inheritAttrs = false;
-export default HddOutlined;

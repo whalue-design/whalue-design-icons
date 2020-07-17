@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FileExcelTwoToneSvg from '@whalue-design/icons-svg/lib/asn/FileExcelTwoTone';
 
-const FileExcelTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FileExcelTwoToneSvg}></Icon>;
+export default {
+  name: 'IconFileExcelTwoTone',
+  displayName: 'FileExcelTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FileExcelTwoToneSvg } },
+      children,
+    ),
 };
-
-FileExcelTwoTone.inheritAttrs = false;
-export default FileExcelTwoTone;

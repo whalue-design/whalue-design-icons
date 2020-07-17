@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import SearchOutlinedSvg from '@whalue-design/icons-svg/lib/asn/SearchOutlined';
 
-const SearchOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={SearchOutlinedSvg}></Icon>;
+export default {
+  name: 'IconSearchOutlined',
+  displayName: 'SearchOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: SearchOutlinedSvg } },
+      children,
+    ),
 };
-
-SearchOutlined.inheritAttrs = false;
-export default SearchOutlined;

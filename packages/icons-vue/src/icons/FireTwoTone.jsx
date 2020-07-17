@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FireTwoToneSvg from '@whalue-design/icons-svg/lib/asn/FireTwoTone';
 
-const FireTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FireTwoToneSvg}></Icon>;
+export default {
+  name: 'IconFireTwoTone',
+  displayName: 'FireTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FireTwoToneSvg } },
+      children,
+    ),
 };
-
-FireTwoTone.inheritAttrs = false;
-export default FireTwoTone;

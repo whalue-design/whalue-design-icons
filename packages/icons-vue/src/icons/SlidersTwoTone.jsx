@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import SlidersTwoToneSvg from '@whalue-design/icons-svg/lib/asn/SlidersTwoTone';
 
-const SlidersTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={SlidersTwoToneSvg}></Icon>;
+export default {
+  name: 'IconSlidersTwoTone',
+  displayName: 'SlidersTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: SlidersTwoToneSvg } },
+      children,
+    ),
 };
-
-SlidersTwoTone.inheritAttrs = false;
-export default SlidersTwoTone;

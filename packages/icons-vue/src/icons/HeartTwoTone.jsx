@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import HeartTwoToneSvg from '@whalue-design/icons-svg/lib/asn/HeartTwoTone';
 
-const HeartTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={HeartTwoToneSvg}></Icon>;
+export default {
+  name: 'IconHeartTwoTone',
+  displayName: 'HeartTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: HeartTwoToneSvg } },
+      children,
+    ),
 };
-
-HeartTwoTone.inheritAttrs = false;
-export default HeartTwoTone;

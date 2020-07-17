@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CopyrightCircleFilledSvg from '@whalue-design/icons-svg/lib/asn/CopyrightCircleFilled';
 
-const CopyrightCircleFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CopyrightCircleFilledSvg}></Icon>;
+export default {
+  name: 'IconCopyrightCircleFilled',
+  displayName: 'CopyrightCircleFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CopyrightCircleFilledSvg } },
+      children,
+    ),
 };
-
-CopyrightCircleFilled.inheritAttrs = false;
-export default CopyrightCircleFilled;

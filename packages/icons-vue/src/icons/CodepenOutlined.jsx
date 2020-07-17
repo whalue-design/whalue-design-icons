@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CodepenOutlinedSvg from '@whalue-design/icons-svg/lib/asn/CodepenOutlined';
 
-const CodepenOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CodepenOutlinedSvg}></Icon>;
+export default {
+  name: 'IconCodepenOutlined',
+  displayName: 'CodepenOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CodepenOutlinedSvg } },
+      children,
+    ),
 };
-
-CodepenOutlined.inheritAttrs = false;
-export default CodepenOutlined;

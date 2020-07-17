@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import TabletOutlinedSvg from '@whalue-design/icons-svg/lib/asn/TabletOutlined';
 
-const TabletOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={TabletOutlinedSvg}></Icon>;
+export default {
+  name: 'IconTabletOutlined',
+  displayName: 'TabletOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: TabletOutlinedSvg } },
+      children,
+    ),
 };
-
-TabletOutlined.inheritAttrs = false;
-export default TabletOutlined;

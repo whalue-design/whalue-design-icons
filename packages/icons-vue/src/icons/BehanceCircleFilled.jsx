@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import BehanceCircleFilledSvg from '@whalue-design/icons-svg/lib/asn/BehanceCircleFilled';
 
-const BehanceCircleFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={BehanceCircleFilledSvg}></Icon>;
+export default {
+  name: 'IconBehanceCircleFilled',
+  displayName: 'BehanceCircleFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: BehanceCircleFilledSvg } },
+      children,
+    ),
 };
-
-BehanceCircleFilled.inheritAttrs = false;
-export default BehanceCircleFilled;

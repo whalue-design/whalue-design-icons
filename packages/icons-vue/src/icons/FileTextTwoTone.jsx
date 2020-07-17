@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FileTextTwoToneSvg from '@whalue-design/icons-svg/lib/asn/FileTextTwoTone';
 
-const FileTextTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FileTextTwoToneSvg}></Icon>;
+export default {
+  name: 'IconFileTextTwoTone',
+  displayName: 'FileTextTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FileTextTwoToneSvg } },
+      children,
+    ),
 };
-
-FileTextTwoTone.inheritAttrs = false;
-export default FileTextTwoTone;

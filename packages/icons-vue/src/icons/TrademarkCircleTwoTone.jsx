@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import TrademarkCircleTwoToneSvg from '@whalue-design/icons-svg/lib/asn/TrademarkCircleTwoTone';
 
-const TrademarkCircleTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={TrademarkCircleTwoToneSvg}></Icon>;
+export default {
+  name: 'IconTrademarkCircleTwoTone',
+  displayName: 'TrademarkCircleTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: TrademarkCircleTwoToneSvg } },
+      children,
+    ),
 };
-
-TrademarkCircleTwoTone.inheritAttrs = false;
-export default TrademarkCircleTwoTone;

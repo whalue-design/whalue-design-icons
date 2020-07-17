@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import BgColorsOutlinedSvg from '@whalue-design/icons-svg/lib/asn/BgColorsOutlined';
 
-const BgColorsOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={BgColorsOutlinedSvg}></Icon>;
+export default {
+  name: 'IconBgColorsOutlined',
+  displayName: 'BgColorsOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: BgColorsOutlinedSvg } },
+      children,
+    ),
 };
-
-BgColorsOutlined.inheritAttrs = false;
-export default BgColorsOutlined;

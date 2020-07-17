@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import SlackCircleFilledSvg from '@whalue-design/icons-svg/lib/asn/SlackCircleFilled';
 
-const SlackCircleFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={SlackCircleFilledSvg}></Icon>;
+export default {
+  name: 'IconSlackCircleFilled',
+  displayName: 'SlackCircleFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: SlackCircleFilledSvg } },
+      children,
+    ),
 };
-
-SlackCircleFilled.inheritAttrs = false;
-export default SlackCircleFilled;

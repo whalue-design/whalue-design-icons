@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import LogoutOutlinedSvg from '@whalue-design/icons-svg/lib/asn/LogoutOutlined';
 
-const LogoutOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={LogoutOutlinedSvg}></Icon>;
+export default {
+  name: 'IconLogoutOutlined',
+  displayName: 'LogoutOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: LogoutOutlinedSvg } },
+      children,
+    ),
 };
-
-LogoutOutlined.inheritAttrs = false;
-export default LogoutOutlined;

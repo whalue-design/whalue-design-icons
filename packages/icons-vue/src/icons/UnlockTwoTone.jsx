@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import UnlockTwoToneSvg from '@whalue-design/icons-svg/lib/asn/UnlockTwoTone';
 
-const UnlockTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={UnlockTwoToneSvg}></Icon>;
+export default {
+  name: 'IconUnlockTwoTone',
+  displayName: 'UnlockTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: UnlockTwoToneSvg } },
+      children,
+    ),
 };
-
-UnlockTwoTone.inheritAttrs = false;
-export default UnlockTwoTone;

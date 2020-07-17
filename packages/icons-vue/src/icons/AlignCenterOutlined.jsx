@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import AlignCenterOutlinedSvg from '@whalue-design/icons-svg/lib/asn/AlignCenterOutlined';
 
-const AlignCenterOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={AlignCenterOutlinedSvg}></Icon>;
+export default {
+  name: 'IconAlignCenterOutlined',
+  displayName: 'AlignCenterOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: AlignCenterOutlinedSvg } },
+      children,
+    ),
 };
-
-AlignCenterOutlined.inheritAttrs = false;
-export default AlignCenterOutlined;

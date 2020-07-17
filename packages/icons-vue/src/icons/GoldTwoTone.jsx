@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import GoldTwoToneSvg from '@whalue-design/icons-svg/lib/asn/GoldTwoTone';
 
-const GoldTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={GoldTwoToneSvg}></Icon>;
+export default {
+  name: 'IconGoldTwoTone',
+  displayName: 'GoldTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: GoldTwoToneSvg } },
+      children,
+    ),
 };
-
-GoldTwoTone.inheritAttrs = false;
-export default GoldTwoTone;

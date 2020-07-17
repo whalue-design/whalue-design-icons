@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CloseCircleTwoToneSvg from '@whalue-design/icons-svg/lib/asn/CloseCircleTwoTone';
 
-const CloseCircleTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CloseCircleTwoToneSvg}></Icon>;
+export default {
+  name: 'IconCloseCircleTwoTone',
+  displayName: 'CloseCircleTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CloseCircleTwoToneSvg } },
+      children,
+    ),
 };
-
-CloseCircleTwoTone.inheritAttrs = false;
-export default CloseCircleTwoTone;

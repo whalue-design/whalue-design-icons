@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CodeSandboxSquareFilledSvg from '@whalue-design/icons-svg/lib/asn/CodeSandboxSquareFilled';
 
-const CodeSandboxSquareFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CodeSandboxSquareFilledSvg}></Icon>;
+export default {
+  name: 'IconCodeSandboxSquareFilled',
+  displayName: 'CodeSandboxSquareFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CodeSandboxSquareFilledSvg } },
+      children,
+    ),
 };
-
-CodeSandboxSquareFilled.inheritAttrs = false;
-export default CodeSandboxSquareFilled;

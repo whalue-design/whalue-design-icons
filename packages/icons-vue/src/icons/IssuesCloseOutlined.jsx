@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import IssuesCloseOutlinedSvg from '@whalue-design/icons-svg/lib/asn/IssuesCloseOutlined';
 
-const IssuesCloseOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={IssuesCloseOutlinedSvg}></Icon>;
+export default {
+  name: 'IconIssuesCloseOutlined',
+  displayName: 'IssuesCloseOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: IssuesCloseOutlinedSvg } },
+      children,
+    ),
 };
-
-IssuesCloseOutlined.inheritAttrs = false;
-export default IssuesCloseOutlined;

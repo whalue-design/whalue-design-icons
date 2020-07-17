@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import DropboxOutlinedSvg from '@whalue-design/icons-svg/lib/asn/DropboxOutlined';
 
-const DropboxOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={DropboxOutlinedSvg}></Icon>;
+export default {
+  name: 'IconDropboxOutlined',
+  displayName: 'DropboxOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: DropboxOutlinedSvg } },
+      children,
+    ),
 };
-
-DropboxOutlined.inheritAttrs = false;
-export default DropboxOutlined;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ThunderboltTwoToneSvg from '@whalue-design/icons-svg/lib/asn/ThunderboltTwoTone';
 
-const ThunderboltTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ThunderboltTwoToneSvg}></Icon>;
+export default {
+  name: 'IconThunderboltTwoTone',
+  displayName: 'ThunderboltTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ThunderboltTwoToneSvg } },
+      children,
+    ),
 };
-
-ThunderboltTwoTone.inheritAttrs = false;
-export default ThunderboltTwoTone;

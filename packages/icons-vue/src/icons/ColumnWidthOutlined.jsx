@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ColumnWidthOutlinedSvg from '@whalue-design/icons-svg/lib/asn/ColumnWidthOutlined';
 
-const ColumnWidthOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ColumnWidthOutlinedSvg}></Icon>;
+export default {
+  name: 'IconColumnWidthOutlined',
+  displayName: 'ColumnWidthOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ColumnWidthOutlinedSvg } },
+      children,
+    ),
 };
-
-ColumnWidthOutlined.inheritAttrs = false;
-export default ColumnWidthOutlined;

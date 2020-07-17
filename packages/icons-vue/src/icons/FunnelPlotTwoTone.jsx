@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FunnelPlotTwoToneSvg from '@whalue-design/icons-svg/lib/asn/FunnelPlotTwoTone';
 
-const FunnelPlotTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FunnelPlotTwoToneSvg}></Icon>;
+export default {
+  name: 'IconFunnelPlotTwoTone',
+  displayName: 'FunnelPlotTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FunnelPlotTwoToneSvg } },
+      children,
+    ),
 };
-
-FunnelPlotTwoTone.inheritAttrs = false;
-export default FunnelPlotTwoTone;

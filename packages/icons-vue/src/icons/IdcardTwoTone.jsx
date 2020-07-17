@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import IdcardTwoToneSvg from '@whalue-design/icons-svg/lib/asn/IdcardTwoTone';
 
-const IdcardTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={IdcardTwoToneSvg}></Icon>;
+export default {
+  name: 'IconIdcardTwoTone',
+  displayName: 'IdcardTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: IdcardTwoToneSvg } },
+      children,
+    ),
 };
-
-IdcardTwoTone.inheritAttrs = false;
-export default IdcardTwoTone;

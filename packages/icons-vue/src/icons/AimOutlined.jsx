@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import AimOutlinedSvg from '@whalue-design/icons-svg/lib/asn/AimOutlined';
 
-const AimOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={AimOutlinedSvg}></Icon>;
+export default {
+  name: 'IconAimOutlined',
+  displayName: 'AimOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: AimOutlinedSvg } },
+      children,
+    ),
 };
-
-AimOutlined.inheritAttrs = false;
-export default AimOutlined;

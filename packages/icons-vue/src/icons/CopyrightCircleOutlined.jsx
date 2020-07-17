@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CopyrightCircleOutlinedSvg from '@whalue-design/icons-svg/lib/asn/CopyrightCircleOutlined';
 
-const CopyrightCircleOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CopyrightCircleOutlinedSvg}></Icon>;
+export default {
+  name: 'IconCopyrightCircleOutlined',
+  displayName: 'CopyrightCircleOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CopyrightCircleOutlinedSvg } },
+      children,
+    ),
 };
-
-CopyrightCircleOutlined.inheritAttrs = false;
-export default CopyrightCircleOutlined;

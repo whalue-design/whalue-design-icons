@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import AndroidOutlinedSvg from '@whalue-design/icons-svg/lib/asn/AndroidOutlined';
 
-const AndroidOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={AndroidOutlinedSvg}></Icon>;
+export default {
+  name: 'IconAndroidOutlined',
+  displayName: 'AndroidOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: AndroidOutlinedSvg } },
+      children,
+    ),
 };
-
-AndroidOutlined.inheritAttrs = false;
-export default AndroidOutlined;

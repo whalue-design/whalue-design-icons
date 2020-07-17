@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import PoundOutlinedSvg from '@whalue-design/icons-svg/lib/asn/PoundOutlined';
 
-const PoundOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={PoundOutlinedSvg}></Icon>;
+export default {
+  name: 'IconPoundOutlined',
+  displayName: 'PoundOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: PoundOutlinedSvg } },
+      children,
+    ),
 };
-
-PoundOutlined.inheritAttrs = false;
-export default PoundOutlined;

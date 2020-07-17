@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import TrademarkOutlinedSvg from '@whalue-design/icons-svg/lib/asn/TrademarkOutlined';
 
-const TrademarkOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={TrademarkOutlinedSvg}></Icon>;
+export default {
+  name: 'IconTrademarkOutlined',
+  displayName: 'TrademarkOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: TrademarkOutlinedSvg } },
+      children,
+    ),
 };
-
-TrademarkOutlined.inheritAttrs = false;
-export default TrademarkOutlined;

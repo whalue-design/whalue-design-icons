@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CrownOutlinedSvg from '@whalue-design/icons-svg/lib/asn/CrownOutlined';
 
-const CrownOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CrownOutlinedSvg}></Icon>;
+export default {
+  name: 'IconCrownOutlined',
+  displayName: 'CrownOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CrownOutlinedSvg } },
+      children,
+    ),
 };
-
-CrownOutlined.inheritAttrs = false;
-export default CrownOutlined;

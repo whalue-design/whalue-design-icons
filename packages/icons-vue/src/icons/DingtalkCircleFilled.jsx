@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import DingtalkCircleFilledSvg from '@whalue-design/icons-svg/lib/asn/DingtalkCircleFilled';
 
-const DingtalkCircleFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={DingtalkCircleFilledSvg}></Icon>;
+export default {
+  name: 'IconDingtalkCircleFilled',
+  displayName: 'DingtalkCircleFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: DingtalkCircleFilledSvg } },
+      children,
+    ),
 };
-
-DingtalkCircleFilled.inheritAttrs = false;
-export default DingtalkCircleFilled;

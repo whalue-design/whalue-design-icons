@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import SkinTwoToneSvg from '@whalue-design/icons-svg/lib/asn/SkinTwoTone';
 
-const SkinTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={SkinTwoToneSvg}></Icon>;
+export default {
+  name: 'IconSkinTwoTone',
+  displayName: 'SkinTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: SkinTwoToneSvg } },
+      children,
+    ),
 };
-
-SkinTwoTone.inheritAttrs = false;
-export default SkinTwoTone;

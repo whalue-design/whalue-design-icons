@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ScissorOutlinedSvg from '@whalue-design/icons-svg/lib/asn/ScissorOutlined';
 
-const ScissorOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ScissorOutlinedSvg}></Icon>;
+export default {
+  name: 'IconScissorOutlined',
+  displayName: 'ScissorOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ScissorOutlinedSvg } },
+      children,
+    ),
 };
-
-ScissorOutlined.inheritAttrs = false;
-export default ScissorOutlined;

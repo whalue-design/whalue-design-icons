@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CopyrightTwoToneSvg from '@whalue-design/icons-svg/lib/asn/CopyrightTwoTone';
 
-const CopyrightTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CopyrightTwoToneSvg}></Icon>;
+export default {
+  name: 'IconCopyrightTwoTone',
+  displayName: 'CopyrightTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CopyrightTwoToneSvg } },
+      children,
+    ),
 };
-
-CopyrightTwoTone.inheritAttrs = false;
-export default CopyrightTwoTone;

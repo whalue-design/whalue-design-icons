@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import LeftOutlinedSvg from '@whalue-design/icons-svg/lib/asn/LeftOutlined';
 
-const LeftOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={LeftOutlinedSvg}></Icon>;
+export default {
+  name: 'IconLeftOutlined',
+  displayName: 'LeftOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: LeftOutlinedSvg } },
+      children,
+    ),
 };
-
-LeftOutlined.inheritAttrs = false;
-export default LeftOutlined;

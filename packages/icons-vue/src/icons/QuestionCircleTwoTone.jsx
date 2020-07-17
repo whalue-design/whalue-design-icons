@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import QuestionCircleTwoToneSvg from '@whalue-design/icons-svg/lib/asn/QuestionCircleTwoTone';
 
-const QuestionCircleTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={QuestionCircleTwoToneSvg}></Icon>;
+export default {
+  name: 'IconQuestionCircleTwoTone',
+  displayName: 'QuestionCircleTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: QuestionCircleTwoToneSvg } },
+      children,
+    ),
 };
-
-QuestionCircleTwoTone.inheritAttrs = false;
-export default QuestionCircleTwoTone;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import PushpinTwoToneSvg from '@whalue-design/icons-svg/lib/asn/PushpinTwoTone';
 
-const PushpinTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={PushpinTwoToneSvg}></Icon>;
+export default {
+  name: 'IconPushpinTwoTone',
+  displayName: 'PushpinTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: PushpinTwoToneSvg } },
+      children,
+    ),
 };
-
-PushpinTwoTone.inheritAttrs = false;
-export default PushpinTwoTone;

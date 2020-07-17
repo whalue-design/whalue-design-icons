@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import PaperClipOutlinedSvg from '@whalue-design/icons-svg/lib/asn/PaperClipOutlined';
 
-const PaperClipOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={PaperClipOutlinedSvg}></Icon>;
+export default {
+  name: 'IconPaperClipOutlined',
+  displayName: 'PaperClipOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: PaperClipOutlinedSvg } },
+      children,
+    ),
 };
-
-PaperClipOutlined.inheritAttrs = false;
-export default PaperClipOutlined;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import AlipayCircleOutlinedSvg from '@whalue-design/icons-svg/lib/asn/AlipayCircleOutlined';
 
-const AlipayCircleOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={AlipayCircleOutlinedSvg}></Icon>;
+export default {
+  name: 'IconAlipayCircleOutlined',
+  displayName: 'AlipayCircleOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: AlipayCircleOutlinedSvg } },
+      children,
+    ),
 };
-
-AlipayCircleOutlined.inheritAttrs = false;
-export default AlipayCircleOutlined;

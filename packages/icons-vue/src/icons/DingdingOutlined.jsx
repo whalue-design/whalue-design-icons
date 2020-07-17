@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import DingdingOutlinedSvg from '@whalue-design/icons-svg/lib/asn/DingdingOutlined';
 
-const DingdingOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={DingdingOutlinedSvg}></Icon>;
+export default {
+  name: 'IconDingdingOutlined',
+  displayName: 'DingdingOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: DingdingOutlinedSvg } },
+      children,
+    ),
 };
-
-DingdingOutlined.inheritAttrs = false;
-export default DingdingOutlined;

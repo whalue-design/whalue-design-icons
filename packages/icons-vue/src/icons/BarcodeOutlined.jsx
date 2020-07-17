@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import BarcodeOutlinedSvg from '@whalue-design/icons-svg/lib/asn/BarcodeOutlined';
 
-const BarcodeOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={BarcodeOutlinedSvg}></Icon>;
+export default {
+  name: 'IconBarcodeOutlined',
+  displayName: 'BarcodeOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: BarcodeOutlinedSvg } },
+      children,
+    ),
 };
-
-BarcodeOutlined.inheritAttrs = false;
-export default BarcodeOutlined;

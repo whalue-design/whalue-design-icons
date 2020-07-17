@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import SecurityScanTwoToneSvg from '@whalue-design/icons-svg/lib/asn/SecurityScanTwoTone';
 
-const SecurityScanTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={SecurityScanTwoToneSvg}></Icon>;
+export default {
+  name: 'IconSecurityScanTwoTone',
+  displayName: 'SecurityScanTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: SecurityScanTwoToneSvg } },
+      children,
+    ),
 };
-
-SecurityScanTwoTone.inheritAttrs = false;
-export default SecurityScanTwoTone;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import AppstoreOutlinedSvg from '@whalue-design/icons-svg/lib/asn/AppstoreOutlined';
 
-const AppstoreOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={AppstoreOutlinedSvg}></Icon>;
+export default {
+  name: 'IconAppstoreOutlined',
+  displayName: 'AppstoreOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: AppstoreOutlinedSvg } },
+      children,
+    ),
 };
-
-AppstoreOutlined.inheritAttrs = false;
-export default AppstoreOutlined;

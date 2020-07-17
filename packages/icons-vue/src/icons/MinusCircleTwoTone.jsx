@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import MinusCircleTwoToneSvg from '@whalue-design/icons-svg/lib/asn/MinusCircleTwoTone';
 
-const MinusCircleTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={MinusCircleTwoToneSvg}></Icon>;
+export default {
+  name: 'IconMinusCircleTwoTone',
+  displayName: 'MinusCircleTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: MinusCircleTwoToneSvg } },
+      children,
+    ),
 };
-
-MinusCircleTwoTone.inheritAttrs = false;
-export default MinusCircleTwoTone;

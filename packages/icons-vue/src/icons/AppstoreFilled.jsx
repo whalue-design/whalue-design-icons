@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import AppstoreFilledSvg from '@whalue-design/icons-svg/lib/asn/AppstoreFilled';
 
-const AppstoreFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={AppstoreFilledSvg}></Icon>;
+export default {
+  name: 'IconAppstoreFilled',
+  displayName: 'AppstoreFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: AppstoreFilledSvg } },
+      children,
+    ),
 };
-
-AppstoreFilled.inheritAttrs = false;
-export default AppstoreFilled;

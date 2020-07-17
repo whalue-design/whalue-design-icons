@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CalculatorTwoToneSvg from '@whalue-design/icons-svg/lib/asn/CalculatorTwoTone';
 
-const CalculatorTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CalculatorTwoToneSvg}></Icon>;
+export default {
+  name: 'IconCalculatorTwoTone',
+  displayName: 'CalculatorTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CalculatorTwoToneSvg } },
+      children,
+    ),
 };
-
-CalculatorTwoTone.inheritAttrs = false;
-export default CalculatorTwoTone;

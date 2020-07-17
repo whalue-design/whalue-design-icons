@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import GoldFilledSvg from '@whalue-design/icons-svg/lib/asn/GoldFilled';
 
-const GoldFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={GoldFilledSvg}></Icon>;
+export default {
+  name: 'IconGoldFilled',
+  displayName: 'GoldFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: GoldFilledSvg } },
+      children,
+    ),
 };
-
-GoldFilled.inheritAttrs = false;
-export default GoldFilled;

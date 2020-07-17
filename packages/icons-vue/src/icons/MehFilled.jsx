@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import MehFilledSvg from '@whalue-design/icons-svg/lib/asn/MehFilled';
 
-const MehFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={MehFilledSvg}></Icon>;
+export default {
+  name: 'IconMehFilled',
+  displayName: 'MehFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: MehFilledSvg } },
+      children,
+    ),
 };
-
-MehFilled.inheritAttrs = false;
-export default MehFilled;

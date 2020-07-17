@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import EditFilledSvg from '@whalue-design/icons-svg/lib/asn/EditFilled';
 
-const EditFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={EditFilledSvg}></Icon>;
+export default {
+  name: 'IconEditFilled',
+  displayName: 'EditFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: EditFilledSvg } },
+      children,
+    ),
 };
-
-EditFilled.inheritAttrs = false;
-export default EditFilled;

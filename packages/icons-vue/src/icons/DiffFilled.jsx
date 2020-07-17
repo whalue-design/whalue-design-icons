@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import DiffFilledSvg from '@whalue-design/icons-svg/lib/asn/DiffFilled';
 
-const DiffFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={DiffFilledSvg}></Icon>;
+export default {
+  name: 'IconDiffFilled',
+  displayName: 'DiffFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: DiffFilledSvg } },
+      children,
+    ),
 };
-
-DiffFilled.inheritAttrs = false;
-export default DiffFilled;

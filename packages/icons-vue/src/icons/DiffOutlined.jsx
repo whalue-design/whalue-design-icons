@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import DiffOutlinedSvg from '@whalue-design/icons-svg/lib/asn/DiffOutlined';
 
-const DiffOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={DiffOutlinedSvg}></Icon>;
+export default {
+  name: 'IconDiffOutlined',
+  displayName: 'DiffOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: DiffOutlinedSvg } },
+      children,
+    ),
 };
-
-DiffOutlined.inheritAttrs = false;
-export default DiffOutlined;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import CloudFilledSvg from '@whalue-design/icons-svg/lib/asn/CloudFilled';
 
-const CloudFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={CloudFilledSvg}></Icon>;
+export default {
+  name: 'IconCloudFilled',
+  displayName: 'CloudFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: CloudFilledSvg } },
+      children,
+    ),
 };
-
-CloudFilled.inheritAttrs = false;
-export default CloudFilled;

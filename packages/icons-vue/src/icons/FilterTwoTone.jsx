@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FilterTwoToneSvg from '@whalue-design/icons-svg/lib/asn/FilterTwoTone';
 
-const FilterTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FilterTwoToneSvg}></Icon>;
+export default {
+  name: 'IconFilterTwoTone',
+  displayName: 'FilterTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FilterTwoToneSvg } },
+      children,
+    ),
 };
-
-FilterTwoTone.inheritAttrs = false;
-export default FilterTwoTone;

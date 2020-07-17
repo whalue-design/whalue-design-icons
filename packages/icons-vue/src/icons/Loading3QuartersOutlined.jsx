@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import Loading3QuartersOutlinedSvg from '@whalue-design/icons-svg/lib/asn/Loading3QuartersOutlined';
 
-const Loading3QuartersOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={Loading3QuartersOutlinedSvg}></Icon>;
+export default {
+  name: 'IconLoading3QuartersOutlined',
+  displayName: 'Loading3QuartersOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: Loading3QuartersOutlinedSvg } },
+      children,
+    ),
 };
-
-Loading3QuartersOutlined.inheritAttrs = false;
-export default Loading3QuartersOutlined;

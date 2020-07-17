@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ReconciliationTwoToneSvg from '@whalue-design/icons-svg/lib/asn/ReconciliationTwoTone';
 
-const ReconciliationTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ReconciliationTwoToneSvg}></Icon>;
+export default {
+  name: 'IconReconciliationTwoTone',
+  displayName: 'ReconciliationTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ReconciliationTwoToneSvg } },
+      children,
+    ),
 };
-
-ReconciliationTwoTone.inheritAttrs = false;
-export default ReconciliationTwoTone;

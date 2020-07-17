@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import QuestionCircleFilledSvg from '@whalue-design/icons-svg/lib/asn/QuestionCircleFilled';
 
-const QuestionCircleFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={QuestionCircleFilledSvg}></Icon>;
+export default {
+  name: 'IconQuestionCircleFilled',
+  displayName: 'QuestionCircleFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: QuestionCircleFilledSvg } },
+      children,
+    ),
 };
-
-QuestionCircleFilled.inheritAttrs = false;
-export default QuestionCircleFilled;

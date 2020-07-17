@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import EyeInvisibleFilledSvg from '@whalue-design/icons-svg/lib/asn/EyeInvisibleFilled';
 
-const EyeInvisibleFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={EyeInvisibleFilledSvg}></Icon>;
+export default {
+  name: 'IconEyeInvisibleFilled',
+  displayName: 'EyeInvisibleFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: EyeInvisibleFilledSvg } },
+      children,
+    ),
 };
-
-EyeInvisibleFilled.inheritAttrs = false;
-export default EyeInvisibleFilled;

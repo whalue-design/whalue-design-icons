@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import Html5FilledSvg from '@whalue-design/icons-svg/lib/asn/Html5Filled';
 
-const Html5Filled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={Html5FilledSvg}></Icon>;
+export default {
+  name: 'IconHtml5Filled',
+  displayName: 'Html5Filled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: Html5FilledSvg } },
+      children,
+    ),
 };
-
-Html5Filled.inheritAttrs = false;
-export default Html5Filled;

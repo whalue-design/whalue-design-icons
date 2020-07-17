@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import BlockOutlinedSvg from '@whalue-design/icons-svg/lib/asn/BlockOutlined';
 
-const BlockOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={BlockOutlinedSvg}></Icon>;
+export default {
+  name: 'IconBlockOutlined',
+  displayName: 'BlockOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: BlockOutlinedSvg } },
+      children,
+    ),
 };
-
-BlockOutlined.inheritAttrs = false;
-export default BlockOutlined;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ThunderboltFilledSvg from '@whalue-design/icons-svg/lib/asn/ThunderboltFilled';
 
-const ThunderboltFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ThunderboltFilledSvg}></Icon>;
+export default {
+  name: 'IconThunderboltFilled',
+  displayName: 'ThunderboltFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ThunderboltFilledSvg } },
+      children,
+    ),
 };
-
-ThunderboltFilled.inheritAttrs = false;
-export default ThunderboltFilled;

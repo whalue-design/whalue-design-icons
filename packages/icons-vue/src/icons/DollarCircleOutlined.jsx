@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import DollarCircleOutlinedSvg from '@whalue-design/icons-svg/lib/asn/DollarCircleOutlined';
 
-const DollarCircleOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={DollarCircleOutlinedSvg}></Icon>;
+export default {
+  name: 'IconDollarCircleOutlined',
+  displayName: 'DollarCircleOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: DollarCircleOutlinedSvg } },
+      children,
+    ),
 };
-
-DollarCircleOutlined.inheritAttrs = false;
-export default DollarCircleOutlined;

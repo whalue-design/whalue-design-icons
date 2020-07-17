@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import HourglassFilledSvg from '@whalue-design/icons-svg/lib/asn/HourglassFilled';
 
-const HourglassFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={HourglassFilledSvg}></Icon>;
+export default {
+  name: 'IconHourglassFilled',
+  displayName: 'HourglassFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: HourglassFilledSvg } },
+      children,
+    ),
 };
-
-HourglassFilled.inheritAttrs = false;
-export default HourglassFilled;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import PauseCircleFilledSvg from '@whalue-design/icons-svg/lib/asn/PauseCircleFilled';
 
-const PauseCircleFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={PauseCircleFilledSvg}></Icon>;
+export default {
+  name: 'IconPauseCircleFilled',
+  displayName: 'PauseCircleFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: PauseCircleFilledSvg } },
+      children,
+    ),
 };
-
-PauseCircleFilled.inheritAttrs = false;
-export default PauseCircleFilled;

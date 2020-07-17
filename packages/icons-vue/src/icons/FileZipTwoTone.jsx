@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FileZipTwoToneSvg from '@whalue-design/icons-svg/lib/asn/FileZipTwoTone';
 
-const FileZipTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FileZipTwoToneSvg}></Icon>;
+export default {
+  name: 'IconFileZipTwoTone',
+  displayName: 'FileZipTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FileZipTwoToneSvg } },
+      children,
+    ),
 };
-
-FileZipTwoTone.inheritAttrs = false;
-export default FileZipTwoTone;

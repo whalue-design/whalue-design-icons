@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ExclamationCircleFilledSvg from '@whalue-design/icons-svg/lib/asn/ExclamationCircleFilled';
 
-const ExclamationCircleFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ExclamationCircleFilledSvg}></Icon>;
+export default {
+  name: 'IconExclamationCircleFilled',
+  displayName: 'ExclamationCircleFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ExclamationCircleFilledSvg } },
+      children,
+    ),
 };
-
-ExclamationCircleFilled.inheritAttrs = false;
-export default ExclamationCircleFilled;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ReconciliationFilledSvg from '@whalue-design/icons-svg/lib/asn/ReconciliationFilled';
 
-const ReconciliationFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ReconciliationFilledSvg}></Icon>;
+export default {
+  name: 'IconReconciliationFilled',
+  displayName: 'ReconciliationFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ReconciliationFilledSvg } },
+      children,
+    ),
 };
-
-ReconciliationFilled.inheritAttrs = false;
-export default ReconciliationFilled;

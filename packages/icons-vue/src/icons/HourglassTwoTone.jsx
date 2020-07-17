@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import HourglassTwoToneSvg from '@whalue-design/icons-svg/lib/asn/HourglassTwoTone';
 
-const HourglassTwoTone = (_, { attrs }) => {
-  return <Icon {...attrs} icon={HourglassTwoToneSvg}></Icon>;
+export default {
+  name: 'IconHourglassTwoTone',
+  displayName: 'HourglassTwoTone',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: HourglassTwoToneSvg } },
+      children,
+    ),
 };
-
-HourglassTwoTone.inheritAttrs = false;
-export default HourglassTwoTone;

@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import MacCommandFilledSvg from '@whalue-design/icons-svg/lib/asn/MacCommandFilled';
 
-const MacCommandFilled = (_, { attrs }) => {
-  return <Icon {...attrs} icon={MacCommandFilledSvg}></Icon>;
+export default {
+  name: 'IconMacCommandFilled',
+  displayName: 'MacCommandFilled',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: MacCommandFilledSvg } },
+      children,
+    ),
 };
-
-MacCommandFilled.inheritAttrs = false;
-export default MacCommandFilled;

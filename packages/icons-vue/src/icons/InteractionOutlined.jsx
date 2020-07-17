@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import InteractionOutlinedSvg from '@whalue-design/icons-svg/lib/asn/InteractionOutlined';
 
-const InteractionOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={InteractionOutlinedSvg}></Icon>;
+export default {
+  name: 'IconInteractionOutlined',
+  displayName: 'InteractionOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: InteractionOutlinedSvg } },
+      children,
+    ),
 };
-
-InteractionOutlined.inheritAttrs = false;
-export default InteractionOutlined;

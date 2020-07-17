@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import ClearOutlinedSvg from '@whalue-design/icons-svg/lib/asn/ClearOutlined';
 
-const ClearOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={ClearOutlinedSvg}></Icon>;
+export default {
+  name: 'IconClearOutlined',
+  displayName: 'ClearOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: ClearOutlinedSvg } },
+      children,
+    ),
 };
-
-ClearOutlined.inheritAttrs = false;
-export default ClearOutlined;

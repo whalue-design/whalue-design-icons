@@ -4,9 +4,15 @@
 import Icon from '../components/WvdIcon';
 import FacebookOutlinedSvg from '@whalue-design/icons-svg/lib/asn/FacebookOutlined';
 
-const FacebookOutlined = (_, { attrs }) => {
-  return <Icon {...attrs} icon={FacebookOutlinedSvg}></Icon>;
+export default {
+  name: 'IconFacebookOutlined',
+  displayName: 'FacebookOutlined',
+  functional: true,
+  props: { ...Icon.props },
+  render: (h, { data, children, props }) =>
+    h(
+      Icon,
+      { ...data, props: { ...data.props, ...props, icon: FacebookOutlinedSvg } },
+      children,
+    ),
 };
-
-FacebookOutlined.inheritAttrs = false;
-export default FacebookOutlined;
