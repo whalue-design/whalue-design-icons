@@ -7,6 +7,9 @@
 
 ```bash
 yarn add @whalue-design/icons-vue
+
+yarn add babel-helper-vue-jsx-merge-props
+yarn add babel-runtime
 ```
 
 ## Basic Usage
@@ -15,14 +18,14 @@ First, you should add the icons that you need into the library.
 
 ```js
 import Vue from 'vue'
-import { Filter } from '@whalue-design/icons-vue';
-Vue.component(Filter.name, Filter);
+import { AimOutlined } from '@whalue-design/icons-vue';
+Vue.component(AimOutlined.name, AimOutlined);
 ```
 
 After that, you can use wvd icons in your Vue components as simply as this:
 
 ```vue
-<icon-filter />
+<icon-aim-outlined />
 ```
 
 ## Build project

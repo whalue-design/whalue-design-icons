@@ -7,9 +7,9 @@
   "module": "./es/index.js",
   "scripts": {
     "clean": "node scripts/cleanup.js",
-    "generate": "rimraf src/icons && node scripts/generate.js --target=icon",
-    "postcompile": "node scripts/generate.js --target=entry",
     "compile": "vc-tools run compile --babel-runtime",
+    "generate": "rimraf src/icons && node scripts/generate.js --target=icon",
+    "postcompile": "npm run clean && node scripts/generate.js --target=entry",
     "prepublishOnly": "npm run generate && npm run compile"
   },
   "repository": {
@@ -37,7 +37,6 @@
     "registry": "https://registry.npmjs.org"
   },
   "devDependencies": {
-    "@babel/runtime": "^7.10.5",
     "@types/node": "^14.0.23",
     "@types/vue": "^2.0.0",
     "babel-core": "^6.26.3",
