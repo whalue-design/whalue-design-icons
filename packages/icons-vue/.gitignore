@@ -34,3 +34,4 @@ build/
 /*.js
 /*.d.ts
 !Icon.d.ts
+![gulpfile.js]

@@ -1,12 +1,12 @@
 const path = require('path');
 const fs = require('fs');
 
-// 删除根目录下的 .ts 和 .js 文件
+// 删除根目录下的 .ts 和 .js 文件，除了 gulpfile.js
 const root_path = path.resolve(__dirname, '../');
 const root_lists = fs.readdirSync(root_path);
 root_lists.map((list) => {
   const file = `${root_path}${path.sep}${list}`;
-  if (['.js', '.ts'].includes(path.extname(file))) {
+  if (path.basename(file) !== 'gulpfile.js' && ['.js', '.ts'].includes(path.extname(file))) {
     fs.unlinkSync(file);
   }
 });

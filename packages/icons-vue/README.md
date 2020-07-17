@@ -8,8 +8,8 @@
 ```bash
 yarn add @whalue-design/icons-vue
 
-yarn add babel-helper-vue-jsx-merge-props
-yarn add babel-runtime
+yarn add -D babel-helper-vue-jsx-merge-props
+yarn add -D babel-runtime
 ```
 
 ## Basic Usage
